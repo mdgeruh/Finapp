@@ -365,7 +365,19 @@
   function computeLoanRemaining(data, acc, bal) {
     const sisaPokok = Math.max(0, -(bal === undefined ? accountBalance(data, acc.id) : bal));
     const res = { sisaPokok, sisaBunga: 0, total: sisaPokok, flat: false };
-    if (!TYPE_LOAN[acc.type] || acc.loanInterestType === 'menurun') return res;
+    if (!TYPE_LOAN[acc.type]) return res;
+    if (acc.loanInterestType === 'menurun') {
+      // Bunga menurun: "sisa bunga" hanya bisa diketahui kalau jadwal anuitasnya bisa dibuat
+      // (tenor + tanggal pencairan + suku bunga, atau angsuran manual). res.flat tetap false —
+      // jangan dipakai splitLoanPayment untuk memecah bunga multi-angsuran seperti pinjaman flat,
+      // karena porsi bunga tiap angsuran menurun tidak sama besar.
+      const sch = computeLoanSchedule(data, acc, bal);
+      if (sch) {
+        res.sisaBunga = sch.rows.slice(sch.paid).reduce((sum, r) => sum + r.bunga, 0);
+        res.total = sisaPokok + res.sisaBunga;
+      }
+      return res;
+    }
     const tenor = acc.loanTenorMonths || 0;
     const monthly = computeLoanMonthlyInterest(data, acc);
     if (tenor <= 0 || monthly <= 0) return res;
@@ -384,6 +396,14 @@
   // Jadwal angsuran pinjaman bunga flat bertenor. Butuh tenor + tanggal pencairan (loanStartDate).
   // Jatuh tempo ke-1 = sebulan setelah pencairan, tanggal = loanDueDay (kalau kosong: tanggal pencairan).
   // Angsuran yang sudah dibayar = pokok terbayar / pokok per angsuran (tiap angsuran memuat 1 bunga + 1 pokok).
+  // Angsuran anuitas (PMT) bunga menurun: sama tiap bulan, porsi bunga (dari sisa pokok) makin kecil dan
+  // porsi pokok makin besar tiap periode. Kalau bunga 0%, angsuran = pokok/tenor.
+  function loanAnnuityPMT(principal, monthlyRatePct, tenor) {
+    if (!(principal > 0) || !(tenor > 0)) return 0;
+    const r = (monthlyRatePct || 0) / 100;
+    if (!(r > 0)) return Math.round(principal / tenor);
+    return Math.round(principal * r / (1 - Math.pow(1 + r, -tenor)));
+  }
   function fmtTgl(dateStr) {
     const d = new Date(dateStr + 'T00:00:00');
     return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
@@ -398,26 +418,59 @@
     return dates[0] || '';
   }
   function computeLoanSchedule(data, acc, bal) {
-    if (!TYPE_LOAN[acc.type] || acc.loanInterestType === 'menurun') return null;
+    if (!TYPE_LOAN[acc.type]) return null;
     const tenor = acc.loanTenorMonths || 0;
     const startDate = acc.loanStartDate || inferLoanStartDate(data, acc);
     if (tenor <= 0 || !startDate) return null;
     const pokokAwal = Math.abs(acc.originalPrincipal || acc.initialBalance || 0);
     if (pokokAwal <= 0) return null;
     const sisaPokok = Math.max(0, -(bal === undefined ? accountBalance(data, acc.id) : bal));
-    const bunga = computeLoanMonthlyInterest(data, acc);
-    const pokokPer = Math.floor(pokokAwal / tenor);
     const parts = startDate.split('-').map(Number);
     const y = parts[0], m = parts[1], startDay = parts[2];
     const day = acc.loanDueDay || startDay;
     const today = todayStr();
+    const dueDateOf = (i) => {
+      const d = new Date(y, m - 1 + i, 1);
+      const dim = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+      return d.getFullYear() + '-' + padMonth(d.getMonth() + 1) + '-' + padMonth(Math.min(day, dim));
+    };
+
+    if (acc.loanInterestType === 'menurun') {
+      // Bunga menurun (anuitas): bunga tiap bulan = sisa pokok x suku bunga bulanan, jadi turun tiap
+      // bulan sementara angsuran tetap. Butuh suku bunga (untuk menghitung/memverifikasi anuitas);
+      // tanpa itu jadwalnya tidak bisa disusun meski tenor & tanggal pencairan sudah diisi.
+      const rateMonthly = acc.loanRateUnit === 'bulan' ? (acc.loanRatePercent || 0) : (acc.loanRatePercent || 0) / 12;
+      if (!(rateMonthly > 0)) return null;
+      const installment = acc.loanInstallment > 0 ? acc.loanInstallment : loanAnnuityPMT(pokokAwal, rateMonthly, tenor);
+      if (!(installment > 0)) return null;
+      const rows = [];
+      let sisa = pokokAwal;
+      for (let i = 1; i <= tenor && sisa > 0; i++) {
+        const bunga = Math.round(sisa * rateMonthly / 100);
+        let pokok = installment - bunga;
+        if (pokok < 0) pokok = 0;
+        if (pokok > sisa || i === tenor) pokok = sisa;
+        sisa = Math.max(0, Math.round((sisa - pokok) * 100) / 100);
+        rows.push({ no: i, due: dueDateOf(i), pokok, bunga, total: pokok + bunga, sisa, status: null });
+      }
+      if (!rows.length) return null;
+      // "Sudah dibayar" ditaksir dari pokok yang sudah berkurang (asumsi angsuran dibayar berurutan
+      // sesuai jadwal) — sama seperti pendekatan pinjaman flat di bawah, bukan dari histori transaksi persis.
+      const paidPrincipal = pokokAwal - sisaPokok;
+      let cum = 0, paid = 0;
+      rows.forEach(r => { cum += r.pokok; if (cum <= paidPrincipal + 1) paid = r.no; });
+      if (sisaPokok <= 0) paid = rows.length;
+      rows.forEach(r => { r.status = r.no <= paid ? 'lunas' : (r.due < today ? 'telat' : 'belum'); });
+      return { rows, paid, tenor: rows.length, next: paid < rows.length ? rows[paid] : null };
+    }
+
+    const bunga = computeLoanMonthlyInterest(data, acc);
+    const pokokPer = Math.floor(pokokAwal / tenor);
     const paid = sisaPokok <= 0 ? tenor : (pokokPer > 0 ? Math.min(tenor, Math.floor((pokokAwal - sisaPokok + 1) / pokokPer)) : 0);
     const rows = [];
     let sisa = pokokAwal;
     for (let i = 1; i <= tenor; i++) {
-      const d = new Date(y, m - 1 + i, 1);
-      const dim = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
-      const due = d.getFullYear() + '-' + padMonth(d.getMonth() + 1) + '-' + padMonth(Math.min(day, dim));
+      const due = dueDateOf(i);
       const pokok = i === tenor ? sisa : pokokPer;
       sisa -= pokok;
       const status = i <= paid ? 'lunas' : (due < today ? 'telat' : 'belum');

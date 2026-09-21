@@ -2,6 +2,18 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.016 — 21 Sep 2026
+
+**Ditambah** (pinjaman bunga menurun & pinjaman bank)
+- **Anuitas (PMT) untuk bunga menurun:** kalau pokok, tenor, dan suku bunga diisi tapi angsuran dikosongkan, angsuran per bulan dihitung otomatis dengan rumus anuitas (tetap tiap bulan, porsi bunga mengecil dan porsi pokok membesar seiring waktu) — sebelumnya harus dihitung manual
+- **Jadwal angsuran untuk pinjaman menurun:** kalau tenor dan tanggal pencairan diisi, muncul jadwal angsuran, progres terbayar, dan masuk pengingat Jatuh tempo di Ringkasan — sebelumnya hanya pinjaman bunga tetap yang punya ini
+- **Kolom Tenor, tanggal pencairan, dan tanggal jatuh tempo kini muncul untuk pinjaman bank juga** (sebelumnya hanya pinjaman online). Pinjaman bank bunga tetap yang mengisi tenor juga ikut mendapat jadwal angsuran dan pengingat jatuh tempo
+- **Laporan → Total biaya utang** kini menghitung sisa bunga pinjaman menurun dari jadwal anuitas kalau datanya lengkap (sebelumnya selalu tampil "-" untuk pinjaman menurun)
+- **Simulasi pelunasan:** pinjaman menurun yang tenor/tanggal pencairan/suku bunganya lengkap tidak lagi butuh angsuran manual — angsuran anuitas otomatis dipakai, sehingga lebih sedikit pinjaman yang perlu masuk daftar "Belum disertakan" (lihat v1.1.015)
+
+**Catatan**
+- Perhitungan menurun mengasumsikan angsuran dibayar tepat sesuai jadwal (bulan demi bulan), sama seperti asumsi yang sudah dipakai jadwal pinjaman bunga tetap. Kalau pembayaran nyata berbeda dari jadwal, progres "terbayar" bisa sedikit meleset dari histori transaksi sebenarnya
+
 ## v1.1.015 — 21 Sep 2026
 
 **Diperbaiki** (logika pinjaman)

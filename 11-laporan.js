@@ -727,16 +727,27 @@
         const awal = (acc.loanAdminMode === 'cicil' ? 0 : (acc.loanAdminFee || 0)) + (acc.loanStampFee || 0);
         const tenor = acc.loanTenorMonths || 0;
         const monthly = computeLoanMonthlyInterest(data, acc);
-        if (acc.loanInterestType !== 'menurun' && tenor > 0 && monthly > 0) {
-          const sc = lapLoanSchedule(data, acc, bal);
-          const paidCnt = sc ? sc.paid : null;
-          const paid = paidCnt !== null ? monthly * paidCnt + awal : (feeByLoan[acc.id] || 0) + awal;
-          const remaining = paidCnt !== null ? monthly * (tenor - paidCnt) : rem.sisaBunga;
-          const total = paid + remaining;
-          items.push({ name: acc.name, kind: acc.type === 'pinjaman_online' ? 'Pinjol' : 'Pinjaman bank', paid, remaining, total, pct: pokokAwal > 0 ? total / pokokAwal * 100 : null, pokokAwal, estimated: paidCnt !== null });
-        } else {
+        const isMenurun = acc.loanInterestType === 'menurun';
+        const kindBase = acc.type === 'pinjaman_online' ? 'Pinjol' : 'Pinjaman bank';
+        // Kalau jadwalnya bisa dibuat (tenor + tanggal pencairan, dan untuk bunga menurun juga suku
+        // bunganya), bunga terbayar/tersisa dijumlah dari jadwal itu — berlaku untuk flat maupun menurun.
+        const sc = lapLoanSchedule(data, acc, bal);
+        if (sc) {
+          const paidBunga = sc.rows.slice(0, sc.paid).reduce((s, r) => s + r.bunga, 0);
+          const remBunga = sc.rows.slice(sc.paid).reduce((s, r) => s + r.bunga, 0);
+          const paid = paidBunga + awal, remaining = remBunga, total = paid + remaining;
+          items.push({ name: acc.name, kind: kindBase + (isMenurun ? ' (menurun)' : ''), paid, remaining, total, pct: pokokAwal > 0 ? total / pokokAwal * 100 : null, pokokAwal, estimated: true });
+        } else if (!isMenurun && tenor > 0 && monthly > 0) {
+          // Flat tanpa jadwal (tenor & bunga diketahui, tapi tanggal pencairan belum diisi): pakai bunga
+          // yang sudah tercatat lewat transaksi, dan sisa bunga dari kontrak (computeLoanRemaining).
           const paid = (feeByLoan[acc.id] || 0) + awal;
-          items.push({ name: acc.name, kind: 'Pinjaman bank (bunga menurun)', paid, remaining: null, total: null, pct: null, pokokAwal, monthly });
+          const remaining = rem.sisaBunga;
+          const total = paid + remaining;
+          items.push({ name: acc.name, kind: kindBase, paid, remaining, total, pct: pokokAwal > 0 ? total / pokokAwal * 100 : null, pokokAwal });
+        } else {
+          // Menurun tanpa jadwal (tenor/tanggal pencairan/suku bunga belum lengkap): sisa bunga tidak diketahui.
+          const paid = (feeByLoan[acc.id] || 0) + awal;
+          items.push({ name: acc.name, kind: kindBase + ' (bunga menurun)', paid, remaining: null, total: null, pct: null, pokokAwal, monthly });
         }
       } else if (acc.type === 'paylater') {
         const fs = paylaterFeeSummary(data, acc);

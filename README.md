@@ -2,7 +2,7 @@
 
 Aplikasi pencatatan keuangan pribadi berbasis web statis (HTML + CSS + JavaScript biasa, tanpa build tool). Tidak butuh instalasi atau server khusus. Data tersimpan di **localStorage browser** dan, kalau diaktifkan, disalin ke **cloud (Supabase)** supaya bisa dipakai di beberapa perangkat. Tanpa konfigurasi cloud, app berjalan 100% lokal dan offline.
 
-Versi di footer app: **v1.1.015**. Kode dipecah per modul (`00-config.js` s.d. `15-startup.js`) yang dimuat berurutan oleh `index.html`.
+Versi di footer app: **v1.1.016**. Kode dipecah per modul (`00-config.js` s.d. `15-startup.js`) yang dimuat berurutan oleh `index.html`.
 
 Riwayat perubahan ada di [CHANGELOG.md](CHANGELOG.md).
 
@@ -280,7 +280,7 @@ Titik masuk yang sering dipakai saat memodifikasi:
 | Nama pemilik & sapaan | `getOwnerName`, `setOwnerName` (`01-data.js`), `updateGreeting` (`02-navigasi.js`), `syncSaveOwnerName`, `syncPullOwnerName` (`14-sync.js`) |
 | Sinkron cloud | `syncBoot`, `syncReconcile`, `syncPush` (`14-sync.js`), konfigurasi di `00-config.js` |
 | Penanganan data rusak | `loadData`, `handleCorruptData` (`01-data.js`) |
-| Logika pinjaman | `computeLoanMonthlyInterest`, `computeLoanRemaining`, `computeLoanSchedule`, `loanEffectiveMonthlyRate` (`01-data.js`), `splitLoanPayment` (`04-akun.js`), `laporanSimDebts` (`11-laporan.js`) |
+| Logika pinjaman | `computeLoanMonthlyInterest`, `computeLoanRemaining`, `computeLoanSchedule`, `loanEffectiveMonthlyRate`, `loanAnnuityPMT` (`01-data.js`), `splitLoanPayment`, `updateOnlineLoanEstimate` (`04-akun.js`), `laporanSimDebts`, `laporanDebtCostHtml` (`11-laporan.js`) |
 
 ---
 

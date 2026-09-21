@@ -171,9 +171,9 @@
     $('acc-loan-admin-pct-wrap').style.display = isOnlineLoan ? 'block' : 'none';
     $('acc-loan-admin-label').textContent = 'Biaya admin (sekali)';
     $('acc-loan-online-extra').style.display = isOnlineLoan ? 'flex' : 'none';
-    $('acc-loan-installment-label').textContent = isOnlineLoan ? 'Angsuran per bulan (otomatis, bisa diubah)' : 'Angsuran per bulan (pokok + bunga)';
-    $('acc-loan-installment-input').placeholder = isOnlineLoan ? 'Terisi otomatis kalau pokok, tenor & bunga diisi' : 'Rp, opsional, terisi otomatis saat catat angsuran';
-    $('acc-loan-tenor-row').style.display = isOnlineLoan ? 'block' : 'none';
+    $('acc-loan-installment-label').textContent = 'Angsuran per bulan (otomatis kalau tenor & bunga diisi, bisa diubah)';
+    $('acc-loan-installment-input').placeholder = 'Rp, terisi otomatis kalau pokok, tenor & bunga diisi';
+    $('acc-loan-tenor-row').style.display = isLoan ? 'block' : 'none';
     $('acc-balance-input').placeholder = isLoan
       ? 'Sisa pokok belum dibayar SEKARANG (Rp), boleh 0'
       : (isDebt ? 'Sudah terpakai saat ini (Rp), boleh 0' : (type === 'aset' ? 'Nilai awal / harga beli (Rp)' : 'Saldo awal (Rp), boleh 0'));
@@ -195,8 +195,12 @@
     updateAccFormFields();
   }
 
-  // Baca isian form pinjol. Pokok awal = "pokok awal" (kalau barisnya tampil) atau pokok/sisa yang diisi.
+  // Baca isian form pinjaman (pinjol maupun bank). Pokok awal = "pokok awal" (kalau barisnya tampil)
+  // atau pokok/sisa yang diisi. Admin % dan asuransi cuma dibaca untuk pinjol (baris itu disembunyikan
+  // di form pinjaman bank, jadi nilainya tidak berlaku di sana).
   function readOnlineLoanForm() {
+    const type = $('acc-type-input').value;
+    const isOnlineLoan = type === 'pinjaman_online';
     const balVal = Math.abs(parseFloat($('acc-balance-input').value) || 0);
     const origVisible = $('acc-loan-original-row').style.display !== 'none';
     const origVal = origVisible ? Math.abs(parseFloat($('acc-loan-original-input').value) || 0) : 0;
@@ -207,9 +211,11 @@
       rate: rate,
       ratePerBulan: ratePerBulan,
       tenor: Math.max(0, Math.round(parseFloat($('acc-loan-tenor-input').value) || 0)),
-      adminPct: Math.max(0, parseFloat($('acc-loan-admin-pct-input').value) || 0),
+      adminPct: isOnlineLoan ? Math.max(0, parseFloat($('acc-loan-admin-pct-input').value) || 0) : 0,
       adminMode: $('acc-loan-admin-mode-input').value === 'cicil' ? 'cicil' : 'cair',
-      insPct: Math.max(0, parseFloat($('acc-loan-insurance-input').value) || 0)
+      insPct: isOnlineLoan ? Math.max(0, parseFloat($('acc-loan-insurance-input').value) || 0) : 0,
+      // Menurun (anuitas) cuma dipilih lewat dropdown "Jenis bunga" di pinjaman bank; pinjol selalu flat.
+      declining: !isOnlineLoan && $('acc-loan-type-input').value === 'menurun'
     };
   }
 
@@ -238,7 +244,7 @@
     const adminHint = $('acc-loan-admin-hint');
     const instHint = $('acc-loan-installment-hint');
     const autoBtn = $('acc-loan-installment-auto-btn');
-    if (type !== 'pinjaman_online') {
+    if (!TYPE_LOAN[type]) {
       hint.textContent = ''; adminHint.style.display = 'none'; adminHint.textContent = '';
       instHint.textContent = ''; autoBtn.style.display = 'none';
       return;
@@ -246,7 +252,7 @@
     const f = readOnlineLoanForm();
     const instEl = $('acc-loan-installment-input');
 
-    // Biaya admin: persen -> Rupiah
+    // Biaya admin: persen -> Rupiah (cuma ada di form pinjol; f.adminPct selalu 0 untuk pinjaman bank)
     if (f.adminPct > 0 && f.pokok > 0) {
       adminHint.textContent = 'Biaya admin ' + f.adminPct + '% = ' + formatRp(Math.round(f.pokok * f.adminPct / 100)) +
         (f.adminMode === 'cicil' ? ', dibagi rata ke ' + (f.tenor > 0 ? f.tenor + ' angsuran' : 'tiap angsuran (isi tenor)') + '.' : ', dipotong dari pencairan.');
@@ -258,32 +264,45 @@
       adminHint.textContent = ''; adminHint.style.display = 'none';
     }
 
-    // Angsuran otomatis
+    // Angsuran otomatis: anuitas (PMT) untuk bunga menurun, atau pokok rata + bunga flat untuk bunga tetap.
     const canAuto = f.pokok > 0 && f.tenor > 0 && f.ratePerBulan > 0;
     const adminCicilPct = f.adminMode === 'cicil' ? f.adminPct : 0;
-    const autoVal = canAuto ? computeOnlineInstallment(f.pokok, f.tenor, f.ratePerBulan, f.insPct, adminCicilPct) : 0;
+    const autoVal = canAuto
+      ? (f.declining ? loanAnnuityPMT(f.pokok, f.ratePerBulan, f.tenor) : computeOnlineInstallment(f.pokok, f.tenor, f.ratePerBulan, f.insPct, adminCicilPct))
+      : 0;
     if (!loanInstallmentManual) instEl.value = canAuto ? autoVal : '';
     const curVal = Math.round(parseFloat(instEl.value) || 0);
     if (canAuto) {
-      const bungaBulan = Math.round(f.pokok * f.ratePerBulan / 100);
-      const asuransiBulan = Math.round(f.pokok * f.insPct / 100);
-      const adminBulan = adminCicilPct > 0 ? Math.round(f.pokok * adminCicilPct / 100 / f.tenor) : 0;
-      const pokokBulan = Math.round(f.pokok / f.tenor);
-      const total = autoVal * f.tenor;
-      let txt = 'Hitungan: pokok ' + formatRp(pokokBulan) + ' + bunga ' + formatRp(bungaBulan) +
-        (adminBulan > 0 ? ' + admin ' + formatRp(adminBulan) : '') + (asuransiBulan > 0 ? ' + asuransi ' + formatRp(asuransiBulan) : '') +
-        ' per bulan = ' + formatRp(autoVal) + '. Total bayar ' + formatRp(total) + ' (bunga & biaya ' + formatRp(total - f.pokok) + ').';
+      let txt;
+      if (f.declining) {
+        const bunga1 = Math.round(f.pokok * f.ratePerBulan / 100);
+        const pokok1 = Math.max(0, autoVal - bunga1);
+        const total = autoVal * f.tenor;
+        txt = 'Anuitas: angsuran tetap ' + formatRp(autoVal) + '/bulan selama ' + f.tenor + ' bulan. Bulan pertama: pokok ' + formatRp(pokok1) + ' + bunga ' + formatRp(bunga1) +
+          '. Porsi bunga mengecil & porsi pokok membesar tiap bulan seiring sisa pokok berkurang. Total bayar ' + formatRp(total) + ' (bunga ' + formatRp(total - f.pokok) + ').';
+      } else {
+        const bungaBulan = Math.round(f.pokok * f.ratePerBulan / 100);
+        const asuransiBulan = Math.round(f.pokok * f.insPct / 100);
+        const adminBulan = adminCicilPct > 0 ? Math.round(f.pokok * adminCicilPct / 100 / f.tenor) : 0;
+        const pokokBulan = Math.round(f.pokok / f.tenor);
+        const total = autoVal * f.tenor;
+        txt = 'Hitungan: pokok ' + formatRp(pokokBulan) + ' + bunga ' + formatRp(bungaBulan) +
+          (adminBulan > 0 ? ' + admin ' + formatRp(adminBulan) : '') + (asuransiBulan > 0 ? ' + asuransi ' + formatRp(asuransiBulan) : '') +
+          ' per bulan = ' + formatRp(autoVal) + '. Total bayar ' + formatRp(total) + ' (bunga & biaya ' + formatRp(total - f.pokok) + ').';
+      }
       if (loanInstallmentManual && curVal !== autoVal) txt = 'Diisi manual ' + formatRp(curVal) + '. ' + txt;
       instHint.textContent = txt;
       autoBtn.style.display = (loanInstallmentManual && curVal !== autoVal) ? 'block' : 'none';
     } else {
-      instHint.textContent = 'Isi pokok, tenor, dan bunga flat supaya angsuran terhitung otomatis. Atau isi angsuran langsung.';
+      instHint.textContent = f.declining
+        ? 'Isi pokok, tenor & suku bunga supaya angsuran (anuitas) terhitung otomatis. Atau isi angsuran langsung.'
+        : 'Isi pokok, tenor, dan suku bunga supaya angsuran terhitung otomatis. Atau isi angsuran langsung.';
       autoBtn.style.display = 'none';
     }
 
-    // Estimasi bunga efektif hanya bila bunga tidak diisi (angsuran manual): dari total angsuran selama tenor
-    // dikurangi pokok awal, dibagi tenor. Info saja.
-    if (canAuto) { hint.textContent = ''; return; }
+    // Estimasi bunga efektif hanya bila bunga tidak diisi (angsuran manual) dan bukan anuitas — anuitas
+    // sudah pasti bunganya dari suku bunga yang diisi, tidak perlu ditaksir. Info saja.
+    if (canAuto || f.declining) { hint.textContent = ''; return; }
     if (f.pokok <= 0 || curVal <= 0 || f.tenor <= 0) { hint.textContent = ''; return; }
     const totalBayar = curVal * f.tenor;
     const bungaEfektifTotal = totalBayar - f.pokok;
@@ -633,7 +652,7 @@
               </div>
               <div class="txn-right"><span class="txn-amount" style="color:${colr[r.status]};">${formatRp(r.total)}</span></div>
             </div>`).join('') + '</details>';
-      } else if (TYPE_LOAN[acc.type] && acc.loanInterestType !== 'menurun' && (acc.loanTenorMonths || 0) > 0) {
+      } else if (TYPE_LOAN[acc.type] && (acc.loanTenorMonths || 0) > 0) {
         schedEl.style.display = 'block';
         schedEl.innerHTML = '<div class="acc-sub">Isi tanggal pencairan di Edit akun untuk melihat jadwal angsuran & pengingat jatuh tempo.</div>';
       } else if (acc.type === 'kartu_kredit' && cardStatementInfo(data, acc, todayStr())) {
