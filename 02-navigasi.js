@@ -50,14 +50,15 @@
     titipan: 'Titipan & piutang',
     laporan: 'Laporan',
     akun: 'Akun',
-    data: 'Data & export'
+    data: 'Data & export',
+    profil: 'Profil'
   };
 
   // Optimasi: chart/list tiap tab lumayan berat buat digambar ulang (chart SVG + ukur teks dsb),
   // jadi daripada gambar ulang KE-6 tab tiap kali ada perubahan data (padahal cuma satu yang
   // kelihatan), tab yang lagi tidak aktif cukup ditandai "dirty" - baru benar-benar digambar
   // saat tab itu dibuka (lihat renderTabContent() & pemanggilannya di setTab()/render()).
-  const TAB_NAMES = ['ringkasan', 'akun', 'transaksi', 'titipan', 'laporan', 'data'];
+  const TAB_NAMES = ['ringkasan', 'akun', 'transaksi', 'titipan', 'laporan', 'data', 'profil'];
   const dirtyTabs = new Set(TAB_NAMES);
 
   function currentTabName() {
@@ -105,7 +106,31 @@
       case 'data':
         renderRingkasanConfig();
         break;
+      case 'profil':
+        renderProfilTab();
+        break;
     }
+  }
+
+  // ---------- Tab Profil (gear -> Profil): nama pemilik untuk sapaan di Ringkasan ----------
+  function renderProfilTab() {
+    const el = $('profil-name-input');
+    if (el) el.value = getOwnerName();
+  }
+
+  function updateGreeting() {
+    const h = new Date().getHours();
+    const sapa = h >= 4 && h < 11 ? 'Selamat pagi' : (h >= 11 && h < 15 ? 'Selamat siang' : (h >= 15 && h < 18 ? 'Selamat sore' : 'Selamat malam'));
+    const g = $('greeting');
+    if (g) g.innerHTML = escapeHtml(sapa) + ', <b>' + escapeHtml(getOwnerName()) + '</b>';
+  }
+
+  function saveOwnerNameFromInput() {
+    const el = $('profil-name-input');
+    const v = setOwnerName(el ? el.value : '');
+    if (el) el.value = v;
+    updateGreeting();
+    showIoMsg('Nama tersimpan.', 'ok', 'profil-msg');
   }
 
   function setTab(name) {

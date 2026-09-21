@@ -97,8 +97,19 @@
     laporanCatKeluarFilter: 'all'
   };
 
-  // Header: sapaan sesuai jam + nama pemilik, tanggal singkat dengan hari. Ganti OWNER_NAME kalau perlu.
-  const OWNER_NAME = 'Made Ceplor';
+  // Header: sapaan sesuai jam + nama pemilik, tanggal singkat dengan hari.
+  // Nama pemilik diedit lewat tab Profil (gear -> Profil) dan disimpan di localStorage
+  // (seperti tema), bukan bagian dari data.accounts/txns -> tidak ikut ekspor JSON/sinkron cloud.
+  const OWNER_NAME_KEY = 'kp_owner_name';
+  const OWNER_NAME_DEFAULT = 'Made Ceplor';
+  function getOwnerName() {
+    try { return localStorage.getItem(OWNER_NAME_KEY) || OWNER_NAME_DEFAULT; } catch (e) { return OWNER_NAME_DEFAULT; }
+  }
+  function setOwnerName(name) {
+    const v = (name || '').trim() || OWNER_NAME_DEFAULT;
+    try { localStorage.setItem(OWNER_NAME_KEY, v); } catch (e) { /* tidak kritis */ }
+    return v;
+  }
 
   function defaultData() {
     const accId = 'kas-default';
