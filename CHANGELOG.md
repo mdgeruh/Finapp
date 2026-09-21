@@ -2,6 +2,25 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.012 — 21 Sep 2026
+
+**Ditambah** (tampilan tablet & desktop)
+- **Layar 1024px ke atas:** navigasi pindah ke sidebar kiri (tombol **Catat transaksi** di atas, lalu Ringkasan, Transaksi, Titipan, Laporan). Isi tidak lagi tertutup bilah bawah. Kolom isi maksimal 760px, kecuali Ringkasan
+- **Layar 1280px ke atas:** tab Ringkasan tampil dua kolom (kartu operasional di kiri, grafik di kanan), sehingga halaman jauh lebih pendek
+- **Layar 768px ke atas:** dialog konfirmasi dan sheet detail muncul di tengah layar (sebelumnya naik dari bawah); kolom isi 720px
+- Efek hover pada menu navigasi
+- Ponsel (di bawah 768px) dan Export PDF tidak berubah
+
+## v1.1.011 — 21 Sep 2026
+
+**Ditambah** (sinkron cloud)
+- **Nama pemilik ikut tersinkron** lewat metadata akun Supabase (`user_metadata.owner_name`). Saat login, nama dari akun dipakai untuk sapaan; kalau akun belum punya nama dan perangkat ini pernah mengisinya, nama itu dikirim sebagai isi awal
+- Menyimpan nama di tab Profil saat sudah login ikut memperbarui akun. Kalau gagal terkirim, muncul pesan bahwa nama baru tersimpan di perangkat ini saja
+- Teks di tab Profil menyesuaikan status login
+
+**Catatan**
+- Nama tetap disalin di localStorage (`kp_owner_name`) supaya sapaan benar saat offline dan mode lokal. Nama tidak ikut Export JSON. Perubahan dari perangkat lain terlihat saat login atau app dibuka ulang
+
 ## v1.1.010 — 21 Sep 2026
 
 **Ditambah** (sinkron cloud)

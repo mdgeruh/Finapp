@@ -679,7 +679,7 @@
 
   <div class="tab-panel" id="tab-profil">
     <div class="section-title">Profil pemilik</div>
-    <div class="acc-sub" style="margin-bottom:6px;">Nama ini dipakai untuk sapaan di tab Ringkasan. Tersimpan di browser ini saja (tidak ikut ekspor JSON maupun sinkron cloud).</div>
+    <div class="acc-sub" id="profil-name-hint" style="margin-bottom:6px;">Nama ini dipakai untuk sapaan di tab Ringkasan. Tersimpan di browser ini saja (tidak ikut ekspor JSON).</div>
     <div class="io-row">
       <input type="text" id="profil-name-input" placeholder="Nama kamu" aria-label="Nama pemilik" maxlength="40" style="flex:1; min-width:0;">
       <button type="button" class="io-btn" onclick="saveOwnerNameFromInput()">Simpan</button>
@@ -721,6 +721,7 @@
     </button>
     <button class="nav-fab" id="nav-fab" onclick="goToAdd()" aria-label="Tambah transaksi" title="Tambah transaksi">
       <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <span class="nav-fab-label">Catat transaksi</span>
     </button>
     <button class="nav-btn" data-tab="titipan" onclick="setTab('titipan')">
       <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M4 20c0-3 2.3-5 5-5s5 2 5 5"/><circle cx="17" cy="9.5" r="2.3"/><path d="M15.2 20c.3-1.9 1.6-3.4 3.3-3.8"/></svg>

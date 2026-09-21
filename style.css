@@ -390,6 +390,58 @@
   .nav-fab:active { opacity: 0.88; }
   .nav-fab svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; }
 
+  /* ===== Layar lebar (tablet & desktop) ===== */
+  .nav-fab-label { display: none; }
+
+  /* Tablet: kolom sedikit lebih lebar, dialog di tengah layar */
+  @media screen and (min-width: 768px) {
+    .wrap { max-width: 720px; }
+    .bottom-nav { max-width: 720px; }
+    .sheet-overlay, .modal-overlay { align-items: center; }
+    .sheet-panel { max-width: 560px; border-radius: 20px; box-shadow: 0 20px 60px rgba(20,17,10,0.28); }
+    .modal-box { margin-bottom: 0; max-width: 440px; box-shadow: 0 20px 60px rgba(20,17,10,0.28); }
+    .nav-btn:hover { color: var(--ink); }
+    .nav-btn.active:hover { color: var(--teal); }
+  }
+
+  /* Desktop: sidebar kiri, kolom isi lebih lebar, Ringkasan dua kolom */
+  @media screen and (min-width: 1024px) {
+    body { padding-left: 232px; }
+    .wrap { max-width: 1120px; padding: 32px 40px 56px; }
+
+    .bottom-nav-wrap {
+      top: 0; right: auto; width: 232px; z-index: 800;
+      border-top: none; border-right: 1px solid var(--line);
+      padding: 28px 14px 24px;
+    }
+    .bottom-nav { max-width: none; margin: 0; padding: 0; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 4px; }
+    .nav-btn {
+      flex: none; flex-direction: row; justify-content: flex-start; gap: 12px;
+      padding: 11px 14px; border-radius: 10px; font-size: 14.5px; text-align: left;
+    }
+    .nav-btn svg, .nav-btn svg { width: 20px; height: 20px; flex: 0 0 auto; }
+    .nav-btn:hover { background: var(--paper-dim); }
+    .nav-btn.active { background: var(--teal-soft); color: var(--teal); }
+    .nav-fab {
+      order: -1; width: 100%; height: 46px; margin: 0 0 18px; border-radius: 12px; gap: 8px;
+      box-shadow: none; font-family: 'Inter', sans-serif; font-size: 14.5px; font-weight: 600;
+    }
+    .nav-fab:hover { filter: brightness(1.1); }
+    .nav-fab svg { width: 18px; height: 18px; }
+    .nav-fab-label { display: inline; }
+
+    /* Satu kolom: batasi lebar supaya baris tidak melar */
+    .tab-panel { max-width: 760px; }
+    .sheet-panel { max-width: 600px; }
+  }
+
+  /* Layar cukup lebar: Ringkasan dua kolom (urutan baca tetap kiri lalu kanan) */
+  @media screen and (min-width: 1280px) {
+    #tab-ringkasan { max-width: none; }
+    #tab-ringkasan.active { column-count: 2; column-gap: 20px; }
+    #tab-ringkasan .chart-card { break-inside: avoid; margin: 0 0 16px !important; }
+  }
+
   /* Export PDF laporan (window.print) */
   @media print {
     .no-print, .bottom-nav-wrap, .eyebrow-row, .settings-menu-wrap { display: none !important; }
