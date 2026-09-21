@@ -492,3 +492,8 @@
     .login-hero { min-height: 260px; }
     .login-sheet { margin-top: -24px; animation: none; }
   }
+
+  /* Menu pengaturan: lebar mengikuti isi (maks. 260px); email di tombol Keluar tidak membuat baris terpotong-potong */
+  .settings-menu { width: max-content; max-width: min(260px, 80vw); }
+  .settings-menu .menu-main { display: block; color: var(--ink); font-size: 13.5px; }   /* eksplisit: '.eyebrow-row span' di header ikut mewarnai span di dalam menu */
+  .settings-menu .menu-sub { display: block; margin-top: 2px; font-size: 11.5px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

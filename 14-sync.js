@@ -300,7 +300,15 @@
     const b = document.getElementById('sync-logout-btn');
     if (!b) return;
     b.style.display = 'block';
-    b.textContent = 'Keluar (' + sync.email + ')';
+    b.textContent = '';
+    const main = document.createElement('span');
+    main.className = 'menu-main';
+    main.textContent = 'Keluar';
+    const sub = document.createElement('span');     // email di baris kedua; dipotong "…" kalau terlalu panjang
+    sub.className = 'menu-sub';
+    sub.textContent = sync.email;
+    b.title = sync.email;
+    b.append(main, sub);
   }
   async function syncLogout() {
     const menu = document.getElementById('settings-menu');
