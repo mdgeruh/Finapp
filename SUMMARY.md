@@ -1,6 +1,6 @@
 # Ringkasan: Keuangan Pribadi
 
-Ringkasan analisis dan perubahan pada proyek **Keuangan Pribadi** (v1.1.007 menjadi **v1.1.012**), tanggal 21 Sep 2026.
+Ringkasan analisis dan perubahan pada proyek **Keuangan Pribadi** (v1.1.007 menjadi **v1.1.014**), tanggal 21 Sep 2026.
 
 ## 1. Gambaran proyek
 
@@ -66,18 +66,27 @@ Aplikasi pencatatan keuangan pribadi berbasis web statis: HTML + CSS + JavaScrip
 - Layar 768px ke atas: dialog dan sheet muncul di tengah layar.
 - Ponsel dan Export PDF tidak berubah.
 
+### v1.1.013: desktop untuk semua tab
+- Layar 1280px ke atas: Akun dua kolom, Transaksi dan Laporan dengan panel filter menempel di kiri, Titipan dengan ringkasan di kiri, Data & Profil sebagai kartu dua kolom.
+- Layar 1024–1279px: tab tetap satu kolom (maksimal 760px), pengaturan tampil sebagai kartu.
+
+### v1.1.014: dua panel mulai 1024px
+- Transaksi, Titipan, dan Laporan memakai dua panel (kiri 264px, isi di kanan) mulai layar 1024px, bukan 1280px. Laptop berlayar 1024–1279px tidak lagi terlihat seperti ponsel.
+- Mulai 1280px panel kiri melebar dan bagian dalam Laporan dua kolom.
+- Akun: kartu yang sendirian di grupnya memenuhi lebar grup.
+
 ## 4. File yang berubah
 
-| File | 008 | 009 | 010 | 011 | 012 |
-|---|:-:|:-:|:-:|:-:|:-:|
-| `01-data.js` | ✓ |  |  | ✓ (komentar) |  |
-| `02-navigasi.js` |  |  |  | ✓ |  |
-| `12-render-utama.js` (versi) | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `14-sync.js` |  | ✓ | ✓ | ✓ |  |
-| `15-startup.js` | ✓ |  |  |  |  |
-| `index.html` |  |  | ✓ | ✓ | ✓ |
-| `style.css` |  | ✓ |  |  | ✓ |
-| `README.md`, `CHANGELOG.md` | ✓ | ✓ | ✓ | ✓ | ✓ |
+| File | 008 | 009 | 010 | 011 | 012 | 013 | 014 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| `01-data.js` | ✓ |  |  | ✓ (komentar) |  |  |  |
+| `02-navigasi.js` |  |  |  | ✓ |  |  |  |
+| `12-render-utama.js` (versi) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `14-sync.js` |  | ✓ | ✓ | ✓ |  |  |  |
+| `15-startup.js` | ✓ |  |  |  |  |  |  |
+| `index.html` |  |  | ✓ | ✓ | ✓ | ✓ |  |
+| `style.css` |  | ✓ |  |  | ✓ | ✓ | ✓ |
+| `README.md`, `CHANGELOG.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 ## 5. Cara pengujian
 
@@ -88,7 +97,7 @@ Semua perubahan diuji di browser headless (Playwright, Chromium) dengan Supabase
 - Login: isian kosong, gagal, berhasil, tombol mata, lupa kata sandi, tema terang/gelap, layar pendek.
 - Menu gear: tanpa cloud, mode lokal lalu login, login saat boot.
 - Nama pemilik: akun sudah punya nama, migrasi dari lokal, simpan berhasil, simpan gagal, mode lokal.
-- Tampilan: lebar 1440, 1280, 1024, 900, dan 390px (tanpa scroll horizontal), dialog di tengah, dan mode cetak tetap satu kolom.
+- Tampilan: lebar 1440, 1280, 1100, 1024, 900, dan 390px (tanpa scroll horizontal), dialog di tengah, mode cetak tetap satu kolom, dan interaksi di desktop (cari, filter, periode laporan, detail titipan dan akun).
 
 **Belum teruji:** login dan sinkron ke Supabase sungguhan, karena key kosong.
 
@@ -99,7 +108,7 @@ Semua perubahan diuji di browser headless (Playwright, Chromium) dengan Supabase
 3. Tinjau `supabase/setup.sql` dan pastikan RLS aktif sebelum mengisi `SUPABASE_ANON_KEY`.
 4. Pertimbangkan mengganti nama default dan menghapus data contoh untuk pengguna baru.
 5. Sinkron nama dari perangkat lain masih terlihat saat login atau app dibuka ulang, belum real-time.
-6. Desktop tahap 2: tab Transaksi bergaya tabel, Laporan dua kolom, Titipan master-detail, Akun grid 3 kolom, dan pintasan keyboard.
+6. Desktop tahap 3 (opsional): Transaksi bergaya tabel, Titipan master-detail (detail di panel kanan, bukan dialog), dan pintasan keyboard.
 
 ## 7. Cara memakai file hasil
 

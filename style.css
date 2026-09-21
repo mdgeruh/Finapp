@@ -433,13 +433,61 @@
     /* Satu kolom: batasi lebar supaya baris tidak melar */
     .tab-panel { max-width: 760px; }
     .sheet-panel { max-width: 600px; }
+
+    /* Tab Data & Profil: tiap bagian jadi kartu */
+    .set-block { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px 16px; margin-bottom: 16px; break-inside: avoid; }
+    .set-block .section-title { margin-top: 0 !important; }
+    .set-block .io-msg:last-child { margin-bottom: 0; }
+
+    /* Transaksi: panel filter menempel di kiri, daftar di kanan */
+    #tab-transaksi.active { display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 0 28px; align-items: start; }
+    .txn-filters { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; padding-bottom: 4px; }
+    .txn-filters .filter-row { flex-wrap: wrap; overflow: visible; margin-top: 12px; }
+    .txn-filters #txn-summary { margin-top: 14px !important; }
+    .txn-filters .month-row select { font-size: 13.5px; padding: 10px 8px; }
+    #tab-transaksi #list-section { margin-top: 0; }
+    #tab-transaksi #list-section > .day-heading:first-child { margin-top: 0; }
+
+    /* Titipan: ringkasan di kiri, daftar orang di kanan */
+    #tab-titipan.active { display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 0 28px; align-items: start; }
+    .titipan-side { position: sticky; top: 24px; }
+    .titipan-summary { flex-direction: column; margin-bottom: 0 !important; }
+
+    /* Laporan: pengaturan periode/filter di kiri, hasil di kanan */
+    #tab-laporan.active { display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 0 28px; align-items: start; }
+    .laporan-controls { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; padding-bottom: 4px; }
+    .laporan-controls #laporan-period-row { flex-wrap: wrap; overflow: visible; }
+    .laporan-controls #laporan-period-row .type-btn { flex: 1 0 30%; padding: 9px 6px; }
+    .laporan-results #laporan-trend-chart { max-height: 220px; }
+    .laporan-controls .filter-row { flex-wrap: wrap; overflow: visible; }
+    .laporan-results .chart-card { margin: 0 0 16px !important; break-inside: avoid; }
+
+    #tab-transaksi, #tab-titipan, #tab-laporan { max-width: none; }
+
+    /* Akun: kartu yang sendirian di grupnya memenuhi lebar grup */
+    .acc-grid:has(> .acc-tile:only-child) { grid-template-columns: minmax(0, 1fr); }
+
   }
 
   /* Layar cukup lebar: Ringkasan dua kolom (urutan baca tetap kiri lalu kanan) */
   @media screen and (min-width: 1280px) {
-    #tab-ringkasan { max-width: none; }
+    .tab-panel { max-width: none; }
     #tab-ringkasan.active { column-count: 2; column-gap: 20px; }
     #tab-ringkasan .chart-card { break-inside: avoid; margin: 0 0 16px !important; }
+
+    /* Akun: grup akun mengalir dalam dua kolom */
+    #tab-akun #accounts-scroll { column-count: 2; column-gap: 24px; }
+    #tab-akun .acc-group { break-inside: avoid; margin-bottom: 8px; }
+
+    /* Laporan (isi hasil lebih lega): kartu utang dan kategori berdampingan */
+    #laporan-extra { column-count: 2; column-gap: 16px; }
+    .laporan-cats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+    .laporan-cats .section-title { margin-top: 0 !important; }
+    #tab-transaksi.active, #tab-titipan.active { grid-template-columns: 320px minmax(0, 1fr); gap: 0 32px; }
+    #tab-laporan.active { grid-template-columns: 300px minmax(0, 1fr); gap: 0 32px; }
+
+    /* Data & Profil: kartu pengaturan dua kolom */
+    #tab-data.active, #tab-profil.active { column-count: 2; column-gap: 20px; }
   }
 
   /* Export PDF laporan (window.print) */

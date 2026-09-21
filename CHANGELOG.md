@@ -2,6 +2,25 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.014 — 21 Sep 2026
+
+**Diubah** (tampilan desktop)
+- **Transaksi, Titipan, dan Laporan kini dua panel mulai layar 1024px** (sebelumnya 1280px), jadi laptop berlayar 1024–1279px tidak lagi terlihat seperti tampilan ponsel. Panel kiri 264px (filter/ringkasan), isi di kanan. Mulai 1280px panel kiri melebar (320px atau 300px) dan bagian dalam Laporan dua kolom
+- **Akun:** kartu yang sendirian di grupnya kini memenuhi lebar grup, tidak lagi setengah lebar
+- Di bawah 1024px tidak ada perubahan
+
+## v1.1.013 — 21 Sep 2026
+
+**Diubah** (tampilan desktop, semua tab)
+- **Layar 1280px ke atas:**
+  - **Akun:** grup akun mengalir dalam dua kolom
+  - **Transaksi:** panel filter (bulan, cari, urutan, jenis, akun) menempel di kiri, daftar di kanan
+  - **Titipan:** ringkasan di kiri, daftar orang di kanan
+  - **Laporan:** pengaturan periode dan filter menempel di kiri; hasil di kanan dengan kartu utang dua kolom dan kategori pemasukan/pengeluaran berdampingan
+  - **Data & Profil:** bagian pengaturan jadi kartu dua kolom
+- **Layar 1024px ke atas:** bagian pengaturan Data & Profil tampil sebagai kartu; tab lain tetap satu kolom selebar maksimal 760px
+- Ponsel, tablet, dan Export PDF tidak berubah. Struktur HTML diberi pembungkus (`txn-filters`, `titipan-side`, `laporan-controls`, dan lainnya) yang tidak berefek di layar kecil
+
 ## v1.1.012 — 21 Sep 2026
 
 **Ditambah** (tampilan tablet & desktop)

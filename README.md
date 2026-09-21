@@ -2,7 +2,7 @@
 
 Aplikasi pencatatan keuangan pribadi berbasis web statis (HTML + CSS + JavaScript biasa, tanpa build tool). Tidak butuh instalasi atau server khusus. Data tersimpan di **localStorage browser** dan, kalau diaktifkan, disalin ke **cloud (Supabase)** supaya bisa dipakai di beberapa perangkat. Tanpa konfigurasi cloud, app berjalan 100% lokal dan offline.
 
-Versi di footer app: **v1.1.012**. Kode dipecah per modul (`00-config.js` s.d. `15-startup.js`) yang dimuat berurutan oleh `index.html`.
+Versi di footer app: **v1.1.014**. Kode dipecah per modul (`00-config.js` s.d. `15-startup.js`) yang dimuat berurutan oleh `index.html`.
 
 Riwayat perubahan ada di [CHANGELOG.md](CHANGELOG.md).
 
@@ -54,7 +54,7 @@ Tidak ada proses instalasi. Tiga cara pakai:
 
 ## Tab & Fitur
 
-**Tampilan:** ponsel memakai satu kolom dengan navigasi bawah. Tablet (768px ke atas) memakai dialog di tengah layar. Desktop (1024px ke atas) memakai sidebar kiri, dan Ringkasan tampil dua kolom mulai 1280px. Tab lain masih satu kolom dengan lebar maksimal 760px.
+**Tampilan:** ponsel memakai satu kolom dengan navigasi bawah. Tablet (768px ke atas) memakai dialog di tengah layar. Desktop (1024px ke atas) memakai sidebar kiri, dan Ringkasan tampil dua kolom mulai 1280px. Mulai 1024px, Transaksi, Titipan, dan Laporan memakai dua panel (filter atau ringkasan menempel di kiri, isi di kanan). Mulai 1280px, Ringkasan, grup akun, dan kartu pengaturan (Data, Profil) tampil dua kolom, dan isi Laporan ikut dua kolom di Data & Profil. Di 1024–1279px tab-tab ini tetap satu kolom selebar maksimal 760px.
 
 Header menampilkan sapaan sesuai jam + nama pemilik, tanggal singkat, dan ikon pengaturan (Akun, Data & Export, Profil, tema tampilan). Footer di bawah semua tab menampilkan nama app, nomor versi, dan tanggal build.
 
