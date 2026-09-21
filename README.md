@@ -2,7 +2,7 @@
 
 Aplikasi pencatatan keuangan pribadi berbasis web statis (HTML + CSS + JavaScript biasa, tanpa build tool). Tidak butuh instalasi atau server khusus. Data tersimpan di **localStorage browser** dan, kalau diaktifkan, disalin ke **cloud (Supabase)** supaya bisa dipakai di beberapa perangkat. Tanpa konfigurasi cloud, app berjalan 100% lokal dan offline.
 
-Versi di footer app: **v1.1.009**. Kode dipecah per modul (`00-config.js` s.d. `15-startup.js`) yang dimuat berurutan oleh `index.html`.
+Versi di footer app: **v1.1.010**. Kode dipecah per modul (`00-config.js` s.d. `15-startup.js`) yang dimuat berurutan oleh `index.html`.
 
 Riwayat perubahan ada di [CHANGELOG.md](CHANGELOG.md).
 
@@ -212,7 +212,7 @@ Opsional. Aktif hanya kalau `SUPABASE_URL` dan `SUPABASE_ANON_KEY` di `00-config
 
 - **Cara kerja:** login email + password (akun dibuat di dashboard Supabase). Setelah tiap perubahan, data dikirim ke tabel `app_data` di latar belakang (jeda 1,5 detik, coba ulang tiap 30 detik kalau gagal). Status kecil di bawah footer: Tersinkron, Menyimpan, Belum terkirim, Mode lokal, atau "Ada pembaruan dari perangkat lain" (tombol Muat ulang).
 - **Bentrok:** tiap baris cloud punya nomor versi. Kalau perangkat ini dan cloud sama-sama berubah, muncul dialog untuk memilih data cloud atau data perangkat ini; data yang tidak dipilih dibackup ke file JSON dulu.
-- **Mode lokal dulu:** di layar login bisa memilih "Pakai mode lokal dulu". Perubahan tetap ditandai belum terkirim dan dikirim setelah login berikutnya.
+- **Mode lokal dulu:** di layar login bisa memilih "Pakai mode lokal dulu". Perubahan tetap ditandai belum terkirim dan dikirim setelah login berikutnya. Kapan saja, buka menu gear lalu pilih **Masuk untuk sinkron** untuk login (opsi ini hanya tampil kalau belum login).
 - **Lupa password / ganti email & password:** tersedia di layar login dan tab Profil.
 - **Keamanan:** anon/publishable key memang publik, tapi **Row Level Security wajib aktif** (lihat `supabase/setup.sql`) supaya tiap akun hanya bisa membaca barisnya sendiri. Jangan pernah menaruh key `service_role` atau kata sandi database di file ini. Data tersimpan sebagai JSON biasa (tidak dienkripsi di sisi klien) di project Supabase kamu.
 - **Keluar:** menghapus sesi login, tapi salinan data tetap ada di localStorage perangkat itu. Untuk perangkat bersama, reset data lokal setelah keluar.

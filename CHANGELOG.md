@@ -2,6 +2,17 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.010 — 21 Sep 2026
+
+**Ditambah** (sinkron cloud)
+- Menu gear punya opsi **Masuk untuk sinkron** yang tampil kalau belum login (misalnya tadi memilih "Pakai mode lokal dulu"). Setelah login, opsi itu berganti jadi **Keluar (email)**. Tidak tampil kalau sinkron cloud tidak dikonfigurasi
+- Layar masuk dari menu gear punya tombol **Batal**. Perubahan yang dibuat selama mode lokal tetap dikirim ke cloud, atau muncul dialog pilihan kalau cloud sudah punya data berbeda
+- Kalau pustaka sinkron belum termuat (offline), muncul pesan untuk periksa koneksi lalu muat ulang
+
+**Diubah**
+- Alur login setelah app terbuka dipakai bersama dengan alur saat boot (`syncStartSession`), jadi perilakunya sama
+- Teks di tab Profil disesuaikan: masuk lewat menu gear kapan saja
+
 ## v1.1.009 — 21 Sep 2026
 
 **Diubah** (sinkron cloud)

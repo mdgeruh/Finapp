@@ -6,7 +6,7 @@
   // ============================================================
   const SYNC_META_KEY = 'kp_sync_meta';   // {uid, version, dirty}: versi cloud terakhir yang dikenal perangkat ini
   const SYNC_TABLE = 'app_data';
-  const sync = { client: null, uid: null, email: '', ready: false, pushing: false, rerun: false, timer: null, status: 'local' };
+  const sync = { client: null, uid: null, email: '', ready: false, pushing: false, rerun: false, timer: null, status: 'local', listening: false, loginBusy: false };
 
   function syncConfigured() { return !!(SUPABASE_URL && SUPABASE_ANON_KEY); }
 
@@ -115,7 +115,9 @@
     return '<div class="auth-shell"><div class="auth-brand" aria-hidden="true">Rp</div>' + inner + '</div>';
   }
 
-  function syncShowLogin() {
+  // opts.fromMenu: dibuka dari menu gear (bukan saat app dibuka), jadi tombol bawah berarti "Batal".
+  function syncShowLogin(opts) {
+    const fromMenu = !!(opts && opts.fromMenu);
     return new Promise((resolve) => {
       const ov = syncOverlay(true);
 
@@ -133,8 +135,8 @@
             '<div id="sync-msg" class="auth-msg" role="status" aria-live="polite"></div>' +
             '<button type="submit" id="sync-login-btn" class="auth-btn">Masuk</button>' +
             '<div class="auth-alt">' +
-              '<button type="button" id="sync-local-btn" class="auth-link">Pakai mode lokal dulu</button>' +
-              '<p class="auth-note">Data hanya tersimpan di perangkat ini sampai kamu masuk.</p>' +
+              '<button type="button" id="sync-local-btn" class="auth-link">' + (fromMenu ? 'Batal' : 'Pakai mode lokal dulu') + '</button>' +
+              (fromMenu ? '' : '<p class="auth-note">Data hanya tersimpan di perangkat ini sampai kamu masuk.</p>') +
             '</div>' +
           '</form>');
         ov.classList.add('open');
@@ -448,15 +450,19 @@
     }
   }
 
-  // ---------- Titik masuk: dipanggil sekali oleh 15-startup.js sebelum render pertama ----------
-  async function syncBoot() {
-    if (!syncConfigured()) return;                                        // mode lokal murni
-    if (!(window.supabase && window.supabase.createClient)) {             // pustaka gagal dimuat (offline)
-      syncSetStatus('local');
-      return;
-    }
-    sync.client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  // ---------- Menu gear: tampilkan "Masuk" kalau belum login, "Keluar" kalau sudah ----------
+  function syncUpdateMenu() {
+    const loginBtn = document.getElementById('sync-menu-login-btn');
+    const logoutBtn = document.getElementById('sync-logout-btn');
+    const showLogin = syncConfigured() && !sync.ready;
+    if (loginBtn) loginBtn.style.display = showLogin ? 'block' : 'none';
+    if (logoutBtn && !sync.ready) logoutBtn.style.display = 'none';
+  }
 
+  function syncInitClient() {
+    if (sync.client) return true;
+    if (!(window.supabase && window.supabase.createClient)) return false;   // pustaka gagal dimuat (offline)
+    sync.client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     // Kalau app dibuka lewat link reset password dari email, Supabase mendeteksi token di URL
     // dan memicu event ini dengan sesi pemulihan sementara -> tampilkan form password baru
     // di atas alur boot normal (yang tetap lanjut di belakang layar, tidak masalah karena
@@ -464,6 +470,64 @@
     sync.client.auth.onAuthStateChange((event) => {
       if (event === 'PASSWORD_RECOVERY') syncShowSetNewPassword();
     });
+    return true;
+  }
+
+  // Dipakai bersama oleh syncBoot() dan login dari menu gear: aktifkan sinkron untuk sesi ini,
+  // lalu samakan data lokal dengan cloud. Mengembalikan true kalau data lokal diganti data cloud.
+  async function syncStartSession(session) {
+    sync.uid = session.user.id;
+    sync.email = session.user.email || '';
+    sync.ready = true;
+    syncShowLogout();
+    if (!sync.listening) {
+      sync.listening = true;
+      window.addEventListener('online', syncOnBackOnlineOrVisible);
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncOnBackOnlineOrVisible(); });
+    }
+    let replaced = false;
+    try {
+      replaced = await syncReconcile();
+      const m = syncReadMeta();
+      if (m && m.dirty) syncSchedulePush(); else syncSetStatus('ok');
+    } catch (e) {
+      console.error('tarik dari cloud gagal, lanjut dengan data lokal', e);
+      syncSetStatus('error');
+      clearTimeout(sync.timer);
+      sync.timer = setTimeout(syncPush, 30000);
+    }
+    return replaced;
+  }
+
+  // Dipanggil dari menu gear saat belum login (misalnya tadi memilih "Pakai mode lokal dulu").
+  async function syncLoginFromMenu() {
+    const menu = document.getElementById('settings-menu');
+    if (menu) menu.classList.remove('open');
+    if (sync.ready || sync.loginBusy || !syncConfigured()) return;
+    if (!syncInitClient()) {
+      await syncAsk('Belum bisa masuk', 'Pustaka sinkron belum termuat. Periksa koneksi internet, lalu muat ulang halaman.', ['Tutup']);
+      return;
+    }
+    sync.loginBusy = true;
+    try {
+      const session = await syncShowLogin({ fromMenu: true });
+      if (!session) return;                           // dibatalkan
+      const replaced = await syncStartSession(session);
+      if (replaced) { populateCategorySelect(); render(); }
+      if (typeof renderProfilTab === 'function') renderProfilTab();
+    } finally {
+      sync.loginBusy = false;
+      syncUpdateMenu();
+    }
+  }
+
+  // ---------- Titik masuk: dipanggil sekali oleh 15-startup.js sebelum render pertama ----------
+  async function syncBoot() {
+    try { await syncBootInner(); } finally { syncUpdateMenu(); }
+  }
+  async function syncBootInner() {
+    if (!syncConfigured()) return;                                        // mode lokal murni
+    if (!syncInitClient()) { syncSetStatus('local'); return; }            // pustaka gagal dimuat (offline)
 
     let session = null;
     try {
@@ -473,21 +537,5 @@
     if (!session) session = await syncShowLogin();
     if (!session) { syncSetStatus('local'); return; }
 
-    sync.uid = session.user.id;
-    sync.email = session.user.email || '';
-    sync.ready = true;
-    syncShowLogout();
-    window.addEventListener('online', syncOnBackOnlineOrVisible);
-    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncOnBackOnlineOrVisible(); });
-
-    try {
-      await syncReconcile();
-      const m = syncReadMeta();
-      if (m && m.dirty) syncSchedulePush(); else syncSetStatus('ok');
-    } catch (e) {
-      console.error('tarik dari cloud gagal, lanjut dengan data lokal', e);
-      syncSetStatus('error');
-      clearTimeout(sync.timer);
-      sync.timer = setTimeout(syncPush, 30000);
-    }
+    await syncStartSession(session);
   }
