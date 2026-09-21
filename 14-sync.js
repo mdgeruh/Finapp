@@ -68,7 +68,7 @@
       ov.id = 'sync-overlay';
       document.body.appendChild(ov);
     }
-    ov.className = 'modal-overlay sync-overlay' + (solid ? ' login' : '');
+    ov.className = 'modal-overlay sync-overlay' + (solid ? ' solid' : '');
     return ov;
   }
   function syncCloseOverlay() {
@@ -80,68 +80,40 @@
     return new Promise((resolve) => {
       const ov = syncOverlay(true);
       ov.innerHTML =
-        '<div class="login-screen">' +
-          '<div class="login-hero">' +
-            '<div class="login-brand">' +
-              '<span class="login-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18a1 1 0 0 1 1 1v2"/><path d="M4 7.5V17a2 2 0 0 0 2 2h12a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1H6.5A2.5 2.5 0 0 1 4 7.5z"/><circle cx="15.5" cy="13.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>' +
-              '<span class="login-brand-name">Keuangan pribadi</span>' +
+        '<div class="modal-box">' +
+          '<form id="sync-form" novalidate>' +
+            '<div class="sheet-title">Masuk untuk sinkron</div>' +
+            '<input id="sync-email" type="email" autocomplete="username" inputmode="email" placeholder="Email" aria-label="Email">' +
+            '<input id="sync-pass" type="password" autocomplete="current-password" placeholder="Kata sandi" aria-label="Kata sandi">' +
+            '<div id="sync-msg" class="sync-msg" role="status"></div>' +
+            '<div class="sync-choices">' +
+              '<button type="submit" id="sync-login-btn" class="modal-btn confirm">Masuk</button>' +
+              '<button type="button" id="sync-local-btn" class="modal-btn cancel">Pakai mode lokal dulu</button>' +
             '</div>' +
-            '<h1 class="login-title">Buku kas Anda,<br>di semua perangkat.</h1>' +
-          '</div>' +
-          '<div class="login-sheet">' +
-            '<form id="sync-form" novalidate>' +
-              '<div class="login-field"><label for="sync-email">Email</label>' +
-                '<input id="sync-email" type="email" autocomplete="username" inputmode="email" autocapitalize="none" spellcheck="false" enterkeyhint="next"></div>' +
-              '<div class="login-field"><label for="sync-pass">Kata sandi</label>' +
-                '<div class="login-pass"><input id="sync-pass" type="password" autocomplete="current-password" enterkeyhint="go">' +
-                '<button type="button" id="sync-toggle" class="login-toggle" aria-controls="sync-pass" aria-pressed="false">Tampilkan</button></div></div>' +
-              '<div id="sync-msg" class="login-msg" role="alert"></div>' +
-              '<button type="submit" id="sync-login-btn" class="login-btn"><span class="login-spin" aria-hidden="true"></span><span id="sync-login-label">Masuk</span></button>' +
-            '</form>' +
-            '<div class="login-alt"><button type="button" id="sync-local-btn">Lanjut tanpa masuk</button>' +
-              '<span>Mode lokal: data hanya tersimpan di perangkat ini.</span></div>' +
-          '</div>' +
+          '</form>' +
         '</div>';
       ov.classList.add('open');
-
-      const $id = (x) => document.getElementById(x);
-      const form = $id('sync-form'), emailEl = $id('sync-email'), passEl = $id('sync-pass');
-      const btn = $id('sync-login-btn'), label = $id('sync-login-label'), msgEl = $id('sync-msg');
-      const setMsg = (t, isErr) => { msgEl.textContent = t; msgEl.classList.toggle('error', !!isErr); };
-      const setBusy = (b) => { btn.disabled = b; btn.classList.toggle('busy', b); label.textContent = b ? 'Masuk…' : 'Masuk'; };
-      const fail = (t, focusEl) => {
-        setMsg(t, true); setBusy(false);
-        form.classList.remove('shake'); void form.offsetWidth; form.classList.add('shake');   // goyang singkat sebagai jawaban atas aksi
-        if (focusEl) focusEl.focus();
-      };
-
-      $id('sync-toggle').addEventListener('click', (e) => {
-        const show = passEl.type === 'password';
-        passEl.type = show ? 'text' : 'password';
-        e.currentTarget.textContent = show ? 'Sembunyikan' : 'Tampilkan';
-        e.currentTarget.setAttribute('aria-pressed', String(show));
-        passEl.focus();
-      });
-      $id('sync-local-btn').addEventListener('click', () => { syncCloseOverlay(); resolve(null); });
-
-      form.addEventListener('submit', async (e) => {
+      const msg = (t) => { document.getElementById('sync-msg').textContent = t; };
+      const btn = document.getElementById('sync-login-btn');
+      document.getElementById('sync-local-btn').addEventListener('click', () => { syncCloseOverlay(); resolve(null); });
+      document.getElementById('sync-form').addEventListener('submit', async (e) => {
         e.preventDefault();
-        const email = emailEl.value.trim();
-        const password = passEl.value;
-        if (!email) { fail('Isi email Anda.', emailEl); return; }
-        if (!password) { fail('Isi kata sandi Anda.', passEl); return; }
-        setMsg('', false);
-        setBusy(true);
+        const email = document.getElementById('sync-email').value.trim();
+        const password = document.getElementById('sync-pass').value;
+        if (!email || !password) { msg('Isi email dan kata sandi.'); return; }
+        btn.disabled = true;
+        msg('Masuk…');
         try {
           const { data, error } = await syncTimeout(sync.client.auth.signInWithPassword({ email, password }), 15000);
-          if (error || !data || !data.session) { fail('Email atau kata sandi salah, atau koneksi bermasalah.', passEl); return; }
+          if (error || !data || !data.session) { msg('Email atau kata sandi salah, atau koneksi bermasalah.'); btn.disabled = false; return; }
           syncCloseOverlay();
           resolve(data.session);
         } catch (err) {
-          fail('Tidak bisa terhubung. Periksa koneksi, lalu coba lagi.', null);
+          msg('Tidak bisa terhubung. Coba lagi, atau pakai mode lokal dulu.');
+          btn.disabled = false;
         }
       });
-      if (!window.matchMedia('(pointer: coarse)').matches) setTimeout(() => { if (emailEl.isConnected) emailEl.focus(); }, 60);   // di HP, jangan langsung buka keyboard
+      setTimeout(() => { const el = document.getElementById('sync-email'); if (el) el.focus(); }, 50);
     });
   }
 
@@ -300,15 +272,7 @@
     const b = document.getElementById('sync-logout-btn');
     if (!b) return;
     b.style.display = 'block';
-    b.textContent = '';
-    const main = document.createElement('span');
-    main.className = 'menu-main';
-    main.textContent = 'Keluar';
-    const sub = document.createElement('span');     // email di baris kedua; dipotong "…" kalau terlalu panjang
-    sub.className = 'menu-sub';
-    sub.textContent = sync.email;
-    b.title = sync.email;
-    b.append(main, sub);
+    b.textContent = 'Keluar (' + sync.email + ')';
   }
   async function syncLogout() {
     const menu = document.getElementById('settings-menu');
@@ -325,6 +289,37 @@
     }
     try { await sync.client.auth.signOut(); } catch (e) { /* tetap lanjut */ }
     location.reload();
+  }
+
+  // ---------- Ubah email & password akun sinkron (dipanggil dari tab Profil) ----------
+  async function syncChangeEmail() {
+    if (!sync.ready) return;
+    const input = document.getElementById('profil-email-input');
+    const email = input ? input.value.trim() : '';
+    if (!email) { showIoMsg('Isi email baru dulu.', 'error', 'profil-sync-msg'); return; }
+    try {
+      const { error } = await syncTimeout(sync.client.auth.updateUser({ email }), 15000);
+      if (error) { showIoMsg('Gagal ubah email: ' + error.message, 'error', 'profil-sync-msg'); return; }
+      if (input) input.value = '';
+      showIoMsg('Email konfirmasi dikirim ke alamat lama & baru. Buka link di email untuk menyelesaikan perubahan.', 'ok', 'profil-sync-msg');
+    } catch (e) {
+      showIoMsg('Tidak bisa terhubung. Coba lagi.', 'error', 'profil-sync-msg');
+    }
+  }
+
+  async function syncChangePassword() {
+    if (!sync.ready) return;
+    const input = document.getElementById('profil-pass-input');
+    const pass = input ? input.value : '';
+    if (!pass || pass.length < 6) { showIoMsg('Password minimal 6 karakter.', 'error', 'profil-sync-msg'); return; }
+    try {
+      const { error } = await syncTimeout(sync.client.auth.updateUser({ password: pass }), 15000);
+      if (error) { showIoMsg('Gagal ubah password: ' + error.message, 'error', 'profil-sync-msg'); return; }
+      if (input) input.value = '';
+      showIoMsg('Password berhasil diubah.', 'ok', 'profil-sync-msg');
+    } catch (e) {
+      showIoMsg('Tidak bisa terhubung. Coba lagi.', 'error', 'profil-sync-msg');
+    }
   }
 
   // ---------- Titik masuk: dipanggil sekali oleh 15-startup.js sebelum render pertama ----------

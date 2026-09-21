@@ -684,6 +684,26 @@
       <button type="button" class="io-btn" onclick="saveOwnerNameFromInput()">Simpan</button>
     </div>
     <div id="profil-msg" class="io-msg"></div>
+
+    <div class="section-title" style="margin-top:22px;">Akun sinkron (login cloud)</div>
+    <div id="profil-sync-none" class="acc-sub">Belum masuk ke akun sinkron cloud. Masuk lewat menu gear saat pertama kali buka app untuk mengaktifkan fitur ini.</div>
+    <div id="profil-sync-section" style="display:none;">
+      <div class="acc-sub" style="margin-bottom:10px;">Email saat ini: <b id="profil-current-email"></b></div>
+
+      <div class="acc-sub" style="margin-bottom:4px;">Ganti email</div>
+      <div class="io-row">
+        <input type="email" id="profil-email-input" placeholder="Email baru" aria-label="Email baru" autocomplete="email" style="flex:1; min-width:0;">
+        <button type="button" class="io-btn" onclick="syncChangeEmail()">Ubah email</button>
+      </div>
+      <div class="acc-sub" style="margin-top:4px; margin-bottom:14px;">Email konfirmasi dikirim ke alamat lama &amp; baru; email baru aktif setelah link konfirmasi dibuka.</div>
+
+      <div class="acc-sub" style="margin-bottom:4px;">Ganti password</div>
+      <div class="io-row">
+        <input type="password" id="profil-pass-input" placeholder="Password baru (min 6 karakter)" aria-label="Password baru" autocomplete="new-password" style="flex:1; min-width:0;">
+        <button type="button" class="io-btn" onclick="syncChangePassword()">Ubah password</button>
+      </div>
+    </div>
+    <div id="profil-sync-msg" class="io-msg"></div>
   </div>
   <div class="app-footer no-print" id="app-footer"></div>
 </div>

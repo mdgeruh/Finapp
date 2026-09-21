@@ -116,6 +116,20 @@
   function renderProfilTab() {
     const el = $('profil-name-input');
     if (el) el.value = getOwnerName();
+
+    const active = !!(typeof sync !== 'undefined' && sync.ready);
+    const noneEl = $('profil-sync-none');
+    const sectionEl = $('profil-sync-section');
+    if (noneEl) noneEl.style.display = active ? 'none' : 'block';
+    if (sectionEl) sectionEl.style.display = active ? 'block' : 'none';
+    if (active) {
+      const emailEl = $('profil-current-email');
+      if (emailEl) emailEl.textContent = sync.email || '-';
+      const emailInput = $('profil-email-input');
+      if (emailInput) emailInput.value = '';
+      const passInput = $('profil-pass-input');
+      if (passInput) passInput.value = '';
+    }
   }
 
   function updateGreeting() {
