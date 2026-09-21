@@ -452,13 +452,29 @@
         const sch = lapLoanSchedule(data, acc, bal);
         const pokokAwal = Math.abs(acc.originalPrincipal || acc.initialBalance || 0);
         const monthlyCost = pokokAwal > 0 ? computeLoanMonthlyInterest(data, acc) / pokokAwal * 100 : 0;
-        const item = { acc, rem, sch, due, monthlyCost, total: rem.total };
+        const item = { acc, rem, sch, due, monthlyCost, effMonthly: loanEffectiveMonthlyRate(data, acc), total: rem.total };
         (acc.type === 'pinjaman_online' ? res.online : res.bank).push(item);
       }
     });
     [res.cards, res.paylaters, res.online, res.bank].forEach(g => g.forEach(x => { res.totalDebt += x.total; }));
     res.due30 = dues.filter(d => d.days <= 30).reduce((s2, d) => s2 + d.amount, 0);
     return res;
+  }
+
+  // Baris biaya pinjaman: bunga menurun dari sisa pokok; bunga flat dari pokok awal + bunga efektifnya
+  // (kalau tenor diketahui), supaya tidak tertukar dengan pinjaman berbunga menurun.
+  function costLine(a, c) {
+    const feeNote = a.type === 'pinjaman_online' ? ' (bunga' + ((a.loanInsurancePercent || 0) > 0 || a.loanAdminMode === 'cicil' ? ' + biaya' : '') + ')' : '';
+    if (a.loanInterestType === 'menurun') {
+      return c.effMonthly > 0 ? { text: 'Bunga menurun ≈ ' + c.effMonthly.toFixed(2) + '%/bln dari sisa pokok' } : null;
+    }
+    if (!(c.monthlyCost > 0)) return null;
+    let t = 'Bunga flat ≈ ' + c.monthlyCost.toFixed(2) + '%/bln dari pokok awal' + feeNote;
+    if (c.effMonthly > 0) {
+      const yr = (Math.pow(1 + c.effMonthly / 100, 12) - 1) * 100;
+      t += ' · efektif ≈ ' + c.effMonthly.toFixed(2) + '%/bln (≈ ' + Math.round(yr) + '%/thn)';
+    }
+    return { text: t };
   }
 
   function laporanDebtDetailHtml(an, card, row) {
@@ -519,7 +535,7 @@
         { text: 'Sisa pokok ' + formatRp(c.rem.sisaPokok) + (sisaBiaya > 0 ? ' + bunga & biaya ' + formatRp(sisaBiaya) : '') },
         c.sch ? { text: 'Angsuran ' + c.sch.paid + '/' + c.sch.tenor + (c.sch.rows[0] ? ' · ' + formatRp(c.sch.rows[0].total) + '/bln' : '') } : (a.loanInstallment ? { text: 'Angsuran ' + formatRp(a.loanInstallment) + '/bln' } : null),
         dueLine(c.due),
-        c.monthlyCost > 0 ? { text: 'Biaya efektif ≈ ' + c.monthlyCost.toFixed(2) + '%/bln dari pokok awal' + (a.type === 'pinjaman_online' ? ' (bunga' + ((a.loanInsurancePercent || 0) > 0 || a.loanAdminMode === 'cicil' ? ' + biaya' : '') + ')' : '') } : null
+        costLine(a, c)
       ]
     }, hintOf([angs], c.due)));
   }
@@ -761,6 +777,7 @@
   // 3. Simulasi pelunasan: bayar minimum saja vs gulung cicilan + ekstra per bulan (bunga tertinggi / saldo terkecil dulu).
   function laporanSimDebts(data, balances) {
     const debts = [];
+    const skipped = [];   // pinjaman yang angsuran bulanannya belum diketahui
     data.accounts.forEach(acc => {
       const bal = balances[acc.id];
       if (!TYPE_DEBT[acc.type]) return;
@@ -778,6 +795,9 @@
         if (rem.total <= 0) return;
         const sc = lapLoanSchedule(data, acc, bal);
         const inst = acc.loanInstallment || (sc && sc.rows[0] ? sc.rows[0].total : 0);
+        // Tanpa angsuran per bulan, cicilan wajibnya tak diketahui (dulu dianggap = seluruh saldo, jadi
+        // "lunas dalam 1 bulan"). Pinjaman ini dikeluarkan dari simulasi dan diberi catatan.
+        if (!(inst > 0)) { skipped.push(acc.name); return; }
         if (acc.loanInterestType === 'menurun') {
           const rate = acc.loanRatePercent ? (acc.loanRateUnit === 'bulan' ? acc.loanRatePercent : acc.loanRatePercent / 12) : 0;
           debts.push({ name: acc.name, kind: 'Pinjaman bank', bal: rem.sisaPokok, rate, minFn: (b) => Math.min(b, inst > 0 ? inst : b) });
@@ -789,6 +809,7 @@
         }
       }
     });
+    debts.skipped = skipped;
     return debts;
   }
   function laporanSimulate(debts, extra, strategy, roll) {
@@ -812,7 +833,11 @@
   }
   function laporanSimResultHtml(data, balances) {
     const debts = laporanSimDebts(data, balances);
-    if (!debts.length) return '<div class="acc-sub">Tidak ada utang aktif untuk disimulasikan.</div>';
+    const skipped = debts.skipped || [];
+    const skipNote = skipped.length
+      ? '<div class="acc-sub" style="margin-top:8px; line-height:1.5;">Belum disertakan: ' + skipped.map(escapeHtml).join(', ') + ' (angsuran per bulan belum diisi). Isi di Edit akun, atau catat satu angsuran dulu supaya terisi otomatis.</div>'
+      : '';
+    if (!debts.length) return skipped.length ? skipNote : '<div class="acc-sub">Tidak ada utang aktif untuk disimulasikan.</div>';
     const extra = state.laporanSimExtra != null ? state.laporanSimExtra : (() => { const inc = laporanMonthlyIncome(data); return inc > 0 ? Math.round(inc * 0.1 / 50000) * 50000 : 500000; })();
     const base = laporanSimulate(debts, 0, 'bunga', false);
     const sc = [
@@ -836,6 +861,7 @@
     if (noRate.length) notes.push('Bunga kartu ' + noRate.map(escapeHtml).join(', ') + ' belum diisi di akun, jadi dianggap 0%. Isi bunganya supaya hasil lebih akurat.');
     notes.push('Hitungan pakai bunga bulanan sederhana dan tidak memasukkan belanja baru di kartu / PayLater.');
     html += '<details class="adv-more"><summary class="acc-sub" style="padding:8px 0; cursor:pointer;">Catatan simulasi</summary>' + notes.map(n => '<div class="acc-sub" style="margin-bottom:6px; line-height:1.5;">' + n + '</div>').join('') + '</details>';
+    html += skipNote;
     return html;
   }
   // Elemen simulasi dibuat ulang tiap Laporan digambar, jadi selalu diambil lewat getElementById
@@ -856,7 +882,7 @@
     }, 120);
   }
   function laporanSimHtml(data, balances, card) {
-    if (!laporanSimDebts(data, balances).length) return '';
+    { const sd = laporanSimDebts(data, balances); if (!sd.length && !(sd.skipped && sd.skipped.length)) return ''; }
     const shown = state.laporanSimExtra != null ? state.laporanSimExtra : (() => { const inc = laporanMonthlyIncome(data); return inc > 0 ? Math.round(inc * 0.1 / 50000) * 50000 : 500000; })();
     return card('Simulasi pelunasan',
       '<div class="acc-sub" style="margin:4px 0 6px;">Dana ekstra per bulan (Rp), di luar cicilan wajib</div>' +

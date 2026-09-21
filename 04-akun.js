@@ -1108,7 +1108,20 @@
   // Pecah nominal pembayaran: bunga terutang dilunasi dulu, sisanya baru mengurangi pokok.
   function splitLoanPayment(data, acc, nominal, mode) {
     const sisaPokok = Math.max(0, -accountBalance(data, acc.id));
-    const bungaDue = computeLoanInterestDue(data, acc, mode);
+    let bungaDue = computeLoanInterestDue(data, acc, mode);
+    // Pinjaman flat bertenor dibayar per angsuran: kalau nominalnya cukup untuk beberapa angsuran sekaligus,
+    // tiap angsuran memuat bunga sebulan penuh (mis. 3 angsuran = 3x bunga), bukan bunga satu bulan saja.
+    if (mode === 'pokok_bunga') {
+      const remF = computeLoanRemaining(data, acc);
+      const tenor = acc.loanTenorMonths || 0;
+      if (remF.flat && tenor > 0) {
+        const monthly = computeLoanMonthlyInterest(data, acc);
+        const pokokAwal = Math.abs(acc.originalPrincipal || acc.initialBalance || 0);
+        const perAngsuran = Math.floor(pokokAwal / tenor) + monthly;
+        const k = perAngsuran > 0 ? Math.floor(nominal / perAngsuran) : 1;
+        if (k > 1) bungaDue = Math.min(monthly * k, remF.sisaBunga);
+      }
+    }
     const bunga = Math.min(nominal, bungaDue);
     const pokok = Math.min(sisaPokok, Math.max(0, nominal - bunga));
     const kelebihan = Math.max(0, nominal - bunga - pokok);

@@ -1,6 +1,6 @@
 # Ringkasan: Keuangan Pribadi
 
-Ringkasan analisis dan perubahan pada proyek **Keuangan Pribadi** (v1.1.007 menjadi **v1.1.014**), tanggal 21 Sep 2026.
+Ringkasan analisis dan perubahan pada proyek **Keuangan Pribadi** (v1.1.007 menjadi **v1.1.015**), tanggal 21 Sep 2026.
 
 ## 1. Gambaran proyek
 
@@ -75,18 +75,24 @@ Aplikasi pencatatan keuangan pribadi berbasis web statis: HTML + CSS + JavaScrip
 - Mulai 1280px panel kiri melebar dan bagian dalam Laporan dua kolom.
 - Akun: kartu yang sendirian di grupnya memenuhi lebar grup.
 
+### v1.1.015: logika pinjaman
+- Bayar beberapa angsuran sekaligus (flat bertenor) kini dipecah benar: bunga per angsuran, bukan satu bulan.
+- Simulasi pelunasan tidak lagi menganggap pinjaman tanpa angsuran lunas dalam 1 bulan; pinjaman itu dikeluarkan dengan catatan.
+- Laporan menampilkan bunga flat dan bunga efektif (IRR) yang dibedakan dari bunga menurun.
+
 ## 4. File yang berubah
 
-| File | 008 | 009 | 010 | 011 | 012 | 013 | 014 |
-|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| `01-data.js` | ✓ |  |  | ✓ (komentar) |  |  |  |
-| `02-navigasi.js` |  |  |  | ✓ |  |  |  |
-| `12-render-utama.js` (versi) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `14-sync.js` |  | ✓ | ✓ | ✓ |  |  |  |
-| `15-startup.js` | ✓ |  |  |  |  |  |  |
-| `index.html` |  |  | ✓ | ✓ | ✓ | ✓ |  |
-| `style.css` |  | ✓ |  |  | ✓ | ✓ | ✓ |
-| `README.md`, `CHANGELOG.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| File | 008 | 009 | 010 | 011 | 012 | 013 | 014 | 015 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| `01-data.js` | ✓ |  |  | ✓ (komentar) |  |  |  | ✓ |
+| `02-navigasi.js` |  |  |  | ✓ |  |  |  |  |
+| `12-render-utama.js` (versi) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `14-sync.js` |  | ✓ | ✓ | ✓ |  |  |  |  |
+| `15-startup.js` | ✓ |  |  |  |  |  |  |  |
+| `index.html` |  |  | ✓ | ✓ | ✓ | ✓ |  |  |
+| `style.css` |  | ✓ |  |  | ✓ | ✓ | ✓ |  |
+| `README.md`, `CHANGELOG.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `04-akun.js`, `11-laporan.js` |  |  |  |  |  |  |  | ✓ |
 
 ## 5. Cara pengujian
 
@@ -108,6 +114,7 @@ Semua perubahan diuji di browser headless (Playwright, Chromium) dengan Supabase
 3. Tinjau `supabase/setup.sql` dan pastikan RLS aktif sebelum mengisi `SUPABASE_ANON_KEY`.
 4. Pertimbangkan mengganti nama default dan menghapus data contoh untuk pengguna baru.
 5. Sinkron nama dari perangkat lain masih terlihat saat login atau app dibuka ulang, belum real-time.
+7. Pinjaman bank tidak punya kolom tenor di form (hanya pinjol), jadi jadwal, sisa bunga, dan bunga efektif hanya muncul untuk pinjol atau data hasil impor. Pinjaman menurun belum punya perhitungan anuitas, jadwal, dan pengingat jatuh tempo.
 6. Desktop tahap 3 (opsional): Transaksi bergaya tabel, Titipan master-detail (detail di panel kanan, bukan dialog), dan pintasan keyboard.
 
 ## 7. Cara memakai file hasil

@@ -2,6 +2,15 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.015 — 21 Sep 2026
+
+**Diperbaiki** (logika pinjaman)
+- **Bayar beberapa angsuran sekaligus (pinjaman flat bertenor):** bunga kini dihitung per angsuran, bukan satu bulan saja. Contoh Rp3,36 juta (3 angsuran) sebelumnya tercatat bunga Rp120 ribu + pokok Rp3,24 juta; sekarang bunga Rp360 ribu + pokok Rp3,0 juta. Sisa pokok dan sisa bunga di tab Akun kembali sama dengan Laporan. Berlaku di mode "Angsuran"; mode "Nominal bebas" dan "Bunga saja" tidak berubah
+- **Simulasi pelunasan:** pinjaman yang angsuran per bulannya belum diisi tidak lagi dianggap lunas dalam 1 bulan. Pinjaman itu dikeluarkan dari simulasi dan muncul catatan "Belum disertakan"
+
+**Diubah**
+- **Baris biaya di Laporan** kini akurat: pinjaman flat menampilkan "Bunga flat ≈ x%/bln dari pokok awal" dan, kalau tenor diketahui, bunga efektifnya (IRR, sudah memperhitungkan admin/materai di depan). Contoh: flat 12%/thn tenor 12 bulan ≈ 1,79%/bln efektif. Pinjaman menurun menampilkan "Bunga menurun ≈ x%/bln dari sisa pokok" (sebelumnya membagi bunga saat ini dengan pokok awal sehingga terlihat lebih kecil)
+
 ## v1.1.014 — 21 Sep 2026
 
 **Diubah** (tampilan desktop)

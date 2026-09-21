@@ -99,7 +99,7 @@
 
   // Header: sapaan sesuai jam + nama pemilik, tanggal singkat dengan hari.
   // Nama pemilik diedit lewat tab Profil (gear -> Profil) dan disimpan di localStorage
-  // (seperti tema), bukan bagian dari data.accounts/txns -> tidak ikut ekspor JSON/sinkron cloud.
+  // (seperti tema), bukan bagian dari data.accounts/txns -> tidak ikut ekspor JSON. Saat login, nama juga disimpan di metadata akun Supabase (lihat syncSaveOwnerName di 14-sync.js), dan localStorage jadi salinan lokalnya.
   const OWNER_NAME_KEY = 'kp_owner_name';
   const OWNER_NAME_DEFAULT = 'Made Ceplor';
   function getOwnerName() {
@@ -325,6 +325,37 @@
     const sisaPokok = Math.max(0, -accountBalance(data, acc.id));
     const base = acc.loanInterestType === 'menurun' ? sisaPokok : pokokAwal;
     return Math.round((rate > 0 ? base * rateMonthly : 0) + fees);
+  }
+
+  // Bunga EFEKTIF per bulan (%) dari pinjaman, untuk perbandingan yang adil antar jenis pinjaman.
+  // - menurun: bunga sudah dihitung dari sisa pokok, jadi sama dengan suku bunga bulanannya.
+  // - flat bertenor: dicari lewat IRR dari arus kas nyata: dana bersih yang diterima (pokok - admin/materai
+  //   di depan) dibanding angsuran tetap (pokok per bulan + bunga & biaya bulanan) selama tenor.
+  //   Bunga flat 1%/bln dari pokok awal setara ±1,8%/bln efektif untuk tenor 12 bulan.
+  // Mengembalikan null kalau datanya belum cukup (mis. pinjaman flat tanpa tenor).
+  function loanEffectiveMonthlyRate(data, acc) {
+    if (!TYPE_LOAN[acc.type]) return null;
+    const P = Math.abs(acc.originalPrincipal || acc.initialBalance || 0);
+    if (P <= 0) return null;
+    if (acc.loanInterestType === 'menurun') {
+      const r = acc.loanRatePercent || 0;
+      return r > 0 ? (acc.loanRateUnit === 'bulan' ? r : r / 12) : null;
+    }
+    const tenor = acc.loanTenorMonths || 0;
+    const monthly = computeLoanMonthlyInterest(data, acc);
+    if (tenor <= 0 || monthly <= 0) return null;
+    const upfront = (acc.loanAdminMode === 'cicil' ? 0 : (acc.loanAdminFee || 0)) + (acc.loanStampFee || 0);
+    const net = P - upfront;
+    if (net <= 0) return null;
+    const pay = Math.floor(P / tenor) + monthly;
+    if (pay * tenor <= net) return 0;
+    let lo = 0, hi = 1;
+    for (let i = 0; i < 60; i++) {
+      const m = (lo + hi) / 2;
+      const pv = pay * (1 - Math.pow(1 + m, -tenor)) / m;
+      if (pv > net) lo = m; else hi = m;
+    }
+    return lo * 100;
   }
 
   // Total sisa hutang pinjaman bunga TETAP (flat) yang bertenor = sisa pokok + sisa bunga kontrak yang belum dibayar
