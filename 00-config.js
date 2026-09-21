@@ -6,4 +6,4 @@
   // Ambil di: Supabase -> Project Settings -> API (atau API Keys) -> anon / publishable key.
   // ============================================================
   const SUPABASE_URL = 'https://zjqlblhbznhpmzposwto.supabase.co';
-  const SUPABASE_ANON_KEY = '';
+  const SUPABASE_ANON_KEY = 'sb_publishable_AgrqKY6LHxRyjveTwqBQlw_U_56wKEl';
