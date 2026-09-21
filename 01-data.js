@@ -127,11 +127,42 @@
     };
   }
 
-  function loadData() {
+  const CORRUPT_BACKUP_KEY = 'keuangan-app-data-v2-corrupt';
+  // Data di localStorage ada tapi tidak bisa dibaca (JSON rusak / bentuk salah): jangan ditimpa data contoh.
+  // Salinan mentahnya disimpan di key terpisah dan pengguna diberi peringatan. Data contoh yang dikembalikan
+  // hanya ada di memori (tidak disimpan) sampai pengguna sendiri mengubah sesuatu, supaya tidak terkirim ke cloud.
+  function handleCorruptData(raw, reason) {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) return JSON.parse(raw);
-    } catch (e) { console.error('load failed', e); }
+      if (localStorage.getItem(CORRUPT_BACKUP_KEY) !== raw) localStorage.setItem(CORRUPT_BACKUP_KEY, raw);
+    } catch (e) { console.error('backup data rusak gagal', e); }
+    console.error('data lokal tidak bisa dibaca:', reason);
+    showCorruptWarning();
+    return defaultData();
+  }
+  function showCorruptWarning() {
+    if (typeof document === 'undefined' || !document.body || document.getElementById('corrupt-data-toast')) return;
+    const el = document.createElement('div');
+    el.id = 'corrupt-data-toast';
+    el.setAttribute('role', 'alert');
+    el.style.cssText = 'position:fixed;left:12px;right:12px;bottom:88px;z-index:9999;background:#A13B2E;color:#fff;padding:12px 14px;border-radius:12px;font:600 13px/1.4 Inter,system-ui,sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.3);';
+    el.textContent = 'Data di perangkat ini tidak bisa dibaca. Salinannya diamankan (key keuangan-app-data-v2-corrupt). Yang tampil sekarang hanya data contoh: jangan ubah apa pun sebelum memulihkan dari backup JSON.';
+    el.onclick = () => el.remove();
+    document.body.appendChild(el);
+  }
+
+  function loadData() {
+    let raw = null;
+    try {
+      raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && Array.isArray(parsed.accounts) && Array.isArray(parsed.txns)) return parsed;
+        return handleCorruptData(raw, 'bentuk data tidak valid');
+      }
+    } catch (e) {
+      if (raw) return handleCorruptData(raw, e);
+      console.error('load failed', e);
+    }
 
     // migrate from old flat-txn format if present
     try {
