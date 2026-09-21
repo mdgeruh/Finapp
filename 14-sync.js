@@ -76,29 +76,69 @@
     if (ov) { ov.classList.remove('open'); ov.innerHTML = ''; }
   }
 
+  // ---------- Layar masuk: potongan markup & helper kecil ----------
+  const AUTH_EYE_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path class="slash" d="M4 4l16 16"/></svg>';
+
+  function authPasswordField(id, label, autocomplete, placeholder, labelExtra) {
+    return '<div class="auth-field">' +
+      '<div class="auth-label-row"><label for="' + id + '">' + label + '</label>' + (labelExtra || '') + '</div>' +
+      '<div class="auth-input-wrap">' +
+        '<input class="auth-input has-eye" id="' + id + '" type="password" autocomplete="' + autocomplete + '" placeholder="' + placeholder + '" autocapitalize="none" spellcheck="false">' +
+        '<button type="button" class="auth-eye" data-for="' + id + '" aria-label="Tampilkan kata sandi" aria-pressed="false">' + AUTH_EYE_SVG + '</button>' +
+      '</div></div>';
+  }
+  function authWireEyes(root) {
+    root.querySelectorAll('.auth-eye').forEach((b) => {
+      b.addEventListener('click', () => {
+        const input = document.getElementById(b.dataset.for);
+        if (!input) return;
+        const show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        b.classList.toggle('on', show);
+        b.setAttribute('aria-pressed', show ? 'true' : 'false');
+        b.setAttribute('aria-label', show ? 'Sembunyikan kata sandi' : 'Tampilkan kata sandi');
+      });
+    });
+  }
+  function authMsg(id, text, kind) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = text || '';
+    el.className = 'auth-msg' + (kind ? ' ' + kind : '');
+  }
+  function authBusy(btn, busy) {
+    btn.disabled = busy;
+    btn.classList.toggle('loading', busy);
+  }
+  function authShell(inner) {
+    return '<div class="auth-shell"><div class="auth-brand" aria-hidden="true">Rp</div>' + inner + '</div>';
+  }
+
   function syncShowLogin() {
     return new Promise((resolve) => {
       const ov = syncOverlay(true);
-      const linkBtnStyle = 'background:none;border:none;color:var(--ink-soft);text-decoration:underline;'
-        + 'font-size:13px;margin-top:12px;padding:4px;cursor:pointer;display:block;width:100%;text-align:center;';
 
-      function renderLoginView() {
-        ov.innerHTML =
-          '<div class="modal-box">' +
-            '<form id="sync-form" novalidate>' +
-              '<div class="sheet-title">Masuk untuk sinkron</div>' +
-              '<input id="sync-email" type="email" autocomplete="username" inputmode="email" placeholder="Email" aria-label="Email">' +
-              '<input id="sync-pass" type="password" autocomplete="current-password" placeholder="Kata sandi" aria-label="Kata sandi">' +
-              '<div id="sync-msg" class="sync-msg" role="status"></div>' +
-              '<div class="sync-choices">' +
-                '<button type="submit" id="sync-login-btn" class="modal-btn confirm">Masuk</button>' +
-                '<button type="button" id="sync-local-btn" class="modal-btn cancel">Pakai mode lokal dulu</button>' +
-              '</div>' +
-              '<button type="button" id="sync-forgot-btn" style="' + linkBtnStyle + '">Lupa password?</button>' +
-            '</form>' +
-          '</div>';
+      function renderLoginView(prefillEmail) {
+        ov.innerHTML = authShell(
+          '<form class="auth" id="sync-form" novalidate>' +
+            '<h2>Masuk</h2>' +
+            '<p class="auth-sub">Data keuanganmu disimpan di akun ini dan tersinkron ke semua perangkat.</p>' +
+            '<div class="auth-field">' +
+              '<div class="auth-label-row"><label for="sync-email">Email</label></div>' +
+              '<input class="auth-input" id="sync-email" type="email" autocomplete="username" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="nama@email.com" value="' + escapeHtml(prefillEmail || '').replace(/"/g, '&quot;') + '">' +
+            '</div>' +
+            authPasswordField('sync-pass', 'Kata sandi', 'current-password', 'Kata sandi',
+              '<button type="button" class="auth-link" id="sync-forgot-btn">Lupa kata sandi?</button>') +
+            '<div id="sync-msg" class="auth-msg" role="status" aria-live="polite"></div>' +
+            '<button type="submit" id="sync-login-btn" class="auth-btn">Masuk</button>' +
+            '<div class="auth-alt">' +
+              '<button type="button" id="sync-local-btn" class="auth-link">Pakai mode lokal dulu</button>' +
+              '<p class="auth-note">Data hanya tersimpan di perangkat ini sampai kamu masuk.</p>' +
+            '</div>' +
+          '</form>');
         ov.classList.add('open');
-        const msg = (t) => { document.getElementById('sync-msg').textContent = t; };
+        authWireEyes(ov);
         const btn = document.getElementById('sync-login-btn');
         document.getElementById('sync-local-btn').addEventListener('click', () => { syncCloseOverlay(); resolve(null); });
         document.getElementById('sync-forgot-btn').addEventListener('click', () => {
@@ -108,55 +148,58 @@
           e.preventDefault();
           const email = document.getElementById('sync-email').value.trim();
           const password = document.getElementById('sync-pass').value;
-          if (!email || !password) { msg('Isi email dan kata sandi.'); return; }
-          btn.disabled = true;
-          msg('Masuk…');
+          if (!email || !password) { authMsg('sync-msg', 'Isi email dan kata sandi.', 'error'); return; }
+          authMsg('sync-msg', '');
+          authBusy(btn, true);
           try {
             const { data, error } = await syncTimeout(sync.client.auth.signInWithPassword({ email, password }), 15000);
-            if (error || !data || !data.session) { msg('Email atau kata sandi salah, atau koneksi bermasalah.'); btn.disabled = false; return; }
+            if (error || !data || !data.session) { authMsg('sync-msg', 'Email atau kata sandi salah, atau koneksi bermasalah.', 'error'); authBusy(btn, false); return; }
             syncCloseOverlay();
             resolve(data.session);
           } catch (err) {
-            msg('Tidak bisa terhubung. Coba lagi, atau pakai mode lokal dulu.');
-            btn.disabled = false;
+            authMsg('sync-msg', 'Tidak bisa terhubung. Coba lagi, atau pakai mode lokal dulu.', 'error');
+            authBusy(btn, false);
           }
         });
-        setTimeout(() => { const el = document.getElementById('sync-email'); if (el) el.focus(); }, 50);
+        setTimeout(() => { const el = document.getElementById(prefillEmail ? 'sync-pass' : 'sync-email'); if (el) el.focus(); }, 50);
       }
 
-      // Sub-view "lupa password": kirim email reset lewat Supabase. Tautan di email itu akan
+      // Sub-view "lupa kata sandi": kirim email reset lewat Supabase. Tautan di email itu akan
       // membuka app ini lagi dengan sesi pemulihan sementara -> ditangkap event PASSWORD_RECOVERY
       // di syncBoot() yang lalu menampilkan syncShowSetNewPassword().
       function renderForgotView(prefillEmail) {
-        ov.innerHTML =
-          '<div class="modal-box">' +
-            '<form id="sync-forgot-form" novalidate>' +
-              '<div class="sheet-title">Reset password</div>' +
-              '<div class="acc-sub" style="margin-bottom:10px;">Link reset password akan dikirim ke email ini.</div>' +
-              '<input id="sync-forgot-email" type="email" autocomplete="username" inputmode="email" placeholder="Email" aria-label="Email" value="' + escapeHtml(prefillEmail || '') + '">' +
-              '<div id="sync-forgot-msg" class="sync-msg" role="status"></div>' +
-              '<div class="sync-choices">' +
-                '<button type="submit" id="sync-forgot-send-btn" class="modal-btn confirm">Kirim link reset</button>' +
-                '<button type="button" id="sync-forgot-back-btn" class="modal-btn cancel">Kembali</button>' +
-              '</div>' +
-            '</form>' +
-          '</div>';
-        const msg = (t) => { document.getElementById('sync-forgot-msg').textContent = t; };
-        document.getElementById('sync-forgot-back-btn').addEventListener('click', renderLoginView);
+        ov.innerHTML = authShell(
+          '<form class="auth" id="sync-forgot-form" novalidate>' +
+            '<h2>Atur ulang kata sandi</h2>' +
+            '<p class="auth-sub">Kami kirim tautan untuk membuat kata sandi baru ke email ini.</p>' +
+            '<div class="auth-field">' +
+              '<div class="auth-label-row"><label for="sync-forgot-email">Email</label></div>' +
+              '<input class="auth-input" id="sync-forgot-email" type="email" autocomplete="username" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="nama@email.com" value="' + escapeHtml(prefillEmail || '').replace(/"/g, '&quot;') + '">' +
+            '</div>' +
+            '<div id="sync-forgot-msg" class="auth-msg" role="status" aria-live="polite"></div>' +
+            '<button type="submit" id="sync-forgot-send-btn" class="auth-btn">Kirim tautan</button>' +
+            '<div class="auth-alt">' +
+              '<button type="button" id="sync-forgot-back-btn" class="auth-link">Kembali ke halaman masuk</button>' +
+            '</div>' +
+          '</form>');
+        document.getElementById('sync-forgot-back-btn').addEventListener('click', () => {
+          renderLoginView(document.getElementById('sync-forgot-email').value.trim());
+        });
         document.getElementById('sync-forgot-form').addEventListener('submit', async (e) => {
           e.preventDefault();
           const email = document.getElementById('sync-forgot-email').value.trim();
-          if (!email) { msg('Isi email dulu.'); return; }
+          if (!email) { authMsg('sync-forgot-msg', 'Isi email dulu.', 'error'); return; }
           const sendBtn = document.getElementById('sync-forgot-send-btn');
-          sendBtn.disabled = true;
-          msg('Mengirim…');
+          authMsg('sync-forgot-msg', '');
+          authBusy(sendBtn, true);
           try {
             const { error } = await syncTimeout(sync.client.auth.resetPasswordForEmail(email, { redirectTo: location.href }), 15000);
-            if (error) { msg('Gagal mengirim: ' + error.message); sendBtn.disabled = false; return; }
-            msg('Link reset dikirim. Cek email kamu, lalu buka link itu untuk atur password baru.');
+            if (error) { authMsg('sync-forgot-msg', 'Gagal mengirim: ' + error.message, 'error'); authBusy(sendBtn, false); return; }
+            authMsg('sync-forgot-msg', 'Tautan terkirim. Cek email kamu, lalu buka tautannya untuk membuat kata sandi baru.', 'ok');
+            authBusy(sendBtn, false);
           } catch (err) {
-            msg('Tidak bisa terhubung. Coba lagi.');
-            sendBtn.disabled = false;
+            authMsg('sync-forgot-msg', 'Tidak bisa terhubung. Coba lagi.', 'error');
+            authBusy(sendBtn, false);
           }
         });
         setTimeout(() => { const el = document.getElementById('sync-forgot-email'); if (el) el.focus(); }, 50);
@@ -167,37 +210,34 @@
   }
 
   // Ditampilkan saat Supabase mendeteksi sesi pemulihan password (link dari email reset).
-  // Setelah password baru disimpan, halaman dimuat ulang supaya syncBoot() jalan normal dari awal.
+  // Setelah kata sandi baru disimpan, halaman dimuat ulang supaya syncBoot() jalan normal dari awal.
   function syncShowSetNewPassword() {
     const ov = syncOverlay(true);
-    ov.innerHTML =
-      '<div class="modal-box">' +
-        '<form id="sync-newpass-form" novalidate>' +
-          '<div class="sheet-title">Atur password baru</div>' +
-          '<input id="sync-newpass" type="password" autocomplete="new-password" placeholder="Password baru (min 6 karakter)" aria-label="Password baru">' +
-          '<div id="sync-newpass-msg" class="sync-msg" role="status"></div>' +
-          '<div class="sync-choices">' +
-            '<button type="submit" id="sync-newpass-btn" class="modal-btn confirm">Simpan password</button>' +
-          '</div>' +
-        '</form>' +
-      '</div>';
+    ov.innerHTML = authShell(
+      '<form class="auth" id="sync-newpass-form" novalidate>' +
+        '<h2>Buat kata sandi baru</h2>' +
+        '<p class="auth-sub">Gunakan minimal 6 karakter. Setelah disimpan, kamu langsung masuk.</p>' +
+        authPasswordField('sync-newpass', 'Kata sandi baru', 'new-password', 'Kata sandi baru') +
+        '<div id="sync-newpass-msg" class="auth-msg" role="status" aria-live="polite"></div>' +
+        '<button type="submit" id="sync-newpass-btn" class="auth-btn">Simpan kata sandi</button>' +
+      '</form>');
     ov.classList.add('open');
-    const msg = (t) => { document.getElementById('sync-newpass-msg').textContent = t; };
+    authWireEyes(ov);
     const btn = document.getElementById('sync-newpass-btn');
     document.getElementById('sync-newpass-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const pass = document.getElementById('sync-newpass').value;
-      if (!pass || pass.length < 6) { msg('Password minimal 6 karakter.'); return; }
-      btn.disabled = true;
-      msg('Menyimpan…');
+      if (!pass || pass.length < 6) { authMsg('sync-newpass-msg', 'Kata sandi minimal 6 karakter.', 'error'); return; }
+      authMsg('sync-newpass-msg', '');
+      authBusy(btn, true);
       try {
         const { error } = await syncTimeout(sync.client.auth.updateUser({ password: pass }), 15000);
-        if (error) { msg('Gagal menyimpan: ' + error.message); btn.disabled = false; return; }
+        if (error) { authMsg('sync-newpass-msg', 'Gagal menyimpan: ' + error.message, 'error'); authBusy(btn, false); return; }
         syncCloseOverlay();
         location.reload();
       } catch (err) {
-        msg('Tidak bisa terhubung. Coba lagi.');
-        btn.disabled = false;
+        authMsg('sync-newpass-msg', 'Tidak bisa terhubung. Coba lagi.', 'error');
+        authBusy(btn, false);
       }
     });
     setTimeout(() => { const el = document.getElementById('sync-newpass'); if (el) el.focus(); }, 50);

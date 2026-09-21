@@ -2,6 +2,14 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.009 — 21 Sep 2026
+
+**Diubah** (sinkron cloud)
+- **Layar masuk didesain ulang**: tanpa kotak modal, satu kolom bersih dengan logo "Rp", judul serif, label di atas kolom, tombol tampil/sembunyikan kata sandi, tombol utama dengan indikator loading, dan pesan galat/sukses di bawah kolom. Mengikuti tema terang/gelap
+- Layar **lupa kata sandi** dan **kata sandi baru** memakai tampilan yang sama. Email yang sudah diketik ikut terbawa saat pindah antar layar
+- Ukuran teks kolom isian 16px supaya iOS tidak memperbesar layar saat mengetik. Layar bisa digulir di HP berlayar pendek
+- Istilah diseragamkan jadi "kata sandi" (sebelumnya campur dengan "password")
+
 ## v1.1.008 — 21 Sep 2026
 
 **Diperbaiki**
