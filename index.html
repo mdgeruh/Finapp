@@ -27,8 +27,6 @@
           <button class="settings-btn" onclick="toggleSettingsMenu()" aria-label="Pengaturan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></button>
           <div class="settings-menu" id="settings-menu">
             <button onclick="goToSettingsTab('profil')">Profil</button>
-            <button onclick="goToSettingsTab('akun')">Akun</button>
-            <button onclick="goToSettingsTab('data')">Data &amp; Export</button>
             <button id="theme-toggle-btn" onclick="cycleTheme()">Tampilan: Sistem</button>
             <button id="sync-menu-login-btn" onclick="syncLoginFromMenu()" style="display:none">Masuk untuk sinkron</button>
             <button id="sync-logout-btn" onclick="syncLogout()" style="display:none"></button>
@@ -743,11 +741,15 @@
   <div class="bottom-nav">
     <button class="nav-btn active" data-tab="ringkasan" onclick="setTab('ringkasan')">
       <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h3v-6h6v6h3a1 1 0 0 0 1-1v-9"/></svg>
-      Ringkasan
+      <span class="nav-btn-label">Ringkasan</span>
+    </button>
+    <button class="nav-btn" data-tab="akun" onclick="setTab('akun')">
+      <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="13" rx="2.5"/><line x1="2.5" y1="10.5" x2="21.5" y2="10.5"/></svg>
+      <span class="nav-btn-label">Akun</span>
     </button>
     <button class="nav-btn" data-tab="transaksi" onclick="setTab('transaksi')">
       <svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
-      Transaksi
+      <span class="nav-btn-label">Transaksi</span>
     </button>
     <button class="nav-fab" id="nav-fab" onclick="goToAdd()" aria-label="Tambah transaksi" title="Tambah transaksi">
       <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -755,11 +757,15 @@
     </button>
     <button class="nav-btn" data-tab="titipan" onclick="setTab('titipan')">
       <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M4 20c0-3 2.3-5 5-5s5 2 5 5"/><circle cx="17" cy="9.5" r="2.3"/><path d="M15.2 20c.3-1.9 1.6-3.4 3.3-3.8"/></svg>
-      Titipan
+      <span class="nav-btn-label">Titipan</span>
     </button>
     <button class="nav-btn" data-tab="laporan" onclick="setTab('laporan')">
       <svg viewBox="0 0 24 24"><line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="18" y1="20" x2="18" y2="15"/></svg>
-      Laporan
+      <span class="nav-btn-label">Laporan</span>
+    </button>
+    <button class="nav-btn" data-tab="data" onclick="setTab('data')">
+      <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6.5c0 1.7 3.6 3 8 3s8-1.3 8-3V5.5"/><path d="M4 12v6.5c0 1.7 3.6 3 8 3s8-1.3 8-3V12"/></svg>
+      <span class="nav-btn-label">Data</span>
     </button>
   </div>
 </div>

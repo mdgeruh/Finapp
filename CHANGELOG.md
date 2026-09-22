@@ -2,6 +2,16 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.023 — 23 Sep 2026
+
+**Ditambah**
+- **Tab "Akun" dan "Data" dipindah ke nav bawah** (sebelumnya cuma bisa dibuka lewat menu pengaturan ⚙️): nav bawah sekarang berisi 6 tab — Ringkasan, Akun, Transaksi, Titipan, Laporan, Data — plus tombol + melayang terpisah. Ikon kartu (Akun) dan ikon database (Data) baru ditambahkan senada gaya ikon nav lain. Entri "Akun" & "Data & Export" di menu pengaturan dihapus (redundan), "Profil" tetap di sana. Ukuran font/ikon nav dikecilkan sedikit dan label dibungkus `<span>` supaya bisa ellipsis (…) kalau kepanjangan di layar sempit, supaya 6 tab tetap muat rapi
+
+## v1.1.022 — 23 Sep 2026
+
+**Diubah**
+- **Tombol + (catat transaksi) di nav bawah diganti jadi FAB (floating action button) yang melayang lepas** di pojok kanan bawah layar, bukan lagi menyatu di tengah baris nav — juga berlaku di tampilan desktop (sebelumnya di desktop tombol ini jadi tombol lebar biasa di atas menu sidebar). Empat tombol nav lainnya otomatis membagi rata ruang yang ditinggalkan
+
 ## v1.1.021 — 23 Sep 2026
 
 **Diubah**
