@@ -451,7 +451,7 @@
         if (rem.total <= 0) return;
         const sch = lapLoanSchedule(data, acc, bal);
         const pokokAwal = Math.abs(acc.originalPrincipal || acc.initialBalance || 0);
-        const monthlyCost = pokokAwal > 0 ? computeLoanMonthlyInterest(data, acc) / pokokAwal * 100 : 0;
+        const monthlyCost = pokokAwal > 0 ? computeLoanMonthlyInterest(data, acc, bal) / pokokAwal * 100 : 0;
         const item = { acc, rem, sch, due, monthlyCost, effMonthly: loanEffectiveMonthlyRate(data, acc), total: rem.total };
         (acc.type === 'pinjaman_online' ? res.online : res.bank).push(item);
       }
@@ -726,7 +726,7 @@
         if (rem.total <= 0 && bal >= 0) return;
         const awal = (acc.loanAdminMode === 'cicil' ? 0 : (acc.loanAdminFee || 0)) + (acc.loanStampFee || 0);
         const tenor = acc.loanTenorMonths || 0;
-        const monthly = computeLoanMonthlyInterest(data, acc);
+        const monthly = computeLoanMonthlyInterest(data, acc, bal);
         const isMenurun = acc.loanInterestType === 'menurun';
         const kindBase = acc.type === 'pinjaman_online' ? 'Pinjol' : 'Pinjaman bank';
         // Kalau jadwalnya bisa dibuat (tenor + tanggal pencairan, dan untuk bunga menurun juga suku

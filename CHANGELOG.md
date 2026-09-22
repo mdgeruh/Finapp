@@ -2,6 +2,11 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.018 — 22 Sep 2026
+
+**Dioptimalkan** (performa, tidak ada perubahan tampilan/perilaku)
+- **Hitung bunga pinjaman bunga TETAP dipercepat:** `computeLoanMonthlyInterest()` sebelumnya selalu scan ulang SELURUH `data.txns` lewat `accountBalance()` untuk menghitung `sisaPokok`, padahal nilai itu cuma dipakai untuk pinjaman bunga **menurun** — pinjaman **tetap/flat** memakai pokok awal, bukan sisa pokok, jadi scan itu sia-sia untuk jenis ini. Sekarang scan itu hanya dijalankan kalau jenis bunganya memang menurun, dan fungsi ini juga menerima `bal` opsional (dari `computeAllBalances()`) supaya pemanggil yang sudah punya saldo tidak perlu scan ulang sama sekali. Dampak terasa di tab Akun & Laporan kalau jumlah akun pinjaman dan transaksi sudah banyak — hasil perhitungan sama persis, cuma lebih cepat
+
 ## v1.1.017 — 22 Sep 2026
 
 **Dioptimalkan** (performa, tidak ada perubahan tampilan/perilaku)

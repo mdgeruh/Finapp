@@ -341,13 +341,21 @@
     if (acc.loanAdminMode === 'cicil' && (acc.loanAdminPercent || 0) > 0 && tenor > 0) f += pokokAwal * acc.loanAdminPercent / 100 / tenor;
     return f;
   }
-  function computeLoanMonthlyInterest(data, acc) {
+  // `bal` opsional: kalau pemanggil sudah punya saldo akun ini (dari computeAllBalances()
+  // atau parameter yang diteruskan), kirim ke sini supaya tidak scan ulang SELURUH data.txns
+  // lewat accountBalance() -- terutama sia-sia untuk pinjaman bunga TETAP, yang sebenarnya
+  // tidak butuh sisaPokok sama sekali (base-nya pokokAwal, bukan sisaPokok).
+  function computeLoanMonthlyInterest(data, acc, bal) {
     const rate = acc.loanRatePercent || 0;
     const fees = loanMonthlyFees(acc);
     if (rate <= 0 && fees <= 0) return 0;
     const rateMonthly = acc.loanRateUnit === 'bulan' ? (rate / 100) : (rate / 100 / 12);
     const pokokAwal = Math.abs(acc.originalPrincipal || acc.initialBalance || 0);
-    const sisaPokok = Math.max(0, -accountBalance(data, acc.id));
+    // sisaPokok cuma dipakai untuk bunga menurun -- jangan hitung (apalagi scan penuh
+    // via accountBalance) kalau jenisnya bukan itu.
+    const sisaPokok = acc.loanInterestType === 'menurun'
+      ? Math.max(0, -(bal === undefined ? accountBalance(data, acc.id) : bal))
+      : 0;
     const base = acc.loanInterestType === 'menurun' ? sisaPokok : pokokAwal;
     return Math.round((rate > 0 ? base * rateMonthly : 0) + fees);
   }
@@ -404,7 +412,7 @@
       return res;
     }
     const tenor = acc.loanTenorMonths || 0;
-    const monthly = computeLoanMonthlyInterest(data, acc);
+    const monthly = computeLoanMonthlyInterest(data, acc, sisaPokok);
     if (tenor <= 0 || monthly <= 0) return res;
     const init = Math.abs(acc.initialBalance || 0);
     const orig = Math.abs(acc.originalPrincipal || 0);
@@ -489,7 +497,7 @@
       return { rows, paid, tenor: rows.length, next: paid < rows.length ? rows[paid] : null };
     }
 
-    const bunga = computeLoanMonthlyInterest(data, acc);
+    const bunga = computeLoanMonthlyInterest(data, acc, sisaPokok);
     const pokokPer = Math.floor(pokokAwal / tenor);
     const paid = sisaPokok <= 0 ? tenor : (pokokPer > 0 ? Math.min(tenor, Math.floor((pokokAwal - sisaPokok + 1) / pokokPer)) : 0);
     const rows = [];
