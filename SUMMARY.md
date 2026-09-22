@@ -1,6 +1,6 @@
 # Ringkasan: Keuangan Pribadi
 
-Ringkasan analisis dan perubahan pada proyek **Keuangan Pribadi** (v1.1.007 menjadi **v1.1.019**), tanggal 22 Sep 2026.
+Ringkasan analisis dan perubahan pada proyek **Keuangan Pribadi** (v1.1.007 menjadi **v1.1.020**), tanggal 22 Sep 2026.
 
 ## 1. Gambaran proyek
 
@@ -94,23 +94,28 @@ Aplikasi pencatatan keuangan pribadi berbasis web statis: HTML + CSS + JavaScrip
 - Memunculkan opsi "Install"/"Tambahkan ke Layar utama" yang membuka app di jendela sendiri (tanpa address bar) di HP dan desktop.
 - **Catatan:** prompt install otomatis Chrome butuh app di-host lewat `http://`/`https://` (mis. `python3 -m http.server`, GitHub Pages) — dibuka langsung dari `file://` tetap jalan normal, cuma tanpa prompt install otomatis.
 
+### v1.1.020: color scheme & tipografi ("Modern mint")
+- Palet diganti total: dasar abu-hijau sejuk (`#F3F6F4`), kartu putih bersih, primer mint cerah (`#14B88A`), aksen koral (`#FF6B4A`) — menjauh dari kombinasi krem+serif+terracotta lama yang dianggap "klise AI". Mode gelap disegarkan senada.
+- Font judul diganti dari Fraunces (serif) ke Space Grotesk (sans modern); body tetap Inter.
+- Ikon PWA dan `manifest.json` ikut disesuaikan ke palet baru. Murni visual, tidak ada perubahan logika.
+
 ## 4. File yang berubah
 
-| File | 008 | 009 | 010 | 011 | 012 | 013 | 014 | 015 | 016 | 017 | 018 | 019 |
-|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| `01-data.js` | ✓ |  |  | ✓ (komentar) |  |  |  | ✓ | ✓ | ✓ | ✓ |  |
-| `02-navigasi.js` |  |  |  | ✓ |  |  |  |  |  |  |  |  |
-| `12-render-utama.js` (versi) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `14-sync.js` |  | ✓ | ✓ | ✓ |  |  |  |  |  |  |  |  |
-| `15-startup.js` | ✓ |  |  |  |  |  |  |  |  |  |  |  |
-| `index.html` |  |  | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |  |  | ✓ |
-| `style.css` |  | ✓ |  |  | ✓ | ✓ | ✓ |  |  |  |  |  |
-| `04-akun.js` |  |  |  |  |  |  |  | ✓ | ✓ |  |  |  |
-| `11-laporan.js` |  |  |  |  |  |  |  | ✓ | ✓ |  | ✓ |  |
-| `README.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |
-| `CHANGELOG.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `manifest.json` *(baru)* |  |  |  |  |  |  |  |  |  |  |  | ✓ |
-| `icon-192.png`, `icon-512.png`, `icon-maskable-*.png` *(baru)* |  |  |  |  |  |  |  |  |  |  |  | ✓ |
+| File | 008 | 009 | 010 | 011 | 012 | 013 | 014 | 015 | 016 | 017 | 018 | 019 | 020 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| `01-data.js` | ✓ |  |  | ✓ (komentar) |  |  |  | ✓ | ✓ | ✓ | ✓ |  |  |
+| `02-navigasi.js` |  |  |  | ✓ |  |  |  |  |  |  |  |  |  |
+| `12-render-utama.js` (versi) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `14-sync.js` |  | ✓ | ✓ | ✓ |  |  |  |  |  |  |  |  |  |
+| `15-startup.js` | ✓ |  |  |  |  |  |  |  |  |  |  |  |  |
+| `index.html` |  |  | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |  |  | ✓ | ✓ |
+| `style.css` |  | ✓ |  |  | ✓ | ✓ | ✓ |  |  |  |  |  | ✓ |
+| `04-akun.js` |  |  |  |  |  |  |  | ✓ | ✓ |  |  |  |  |
+| `11-laporan.js` |  |  |  |  |  |  |  | ✓ | ✓ |  | ✓ |  |  |
+| `README.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |  |
+| `CHANGELOG.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `manifest.json` *(baru v019)* |  |  |  |  |  |  |  |  |  |  |  | ✓ | ✓ |
+| `icon-192.png`, `icon-512.png`, `icon-maskable-*.png` *(baru v019)* |  |  |  |  |  |  |  |  |  |  |  | ✓ | ✓ |
 
 ### v1.1.016: anuitas & jadwal untuk bunga menurun, tenor untuk pinjaman bank
 - Angsuran anuitas (PMT) dihitung otomatis kalau pokok, tenor, dan suku bunga diisi.

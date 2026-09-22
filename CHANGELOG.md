@@ -2,10 +2,19 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.020 — 22 Sep 2026
+
+**Diubah** (color scheme & tipografi — "Modern mint")
+- **Palet warna diganti total,** menjauh dari kombinasi krem+serif+terracotta lama: dasar sekarang abu-hijau sejuk nyaris putih (`--paper: #F3F6F4`), kartu putih bersih dengan border tipis (`--card: #FFFFFF`, sebelumnya `#FDFBF5` hampir menyatu dengan `--paper`), warna utama jadi mint cerah (`--teal: #14B88A`, sebelumnya hijau tua muram `#1F4B43`), dan aksen jadi koral hangat (`--rust: #FF6B4A`, sebelumnya rust `#A9532B`). Mode gelap ikut disegarkan senada (dasar `#0F1613`, mint `#3DDC97`). Warna semantik lain (hijau/merah/biru/ungu/kuning) ikut dicerahkan tipis biar senada
+- **Font judul diganti dari Fraunces (serif) ke Space Grotesk (sans modern)** — dipakai di `h1`, saldo besar di Ringkasan, jumlah di detail transaksi, dan layar login (logo + judul). Body text tetap Inter
+- Warna shadow/overlay modal disesuaikan dari coklat hangat ke gelap kehijauan biar senada palet baru
+- Ikon PWA (`icon-*.png`, ditambahkan di v1.1.019) dan `manifest.json` (`theme_color`, `background_color`) ikut diperbarui ke palet baru
+- Tidak ada perubahan struktur/logika — murni visual
+
 ## v1.1.019 — 22 Sep 2026
 
 **Ditambah**
-- **Bisa di-install sebagai app (PWA):** menambahkan `manifest.json` + ikon (`icon-192.png`, `icon-512.png`, dan versi maskable-nya) serta tag terkait di `index.html`. Di HP (Android/iOS) dan desktop, ini memunculkan opsi "Install" / "Add to Home Screen" yang membuka app di jendela sendiri (tanpa address bar), bukan sekadar shortcut tab browser. **Catatan:** prompt install resmi Chrome butuh app di-host lewat HTTP/HTTPS (mis. `python3 -m http.server`, atau GitHub Pages) — dibuka langsung dari `file://` tetap bisa dipakai seperti biasa, tapi tanpa prompt install otomatis
+- **Bisa di-install sebagai app (PWA):** menambahkan `manifest.json` + ikon (`icon-192.png`, `icon-512.png`, dan versi maskable-nya — motif dompet + koin, warna teal/krem/rust sesuai skema app) serta tag terkait di `index.html`. Di HP (Android/iOS) dan desktop, ini memunculkan opsi "Install" / "Add to Home Screen" yang membuka app di jendela sendiri (tanpa address bar), bukan sekadar shortcut tab browser. **Catatan:** prompt install resmi Chrome butuh app di-host lewat HTTP/HTTPS (mis. `python3 -m http.server`, atau GitHub Pages) — dibuka langsung dari `file://` tetap bisa dipakai seperti biasa, tapi tanpa prompt install otomatis
 
 ## v1.1.018 — 22 Sep 2026
 
