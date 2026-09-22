@@ -17,6 +17,10 @@
    */
   const STORAGE_KEY = 'keuangan-app-data-v2';
   const OLD_STORAGE_KEY = 'keuangan-harian-txns';
+  // Virtualisasi ringan daftar transaksi: daripada bangun SEMUA baris transaksi yang lolos filter
+  // (bisa ribuan kalau jurnal sudah lama jalan), render() hanya menggambar TXN_PAGE_SIZE transaksi
+  // dulu lalu ada tombol "Muat lebih banyak" (lihat loadMoreTxns() di 12-render-utama.js).
+  const TXN_PAGE_SIZE = 80;
 
   let idCounter = 0;
 
@@ -85,6 +89,7 @@
     txnMonth: 'cur', // 'cur' = bulan berjalan (otomatis ikut ganti bulan), 'YYYY-MM', atau 'all'
     balanceHidden: false,
     collapsedDays: {},
+    txnRenderLimit: TXN_PAGE_SIZE, // di-reset ke TXN_PAGE_SIZE tiap ganti filter/urutan/cari/bulan (lihat refreshTxnList)
     // Laporan tab state
     laporanPeriod: 'harian',
     laporanProjDays: 30,

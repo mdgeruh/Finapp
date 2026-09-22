@@ -1,0 +1,5327 @@
+{
+  "exported_at": "2026-09-21T23:24:23.381Z",
+  "accounts": [
+    {
+      "id": "acc-muapzdjjwbbeyb9",
+      "name": "bank Mandiri",
+      "type": "bank",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjj0zlefea",
+      "name": "Bank Pasar Bangli",
+      "type": "bank",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjjmojmjfb",
+      "name": "Bank Jago",
+      "type": "bank",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjjgskbcjc",
+      "name": "Kartu Kredit Honest",
+      "type": "kartu_kredit",
+      "limit": 1000000,
+      "feeDay": 28,
+      "feeType": "percent",
+      "feeAmount": 3,
+      "cardMinType": "percent",
+      "cardMinValue": 5,
+      "initialBalance": 0,
+      "interestPercent": 1.75,
+      "cardStatementDay": 17
+    },
+    {
+      "id": "acc-muapzdjj5s073id",
+      "name": "Jenius",
+      "type": "bank",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjjq7p6efe",
+      "name": "Kartu Kredit Jenius",
+      "type": "kartu_kredit",
+      "limit": 2000000,
+      "feeDay": 6,
+      "feeAmount": 5000,
+      "cardMinType": "percent",
+      "cardMinValue": 5,
+      "initialBalance": 0,
+      "interestPercent": 1.75,
+      "cardStatementDay": 20,
+      "lastFeeAppliedMonth": "2026-09"
+    },
+    {
+      "id": "acc-muapzdjj1yp8edg",
+      "name": "Kartu Kredit Nex BRI",
+      "type": "kartu_kredit",
+      "limit": 10000000,
+      "feeDay": 6,
+      "feeAmount": 10000,
+      "cardMinType": "percent",
+      "cardMinValue": 5,
+      "initialBalance": -9724246,
+      "interestPercent": 1.75,
+      "cardStatementDay": 20,
+      "lastFeeAppliedMonth": "2026-09"
+    },
+    {
+      "id": "acc-muapzdjluenuqih",
+      "name": "Kartu Kredit Tokopedia Card BRI",
+      "type": "kartu_kredit",
+      "limit": 10500000,
+      "feeDay": 2,
+      "feeAmount": 5000,
+      "cardMinType": "percent",
+      "cardMinValue": 5,
+      "initialBalance": 0,
+      "interestPercent": 1.75,
+      "cardStatementDay": 17,
+      "lastFeeAppliedMonth": "2026-09"
+    },
+    {
+      "id": "acc-muapzdjl0qxyyzi",
+      "name": "Shopee PayLater",
+      "type": "paylater",
+      "limit": 13500000,
+      "plans": [
+        {
+          "id": "idmu7mwb3xoj4u0e",
+          "date": "2026-08-29",
+          "desc": "Cangkul Baja Tajam Gagang Kayu - Cocok Untuk Bertani & Berkebun",
+          "admin": 0,
+          "bunga": 25287,
+          "pokok": 142701,
+          "tenor": 6,
+          "total": 167988,
+          "monthly": 27998,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x74xbh5",
+          "date": "2026-09-12",
+          "desc": "SET BLAKAS MUTIK handle motif garis",
+          "admin": 0,
+          "bunga": 23100,
+          "pokok": 261009,
+          "tenor": 3,
+          "total": 284109,
+          "monthly": 94703,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x25h03v",
+          "date": "2026-08-26",
+          "desc": "Sink cuci piring stainless steel 304 untuk digunakan di rumah, dapur, sederhana",
+          "admin": 0,
+          "bunga": 72133,
+          "pokok": 407079,
+          "tenor": 6,
+          "total": 479212,
+          "monthly": 79869,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x8zg2zv",
+          "date": "2026-04-15",
+          "desc": "One Two Cups Hand Press Mini Espresso Coffee Maker 3 in 1 20 Bar 120ml - HS-",
+          "admin": 0,
+          "bunga": 63526,
+          "pokok": 358510,
+          "tenor": 6,
+          "total": 422036,
+          "monthly": 70339,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xv9obtn",
+          "date": "2026-04-01",
+          "desc": "XL 300.000",
+          "admin": 0,
+          "bunga": 53158,
+          "pokok": 299995,
+          "tenor": 6,
+          "total": 353153,
+          "monthly": 58859,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xm1xygm",
+          "date": "2026-04-13",
+          "desc": "Planter bag kediri 40x40 Cm planterbag 50 liter pot untuk media tanam tabulampot",
+          "admin": 0,
+          "bunga": 18915,
+          "pokok": 106745,
+          "tenor": 6,
+          "total": 125660,
+          "monthly": 20943,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x2q80dn",
+          "date": "2026-03-25",
+          "desc": "Dikonversi - PALET HITAM ALAS KANDANG PLASTIK HEWAN 100 X 50 X ...",
+          "admin": 0,
+          "bunga": 61615,
+          "pokok": 174100,
+          "tenor": 12,
+          "total": 235715,
+          "monthly": 19643,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x5lb4iw",
+          "date": "2026-07-27",
+          "desc": "MALLVOSE - Chino Long Pants Celana Pria Slimfit Black Strech Adem",
+          "admin": 0,
+          "bunga": 10548,
+          "pokok": 119200,
+          "tenor": 3,
+          "total": 119200,
+          "monthly": 43249,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xzs51ha",
+          "date": "2026-03-24",
+          "desc": "Dikonversi - BUNCIS LOGAWA F1, 500 GR",
+          "admin": 0,
+          "bunga": 62642,
+          "pokok": 177000,
+          "tenor": 12,
+          "total": 239642,
+          "monthly": 19970,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xifxm94",
+          "date": "2026-03-24",
+          "desc": "Dikonversi - Jas Hujan HOODIE KANGGURU Pria Dan Wanita by VANZIO",
+          "admin": 0,
+          "bunga": 40566,
+          "pokok": 114628,
+          "tenor": 12,
+          "total": 155194,
+          "monthly": 12933,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xckz7qx",
+          "date": "2026-03-24",
+          "desc": "Dikonversi - Piringan Cakram Disc Depan 260MM Beat Scoopy Vario 110/125/150",
+          "admin": 0,
+          "bunga": 38758,
+          "pokok": 109500,
+          "tenor": 12,
+          "total": 148258,
+          "monthly": 12355,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x0yx9ul",
+          "date": "2026-03-24",
+          "desc": "Dikonversi - Ezviz C6N 2MP Smart Home IP Camera CCTV Indoor w/SD Card",
+          "admin": 0,
+          "bunga": 469103,
+          "pokok": 1325500,
+          "tenor": 12,
+          "total": 1794603,
+          "monthly": 149550,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xlb2qff",
+          "date": "2026-03-24",
+          "desc": "Dikonversi - INDOSAT 50.000",
+          "admin": 0,
+          "bunga": 16851,
+          "pokok": 47600,
+          "tenor": 12,
+          "total": 64451,
+          "monthly": 5371,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xkc4if9",
+          "date": "2026-03-24",
+          "desc": "Dikonversi - FERZIA - SOFT CASE HP OPPO RENO 14 / 14 PRO / 14F SILIKON MATTE",
+          "admin": 0,
+          "bunga": 24495,
+          "pokok": 69213,
+          "tenor": 12,
+          "total": 93708,
+          "monthly": 7809,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xckfktk",
+          "date": "2026-03-24",
+          "desc": "Dikonversi - Urban Cover Motor Honda Vario 100% Waterproof / Aksesoris Motor",
+          "admin": 0,
+          "bunga": 26367,
+          "pokok": 74500,
+          "tenor": 12,
+          "total": 100867,
+          "monthly": 8406,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x2hsmvr",
+          "date": "2026-03-24",
+          "desc": "Dikonversi - XL 300.000",
+          "admin": 0,
+          "bunga": 106171,
+          "pokok": 299995,
+          "tenor": 12,
+          "total": 406166,
+          "monthly": 33847,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x5rc3qb",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - (tanpa nama produk)",
+          "admin": 0,
+          "bunga": 12566,
+          "pokok": 35520,
+          "tenor": 12,
+          "total": 48086,
+          "monthly": 4007,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x79kye2",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - (tanpa nama produk)",
+          "admin": 0,
+          "bunga": 27108,
+          "pokok": 76590,
+          "tenor": 12,
+          "total": 103698,
+          "monthly": 8642,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xcqiiym",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+          "admin": 0,
+          "bunga": 9204,
+          "pokok": 26000,
+          "tenor": 12,
+          "total": 35204,
+          "monthly": 2934,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x8gi97h",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+          "admin": 0,
+          "bunga": 42402,
+          "pokok": 119800,
+          "tenor": 12,
+          "total": 162202,
+          "monthly": 13517,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xox88qg",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET",
+          "admin": 0,
+          "bunga": 83895,
+          "pokok": 237042,
+          "tenor": 12,
+          "total": 320937,
+          "monthly": 26745,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xy6284t",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - Indosat 20.000",
+          "admin": 0,
+          "bunga": 7423,
+          "pokok": 20975,
+          "tenor": 12,
+          "total": 28398,
+          "monthly": 2366,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xz0xofw",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - Promo Freedom Internet 22GB / 14 Hari",
+          "admin": 0,
+          "bunga": 17696,
+          "pokok": 50000,
+          "tenor": 12,
+          "total": 67696,
+          "monthly": 5641,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xdijnof",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+          "admin": 0,
+          "bunga": 28313,
+          "pokok": 80000,
+          "tenor": 12,
+          "total": 108313,
+          "monthly": 9026,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xx6nfw0",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - Casing Remote All New Avanza 2012-2015",
+          "admin": 0,
+          "bunga": 14475,
+          "pokok": 40900,
+          "tenor": 12,
+          "total": 55375,
+          "monthly": 4615,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xyiio9r",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - Token PLN 50.000",
+          "admin": 0,
+          "bunga": 17696,
+          "pokok": 50000,
+          "tenor": 12,
+          "total": 67696,
+          "monthly": 5641,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x4xanup",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+          "admin": 0,
+          "bunga": 48276,
+          "pokok": 136400,
+          "tenor": 12,
+          "total": 184676,
+          "monthly": 15390,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xzft0gm",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - KAB. BADUNG",
+          "admin": 0,
+          "bunga": 8951,
+          "pokok": 25292,
+          "tenor": 12,
+          "total": 34243,
+          "monthly": 2854,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xfrd6xp",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar",
+          "admin": 0,
+          "bunga": 17485,
+          "pokok": 49405,
+          "tenor": 12,
+          "total": 66890,
+          "monthly": 5574,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xsy96gq",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home",
+          "admin": 0,
+          "bunga": 46078,
+          "pokok": 130200,
+          "tenor": 12,
+          "total": 176278,
+          "monthly": 14690,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xdavkce",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - Token PLN 100.000",
+          "admin": 0,
+          "bunga": 35389,
+          "pokok": 100000,
+          "tenor": 12,
+          "total": 135389,
+          "monthly": 11282,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xg07ala",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA",
+          "admin": 0,
+          "bunga": 63033,
+          "pokok": 178108,
+          "tenor": 12,
+          "total": 241141,
+          "monthly": 20095,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xcs7ger",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+          "admin": 0,
+          "bunga": 23362,
+          "pokok": 66000,
+          "tenor": 12,
+          "total": 89362,
+          "monthly": 7447,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3x6cyd51",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+          "admin": 0,
+          "bunga": 24102,
+          "pokok": 68100,
+          "tenor": 12,
+          "total": 92202,
+          "monthly": 7684,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xdq9o9u",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+          "admin": 0,
+          "bunga": 9204,
+          "pokok": 26000,
+          "tenor": 12,
+          "total": 35204,
+          "monthly": 2934,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xm6ib99",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - Indosat 20.000",
+          "admin": 0,
+          "bunga": 7432,
+          "pokok": 20995,
+          "tenor": 12,
+          "total": 28427,
+          "monthly": 2369,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xapjbng",
+          "date": "2026-05-02",
+          "desc": "XL 300.000",
+          "admin": 0,
+          "bunga": 53105,
+          "pokok": 299700,
+          "tenor": 6,
+          "total": 352805,
+          "monthly": 58801,
+          "ratePercent": 2.95
+        },
+        {
+          "id": "idmu7mwb3xpwxjiu",
+          "date": "2026-01-11",
+          "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+          "admin": 0,
+          "bunga": 17696,
+          "pokok": 50000,
+          "tenor": 12,
+          "total": 67696,
+          "monthly": 5641,
+          "ratePercent": 2.95
+        }
+      ],
+      "feeDay": 11,
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjmzo6pmuj",
+      "name": "Bank",
+      "type": "bank",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjn181gcfk",
+      "name": "Shopee Pinjam Des 2025",
+      "type": "pinjaman_online",
+      "loanDueDay": 22,
+      "loanAdminFee": 123900,
+      "loanRateUnit": "bulan",
+      "loanStartDate": "2026-08-09",
+      "initialBalance": -620040,
+      "loanInstallment": 590567,
+      "loanRatePercent": 2.95,
+      "loanTenorMonths": 9,
+      "loanAdminPercent": 2.95,
+      "loanInterestType": "tetap",
+      "originalPrincipal": 4200000
+    },
+    {
+      "id": "acc-muapzdjnizwjvgl",
+      "name": "Shopee Pinjam Feb 2026",
+      "type": "pinjaman_online",
+      "loanDueDay": 18,
+      "loanRateUnit": "bulan",
+      "loanStartDate": "2026-02-18",
+      "initialBalance": -590434,
+      "loanInstallment": 392241,
+      "loanRatePercent": 2.95,
+      "loanTenorMonths": 9,
+      "loanInterestType": "tetap",
+      "originalPrincipal": 2656957,
+      "loanInsurancePercent": 0.15
+    },
+    {
+      "id": "acc-muapzdjnleu6kzm",
+      "name": "Shopee Pinjam Mar 2026",
+      "type": "pinjaman_online",
+      "loanDueDay": 11,
+      "loanRateUnit": "bulan",
+      "loanStartDate": "2026-03-11",
+      "initialBalance": -551062,
+      "loanInstallment": 286229,
+      "loanRatePercent": 2.95,
+      "loanTenorMonths": 9,
+      "loanInterestType": "tetap",
+      "originalPrincipal": 1938851,
+      "loanInsurancePercent": 0.15
+    },
+    {
+      "id": "acc-muapzdjn1zt0gyn",
+      "name": "Shopee Pinjam Apr 2026",
+      "type": "pinjaman_online",
+      "loanDueDay": 22,
+      "loanRateUnit": "bulan",
+      "loanStartDate": "2026-04-22",
+      "initialBalance": -1092114,
+      "loanInstallment": 546057,
+      "loanRatePercent": 2.95,
+      "loanTenorMonths": 9,
+      "loanInterestType": "tetap",
+      "originalPrincipal": 3698876,
+      "loanInsurancePercent": 0.15
+    },
+    {
+      "id": "acc-muapzdjnlbf3pso",
+      "name": "BRI Simpedes",
+      "type": "bank",
+      "initialBalance": 501892
+    },
+    {
+      "id": "acc-muapzdjnza96nip",
+      "name": "bluAccount",
+      "type": "bank",
+      "initialBalance": 27302812.97
+    },
+    {
+      "id": "acc-muapzdjnmp1gizq",
+      "name": "SMBC Indonesia",
+      "type": "bank",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjnz6idyar",
+      "name": "Kas / Dompet",
+      "type": "kas",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjn8vca4fs",
+      "name": "Blue Cash",
+      "type": "pinjaman_online",
+      "loanDueDay": 20,
+      "loanAdminFee": 180000,
+      "loanRateUnit": "bulan",
+      "loanStampFee": 10000,
+      "loanStartDate": "2026-08-20",
+      "initialBalance": -8250000,
+      "loanInstallment": 1087500,
+      "loanRatePercent": 3.75,
+      "loanTenorMonths": 12,
+      "loanAdminPercent": 2,
+      "loanInterestType": "tetap",
+      "originalPrincipal": 9000000
+    },
+    {
+      "id": "acc-muapzdjnhwzlvvt",
+      "name": "Kas",
+      "type": "kas",
+      "initialBalance": 250000
+    },
+    {
+      "id": "acc-muapzdjnlnz72mu",
+      "name": "Avanza",
+      "type": "aset",
+      "assetQty": 1,
+      "assetKind": "Kendaraan",
+      "assetUnit": "Unit",
+      "initialBalance": 135000000
+    },
+    {
+      "id": "acc-muapzdjni6znofv",
+      "name": "Motor",
+      "type": "aset",
+      "assetQty": 2,
+      "assetKind": "Kendaraan",
+      "assetUnit": "Unit",
+      "initialBalance": 25000000
+    },
+    {
+      "id": "acc-muapzdjn4khlw7w",
+      "name": "Sapi",
+      "type": "aset",
+      "assetQty": 2,
+      "assetKind": "Lainnya",
+      "assetUnit": "Ekor",
+      "initialBalance": 15000000
+    },
+    {
+      "id": "acc-muapzdjn2mf9ylx",
+      "name": "Tanah",
+      "type": "aset",
+      "assetKind": "Properti",
+      "initialBalance": 500000000
+    },
+    {
+      "id": "acc-muapzdjnjh6pu0y",
+      "name": "Ayu",
+      "type": "titipan",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjosjh615z",
+      "name": "Nang Ti",
+      "type": "titipan",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjotsnknx10",
+      "name": "Yan Bowo",
+      "type": "titipan",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muapzdjoqpmev211",
+      "name": "Shopee Pinjam 13 Jan 2026",
+      "type": "pinjaman_online",
+      "loanDueDay": 13,
+      "loanAdminFee": 16045,
+      "loanRateUnit": "bulan",
+      "loanAdminMode": "cicil",
+      "loanStartDate": "2026-01-13",
+      "initialBalance": -241519,
+      "loanInstallment": 320895,
+      "loanRatePercent": 2.95,
+      "loanTenorMonths": 9,
+      "loanAdminPercent": 5,
+      "loanInterestType": "tetap",
+      "originalPrincipal": 2173674,
+      "loanInsurancePercent": 0.15
+    },
+    {
+      "id": "acc-muapzdjoq1romu12",
+      "name": "Shopee Pinjam 16 Jan 2026",
+      "type": "pinjaman_online",
+      "loanDueDay": 16,
+      "loanRateUnit": "bulan",
+      "loanStartDate": "2026-01-16",
+      "initialBalance": -144497,
+      "loanInstallment": 191986,
+      "loanRatePercent": 2.95,
+      "loanTenorMonths": 9,
+      "loanInterestType": "tetap",
+      "originalPrincipal": 1300469
+    },
+    {
+      "id": "acc-muapzdjob8v8ro13",
+      "name": "Forex",
+      "type": "aset",
+      "assetKind": "Forex",
+      "initialBalance": 2300000
+    },
+    {
+      "id": "acc-muapzdjo8gq2h014",
+      "name": "Crypto",
+      "type": "aset",
+      "assetKind": "Emas",
+      "initialBalance": 500000
+    },
+    {
+      "id": "acc-muasnu9brpw1ta3",
+      "name": "Ortu",
+      "type": "titipan",
+      "initialBalance": 0
+    },
+    {
+      "id": "acc-muat84mlj5qqih1",
+      "name": "Bumdes",
+      "type": "pinjaman",
+      "loanDueDay": 8,
+      "loanRateUnit": "bulan",
+      "loanStampFee": 32000,
+      "loanStartDate": "2026-06-08",
+      "initialBalance": -50500000,
+      "loanRatePercent": 1.5,
+      "loanInterestType": "menurun",
+      "originalPrincipal": 50500000,
+      "loanMandatorySavings": 757500,
+      "loanInstallment": 4629840,
+      "loanTenorMonths": 12,
+      "loanAdminFee": 757500
+    }
+  ],
+  "transaksi": [
+    {
+      "id": "txn-muapzdjo8fy1g315",
+      "date": "2026-09-05",
+      "desc": "MOBI",
+      "type": "keluar",
+      "amount": 200000,
+      "accountId": "acc-muapzdjjgskbcjc"
+    },
+    {
+      "id": "txn-muapzdjor5sjce16",
+      "date": "2026-09-06",
+      "desc": "TOKOGEMPEDIA",
+      "type": "keluar",
+      "amount": 300000,
+      "accountId": "acc-muapzdjjgskbcjc"
+    },
+    {
+      "id": "txn-muapzdjopa365a17",
+      "date": "2026-09-10",
+      "desc": "HAZE VAPE SHOP",
+      "type": "keluar",
+      "amount": 145000,
+      "accountId": "acc-muapzdjjgskbcjc"
+    },
+    {
+      "id": "txn-muapzdjol9wlqd18",
+      "date": "2026-09-10",
+      "desc": "Biaya Admin (Admin Fee)",
+      "type": "keluar",
+      "amount": 41860,
+      "category": "Biaya Admin",
+      "accountId": "acc-muapzdjjgskbcjc"
+    },
+    {
+      "id": "txn-muapzdjoljby3y19",
+      "date": "2026-06-29",
+      "desc": "Bintang Gaming69",
+      "type": "keluar",
+      "amount": 500000,
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjo2cwmt51a",
+      "date": "2026-06-29",
+      "desc": "Cicilan Pokok",
+      "type": "keluar",
+      "amount": 166666.66,
+      "category": "Cicilan",
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjoffgopi1b",
+      "date": "2026-06-29",
+      "desc": "Biaya Cicilan",
+      "type": "keluar",
+      "amount": 20000,
+      "category": "Cicilan",
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjoun21tk1c",
+      "date": "2026-07-04",
+      "desc": "Bandung Collection Gian",
+      "type": "keluar",
+      "amount": 327600,
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjorm96ty1d",
+      "date": "2026-07-11",
+      "desc": "Telkomsel Orbit",
+      "type": "keluar",
+      "amount": 66000,
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjo68yto71e",
+      "date": "2026-07-21",
+      "desc": "Biaya Layanan Notifikasi",
+      "type": "keluar",
+      "amount": 10000,
+      "category": "Biaya Admin",
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjpwrdsio1f",
+      "date": "2026-07-27",
+      "desc": "Pt Tokopedia",
+      "type": "keluar",
+      "amount": 60860,
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjrvve4h51g",
+      "date": "2026-07-28",
+      "desc": "Pembayaran Kartu Kredit",
+      "type": "transfer",
+      "amount": 590267,
+      "accountId": "acc-muapzdjj5s073id",
+      "toAccountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjrti1kw51h",
+      "date": "2026-07-29",
+      "desc": "Cicilan Pokok",
+      "type": "keluar",
+      "amount": 166666.67,
+      "category": "Cicilan",
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjrfi6nqa1i",
+      "date": "2026-08-21",
+      "desc": "Biaya Layanan Notifikasi",
+      "type": "keluar",
+      "amount": 10000,
+      "category": "Biaya Admin",
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjr88521w1j",
+      "date": "2026-08-22",
+      "desc": "Toko Sabar Inti Sembako",
+      "type": "keluar",
+      "amount": 308200,
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjrr8k10m1k",
+      "date": "2026-08-29",
+      "desc": "Cicilan Pokok",
+      "type": "keluar",
+      "amount": 166666.67,
+      "category": "Cicilan",
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjr52vh7l1l",
+      "date": "2026-08-31",
+      "desc": "Mobi",
+      "type": "keluar",
+      "amount": 300000,
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjr1y6r1w1m",
+      "date": "2026-09-04",
+      "desc": "Pembayaran Kartu Kredit",
+      "type": "transfer",
+      "amount": 237527,
+      "accountId": "acc-muapzdjj5s073id",
+      "toAccountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjrfq8gau1n",
+      "date": "2026-09-17",
+      "desc": "Warung Bu Stita",
+      "type": "keluar",
+      "amount": 210000,
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjrlf6mcj1o",
+      "date": "2026-09-17",
+      "desc": "Khoirul Bariyah Cell Tech",
+      "type": "keluar",
+      "amount": 50855,
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjrdefn7h1p",
+      "date": "2026-09-18",
+      "desc": "Pindini Digital",
+      "type": "keluar",
+      "amount": 50000,
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjrc3ilev1q",
+      "date": "2026-08-20",
+      "desc": "dana, ID",
+      "type": "keluar",
+      "amount": 51690,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjrad0vrx1r",
+      "date": "2026-08-21",
+      "desc": "DANA Utilities, ID",
+      "type": "keluar",
+      "amount": 51500,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjr1q0ree1s",
+      "date": "2026-08-23",
+      "desc": "dana, ID",
+      "type": "keluar",
+      "amount": 22495,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjr5h5ix61t",
+      "date": "2026-08-26",
+      "desc": "dana, ID",
+      "type": "keluar",
+      "amount": 51490,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjrtcrg3g1u",
+      "date": "2026-08-29",
+      "desc": "Transfer",
+      "type": "transfer",
+      "amount": 486212,
+      "accountId": "acc-muapzdjnlbf3pso",
+      "toAccountId": "acc-muapzdjj1yp8edg",
+      "category": "Top up saldo"
+    },
+    {
+      "id": "txn-muapzdjrv1eikc1v",
+      "date": "2026-08-30",
+      "desc": "DANA QR * MOBI *202608, ID",
+      "type": "keluar",
+      "amount": 202500,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjr15qmhf1w",
+      "date": "2026-08-30",
+      "desc": "dana, ID",
+      "type": "keluar",
+      "amount": 51490,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjr1kmbw01x",
+      "date": "2026-09-02",
+      "desc": "dana, ID",
+      "type": "keluar",
+      "amount": 32495,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjrt7gjwu1y",
+      "date": "2026-09-02",
+      "desc": "dana, ID",
+      "type": "keluar",
+      "amount": 13690,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjrmx4ljp1z",
+      "date": "2026-09-03",
+      "desc": "dana, ID",
+      "type": "keluar",
+      "amount": 51690,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjrrqdqcn20",
+      "date": "2026-09-03",
+      "desc": "dana, ID",
+      "type": "keluar",
+      "amount": 22495,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjrhn787c21",
+      "date": "2026-09-04",
+      "desc": "DANA Utilities, ID",
+      "type": "keluar",
+      "amount": 51500,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjrsnn4bb22",
+      "date": "2026-09-06",
+      "desc": "dana, ID",
+      "type": "keluar",
+      "amount": 51490,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjrv82hwu23",
+      "date": "2026-09-07",
+      "desc": "dana, ID",
+      "type": "keluar",
+      "amount": 32495,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjro1ea3v24",
+      "date": "2026-09-10",
+      "desc": "APPLE.COM/BILL, IE",
+      "type": "keluar",
+      "amount": 37500,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjry32br125",
+      "date": "2026-09-12",
+      "desc": "APPLE.COM/BILL, IE",
+      "type": "keluar",
+      "amount": 15000,
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjrz3rkva26",
+      "date": "2026-08-20",
+      "desc": "Retail IDN Jakarta dana",
+      "type": "keluar",
+      "amount": 302990,
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjrkq2a4o27",
+      "date": "2026-08-24",
+      "desc": "Retail IDN https://dana. dana",
+      "type": "keluar",
+      "amount": 32495,
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjrs5g4pm28",
+      "date": "2026-08-25",
+      "desc": "Retail IDN Jakarta dana",
+      "type": "keluar",
+      "amount": 32495,
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjr9ixyuy29",
+      "date": "2026-08-29",
+      "desc": "Transfer",
+      "type": "transfer",
+      "amount": 470247,
+      "accountId": "acc-muapzdjnlbf3pso",
+      "toAccountId": "acc-muapzdjluenuqih",
+      "category": "Top up saldo"
+    },
+    {
+      "id": "txn-muapzdjruo4ylg2a",
+      "date": "2026-09-09",
+      "desc": "Retail IDN Jakarta dana",
+      "type": "keluar",
+      "amount": 22495,
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjrswg0hn2b",
+      "date": "2026-09-11",
+      "desc": "Retail IDN https://dana. DANA Utilities",
+      "type": "keluar",
+      "amount": 101500,
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjrpomlha2c",
+      "date": "2026-09-13",
+      "desc": "Retail IDN Jakarta dana",
+      "type": "keluar",
+      "amount": 22495,
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjr4iybuw2d",
+      "date": "2026-09-14",
+      "desc": "Retail IDN Jakarta dana",
+      "type": "keluar",
+      "amount": 32495,
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjrid4fb42e",
+      "date": "2026-09-15",
+      "desc": "BEA MATERAI LUNAS",
+      "type": "keluar",
+      "amount": 10000,
+      "category": "Biaya Admin",
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjrywd1iv2f",
+      "date": "2026-09-15",
+      "desc": "E-STATEMENT FEE",
+      "type": "keluar",
+      "amount": 5000,
+      "category": "Biaya Admin",
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjrtnjrcp2g",
+      "date": "2026-09-15",
+      "desc": "Offline Payment - Paket MyTelkomsel",
+      "type": "keluar",
+      "amount": 66000,
+      "method": "nanti",
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr52myea2h",
+      "date": "2026-09-10",
+      "desc": "Jarum Suntik Stainless Steel Vaksin",
+      "type": "keluar",
+      "amount": 38500,
+      "method": "nanti",
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr4w2hi72i",
+      "date": "2026-09-08",
+      "desc": "Offline Payment - Paket MyTelkomsel",
+      "type": "keluar",
+      "amount": 66000,
+      "method": "nanti",
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr5k1qpl2j",
+      "date": "2026-09-03",
+      "desc": "ROTAN MENJALIN OVENAN UKURAN",
+      "type": "keluar",
+      "amount": 47050,
+      "method": "nanti",
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrbczyxb2k",
+      "date": "2026-09-01",
+      "desc": "Offline Payment - Paket MyTelkomsel",
+      "type": "keluar",
+      "amount": 66000,
+      "method": "nanti",
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrp3dudk2l",
+      "date": "2026-09-01",
+      "desc": "Tatakan alat masak sendok spatula tempat tutup panci",
+      "type": "keluar",
+      "amount": 14000,
+      "method": "nanti",
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjruakpnh2m",
+      "date": "2026-09-01",
+      "desc": "Adjustable Power Adapter Dimmer / Adaptor Dimmer DC 3 - 12V 2A AC",
+      "type": "keluar",
+      "amount": 31205,
+      "method": "nanti",
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr9ulvpl2n",
+      "date": "2026-09-05",
+      "desc": "Fitting Pneumatic Male Drat Luar 14mm ke Selang PU 6mm 8mm 10mm 12mm",
+      "type": "keluar",
+      "amount": 45486,
+      "method": "nanti",
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrust1hq2o",
+      "date": "2026-08-29",
+      "desc": "Cangkul Baja Tajam Gagang Kayu - Cocok Untuk Bertani & Berkebun",
+      "type": "keluar",
+      "amount": 142701,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xoj4u0e",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrxkcd7a2p",
+      "date": "2026-08-29",
+      "desc": "Bunga cicilan: Cangkul Baja Tajam Gagang Kayu - Cocok Untuk Bertani & Berkebun",
+      "type": "keluar",
+      "amount": 25287,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xoj4u0e",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrhi06u42q",
+      "date": "2026-09-12",
+      "desc": "SET BLAKAS MUTIK handle motif garis",
+      "type": "keluar",
+      "amount": 261009,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x74xbh5",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrvybsp82r",
+      "date": "2026-09-12",
+      "desc": "Bunga cicilan: SET BLAKAS MUTIK handle motif garis",
+      "type": "keluar",
+      "amount": 23100,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x74xbh5",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjryjdq2c2s",
+      "date": "2026-08-26",
+      "desc": "Sink cuci piring stainless steel 304 untuk digunakan di rumah, dapur, sederhana",
+      "type": "keluar",
+      "amount": 407079,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x25h03v",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrzg9wh02t",
+      "date": "2026-08-26",
+      "desc": "Bunga cicilan: Sink cuci piring stainless steel 304 untuk digunakan di rumah, dapur, sederhana",
+      "type": "keluar",
+      "amount": 72133,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x25h03v",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr5qmbcb2u",
+      "date": "2026-04-15",
+      "desc": "One Two Cups Hand Press Mini Espresso Coffee Maker 3 in 1 20 Bar 120ml - HS-",
+      "type": "keluar",
+      "amount": 358510,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x8zg2zv",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrphc4io2v",
+      "date": "2026-04-15",
+      "desc": "Bunga cicilan: One Two Cups Hand Press Mini Espresso Coffee Maker 3 in 1 20 Bar 120ml - HS-",
+      "type": "keluar",
+      "amount": 63526,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x8zg2zv",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr61gsf22w",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: One Two Cups Hand Press Mini Espresso Coffee Maker 3 in 1 20 Bar 120ml - HS- (angsuran ke-1/6)",
+      "type": "transfer",
+      "amount": 70339,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrnricip2x",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: One Two Cups Hand Press Mini Espresso Coffee Maker 3 in 1 20 Bar 120ml - HS- (angsuran ke-2/6)",
+      "type": "transfer",
+      "amount": 70339,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjraga3uw2y",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: One Two Cups Hand Press Mini Espresso Coffee Maker 3 in 1 20 Bar 120ml - HS- (angsuran ke-3/6)",
+      "type": "transfer",
+      "amount": 70339,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjroedocc2z",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: One Two Cups Hand Press Mini Espresso Coffee Maker 3 in 1 20 Bar 120ml - HS- (angsuran ke-4/6)",
+      "type": "transfer",
+      "amount": 70339,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr1tf17930",
+      "date": "2026-04-01",
+      "desc": "XL 300.000",
+      "type": "keluar",
+      "amount": 299995,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xv9obtn",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrjknv6b31",
+      "date": "2026-04-01",
+      "desc": "Bunga cicilan: XL 300.000",
+      "type": "keluar",
+      "amount": 53158,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xv9obtn",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrmg8sfg32",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: XL 300.000 (angsuran ke-1/6)",
+      "type": "transfer",
+      "amount": 58859,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrbxu9gb33",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: XL 300.000 (angsuran ke-2/6)",
+      "type": "transfer",
+      "amount": 58859,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrp4a72o34",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: XL 300.000 (angsuran ke-3/6)",
+      "type": "transfer",
+      "amount": 58859,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr0fby6o35",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: XL 300.000 (angsuran ke-4/6)",
+      "type": "transfer",
+      "amount": 58859,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrmb9upq36",
+      "date": "2026-04-13",
+      "desc": "Planter bag kediri 40x40 Cm planterbag 50 liter pot untuk media tanam tabulampot",
+      "type": "keluar",
+      "amount": 106745,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xm1xygm",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrhae70v37",
+      "date": "2026-04-13",
+      "desc": "Bunga cicilan: Planter bag kediri 40x40 Cm planterbag 50 liter pot untuk media tanam tabulampot",
+      "type": "keluar",
+      "amount": 18915,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xm1xygm",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr3d72dv38",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Planter bag kediri 40x40 Cm planterbag 50 liter pot untuk media tanam tabulampot (angsuran ke-1/6)",
+      "type": "transfer",
+      "amount": 20943,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrerp2j239",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Planter bag kediri 40x40 Cm planterbag 50 liter pot untuk media tanam tabulampot (angsuran ke-2/6)",
+      "type": "transfer",
+      "amount": 20943,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrhecoki3a",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Planter bag kediri 40x40 Cm planterbag 50 liter pot untuk media tanam tabulampot (angsuran ke-3/6)",
+      "type": "transfer",
+      "amount": 20943,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrhsa5rv3b",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Planter bag kediri 40x40 Cm planterbag 50 liter pot untuk media tanam tabulampot (angsuran ke-4/6)",
+      "type": "transfer",
+      "amount": 20943,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrxed4cz3c",
+      "date": "2026-03-25",
+      "desc": "Dikonversi - PALET HITAM ALAS KANDANG PLASTIK HEWAN 100 X 50 X ...",
+      "type": "keluar",
+      "amount": 174100,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x2q80dn",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrs8bgav3d",
+      "date": "2026-03-25",
+      "desc": "Bunga cicilan: Dikonversi - PALET HITAM ALAS KANDANG PLASTIK HEWAN 100 X 50 X ...",
+      "type": "keluar",
+      "amount": 61615,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x2q80dn",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr7gcvav3e",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - PALET HITAM ALAS KANDANG PLASTIK HEWAN 100 X 50 X ... (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 19643,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr07362k3f",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - PALET HITAM ALAS KANDANG PLASTIK HEWAN 100 X 50 X ... (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 19643,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrlrc4nl3g",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - PALET HITAM ALAS KANDANG PLASTIK HEWAN 100 X 50 X ... (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 19643,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr0x7z3p3h",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - PALET HITAM ALAS KANDANG PLASTIK HEWAN 100 X 50 X ... (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 19643,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrkha1k43i",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - PALET HITAM ALAS KANDANG PLASTIK HEWAN 100 X 50 X ... (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 19643,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr7e2z293j",
+      "date": "2026-07-27",
+      "desc": "MALLVOSE - Chino Long Pants Celana Pria Slimfit Black Strech Adem",
+      "type": "keluar",
+      "amount": 119200,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x5lb4iw",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrp44fo63k",
+      "date": "2026-07-27",
+      "desc": "Bunga cicilan: MALLVOSE - Chino Long Pants Celana Pria Slimfit Black Strech Adem",
+      "type": "keluar",
+      "amount": 10548,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x5lb4iw",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrvtwwjt3l",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: MALLVOSE - Chino Long Pants Celana Pria Slimfit Black Strech Adem (angsuran ke-1/3)",
+      "type": "transfer",
+      "amount": 39733,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr0ahp8b3m",
+      "date": "2026-03-24",
+      "desc": "Dikonversi - BUNCIS LOGAWA F1, 500 GR",
+      "type": "keluar",
+      "amount": 177000,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xzs51ha",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrgl4jip3n",
+      "date": "2026-03-24",
+      "desc": "Bunga cicilan: Dikonversi - BUNCIS LOGAWA F1, 500 GR",
+      "type": "keluar",
+      "amount": 62642,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xzs51ha",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrxf38zh3o",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - BUNCIS LOGAWA F1, 500 GR (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 19970,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrxxrstl3p",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - BUNCIS LOGAWA F1, 500 GR (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 19970,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr1pbet43q",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - BUNCIS LOGAWA F1, 500 GR (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 19970,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrhog73p3r",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - BUNCIS LOGAWA F1, 500 GR (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 19970,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrcf83cx3s",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - BUNCIS LOGAWA F1, 500 GR (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 19970,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr1ryefy3t",
+      "date": "2026-03-24",
+      "desc": "Dikonversi - Jas Hujan HOODIE KANGGURU Pria Dan Wanita by VANZIO",
+      "type": "keluar",
+      "amount": 114628,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xifxm94",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrnbwdyl3u",
+      "date": "2026-03-24",
+      "desc": "Bunga cicilan: Dikonversi - Jas Hujan HOODIE KANGGURU Pria Dan Wanita by VANZIO",
+      "type": "keluar",
+      "amount": 40566,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xifxm94",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrut5ezz3v",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Jas Hujan HOODIE KANGGURU Pria Dan Wanita by VANZIO (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 12933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrfbo0fo3w",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Jas Hujan HOODIE KANGGURU Pria Dan Wanita by VANZIO (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 12933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrxlivkh3x",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Jas Hujan HOODIE KANGGURU Pria Dan Wanita by VANZIO (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 12933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr8r5bib3y",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Jas Hujan HOODIE KANGGURU Pria Dan Wanita by VANZIO (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 12933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrxa6enc3z",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - Jas Hujan HOODIE KANGGURU Pria Dan Wanita by VANZIO (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 12933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrfspeih40",
+      "date": "2026-03-24",
+      "desc": "Dikonversi - Piringan Cakram Disc Depan 260MM Beat Scoopy Vario 110/125/150",
+      "type": "keluar",
+      "amount": 109500,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xckz7qx",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr717h8541",
+      "date": "2026-03-24",
+      "desc": "Bunga cicilan: Dikonversi - Piringan Cakram Disc Depan 260MM Beat Scoopy Vario 110/125/150",
+      "type": "keluar",
+      "amount": 38758,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xckz7qx",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrw1do5142",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Piringan Cakram Disc Depan 260MM Beat Scoopy Vario 110/125/150 (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 12354,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjruu0i3f43",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Piringan Cakram Disc Depan 260MM Beat Scoopy Vario 110/125/150 (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 12354,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjro03bz144",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Piringan Cakram Disc Depan 260MM Beat Scoopy Vario 110/125/150 (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 12354,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrlbdfk945",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Piringan Cakram Disc Depan 260MM Beat Scoopy Vario 110/125/150 (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 12354,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrdzhunt46",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - Piringan Cakram Disc Depan 260MM Beat Scoopy Vario 110/125/150 (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 12354,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr6tl5lc47",
+      "date": "2026-03-24",
+      "desc": "Dikonversi - Ezviz C6N 2MP Smart Home IP Camera CCTV Indoor w/SD Card",
+      "type": "keluar",
+      "amount": 1325500,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x0yx9ul",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrhrt4di48",
+      "date": "2026-03-24",
+      "desc": "Bunga cicilan: Dikonversi - Ezviz C6N 2MP Smart Home IP Camera CCTV Indoor w/SD Card",
+      "type": "keluar",
+      "amount": 469103,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x0yx9ul",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr9qiu3749",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Ezviz C6N 2MP Smart Home IP Camera CCTV Indoor w/SD Card (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 149550,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjri7d1yc4a",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Ezviz C6N 2MP Smart Home IP Camera CCTV Indoor w/SD Card (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 149550,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrn2igm44b",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Ezviz C6N 2MP Smart Home IP Camera CCTV Indoor w/SD Card (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 149550,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr6cpsop4c",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Ezviz C6N 2MP Smart Home IP Camera CCTV Indoor w/SD Card (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 149550,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrot8zdj4d",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - Ezviz C6N 2MP Smart Home IP Camera CCTV Indoor w/SD Card (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 149550,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrtamx0k4e",
+      "date": "2026-03-24",
+      "desc": "Dikonversi - INDOSAT 50.000",
+      "type": "keluar",
+      "amount": 47600,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xlb2qff",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrta2oks4f",
+      "date": "2026-03-24",
+      "desc": "Bunga cicilan: Dikonversi - INDOSAT 50.000",
+      "type": "keluar",
+      "amount": 16851,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xlb2qff",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrdtqaoz4g",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - INDOSAT 50.000 (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 5370,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrq3k7qw4h",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - INDOSAT 50.000 (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 5370,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr2tl6mo4i",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - INDOSAT 50.000 (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 5370,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr1adchf4j",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - INDOSAT 50.000 (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 5370,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrl4192g4k",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - INDOSAT 50.000 (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 5370,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr1agq744l",
+      "date": "2026-03-24",
+      "desc": "Dikonversi - FERZIA - SOFT CASE HP OPPO RENO 14 / 14 PRO / 14F SILIKON MATTE",
+      "type": "keluar",
+      "amount": 69213,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xkc4if9",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrwv6jbr4m",
+      "date": "2026-03-24",
+      "desc": "Bunga cicilan: Dikonversi - FERZIA - SOFT CASE HP OPPO RENO 14 / 14 PRO / 14F SILIKON MATTE",
+      "type": "keluar",
+      "amount": 24495,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xkc4if9",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr7lej7t4n",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - FERZIA - SOFT CASE HP OPPO RENO 14 / 14 PRO / 14F SILIKON MATTE (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 7809,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrm2c1444o",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - FERZIA - SOFT CASE HP OPPO RENO 14 / 14 PRO / 14F SILIKON MATTE (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 7809,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjr9zicet4p",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - FERZIA - SOFT CASE HP OPPO RENO 14 / 14 PRO / 14F SILIKON MATTE (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 7809,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrlp0t364q",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - FERZIA - SOFT CASE HP OPPO RENO 14 / 14 PRO / 14F SILIKON MATTE (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 7809,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrutywmq4r",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - FERZIA - SOFT CASE HP OPPO RENO 14 / 14 PRO / 14F SILIKON MATTE (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 7809,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrk3l2h04s",
+      "date": "2026-03-24",
+      "desc": "Dikonversi - Urban Cover Motor Honda Vario 100% Waterproof / Aksesoris Motor",
+      "type": "keluar",
+      "amount": 74500,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xckfktk",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrsq622a4t",
+      "date": "2026-03-24",
+      "desc": "Bunga cicilan: Dikonversi - Urban Cover Motor Honda Vario 100% Waterproof / Aksesoris Motor",
+      "type": "keluar",
+      "amount": 26367,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xckfktk",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjraui1t34u",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Urban Cover Motor Honda Vario 100% Waterproof / Aksesoris Motor (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 8405,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrkxpjw94v",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Urban Cover Motor Honda Vario 100% Waterproof / Aksesoris Motor (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 8405,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjraajkk44w",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Urban Cover Motor Honda Vario 100% Waterproof / Aksesoris Motor (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 8405,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrdt84al4x",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Urban Cover Motor Honda Vario 100% Waterproof / Aksesoris Motor (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 8405,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjrq5gna44y",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - Urban Cover Motor Honda Vario 100% Waterproof / Aksesoris Motor (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 8405,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjshvaq7d4z",
+      "date": "2026-03-24",
+      "desc": "Dikonversi - XL 300.000",
+      "type": "keluar",
+      "amount": 299995,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x2hsmvr",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs69fwv550",
+      "date": "2026-03-24",
+      "desc": "Bunga cicilan: Dikonversi - XL 300.000",
+      "type": "keluar",
+      "amount": 106171,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x2hsmvr",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs4pht2q51",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - XL 300.000 (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 33847,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsqnlrr152",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - XL 300.000 (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 33847,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs04e3vw53",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - XL 300.000 (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 33847,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjswld7lh54",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - XL 300.000 (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 33847,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsr6uh5x55",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - XL 300.000 (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 33847,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs1wad0c56",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - (tanpa nama produk)",
+      "type": "keluar",
+      "amount": 35520,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x5rc3qb",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsmxu5vd57",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - (tanpa nama produk)",
+      "type": "keluar",
+      "amount": 12566,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x5rc3qb",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjswzp29u58",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 4008,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjspv3xrn59",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 4008,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsxyf2d15a",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 4008,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsf7rewd5b",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 4008,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsutr5pg5c",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 4008,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjskzkr9k5d",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 4008,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsxq0yvx5e",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 4008,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsi9qh2z5f",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 4008,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs0w2xuv5g",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - (tanpa nama produk)",
+      "type": "keluar",
+      "amount": 76590,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x79kye2",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs7v0ro05h",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - (tanpa nama produk)",
+      "type": "keluar",
+      "amount": 27108,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x79kye2",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsvlb4mh5i",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 8641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsznvut65j",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 8641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs6b1ip45k",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 8641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsrjnoww5l",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 8641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsi3nlyi5m",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 8641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsvrluay5n",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 8641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjskkocsp5o",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 8641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs8n3x745p",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - (tanpa nama produk) (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 8641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs05kkdi5q",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 26000,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xcqiiym",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsz0h5ht5r",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 9204,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xcqiiym",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsr46haw5s",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 2933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsmnw2t65t",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 2933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsynrvyz5u",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 2933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsbwvpv15v",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 2933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjso70ban5w",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 2933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsljjken5x",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 2933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsn35gib5y",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 2933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsgmowtk5z",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 2933,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsrvhifl60",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 119800,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x8gi97h",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsv1lhun61",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 42402,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x8gi97h",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs4o3uny62",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 13516,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsepk92363",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 13516,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsgu1orw64",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 13516,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs3850hq65",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 13516,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs49l3mn66",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 13516,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsm6uwct67",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 13516,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs2t42j468",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 13516,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjsk7r31069",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 13516,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs2me53i6a",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET",
+      "type": "keluar",
+      "amount": 237042,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xox88qg",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjs8qx8e16b",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET",
+      "type": "keluar",
+      "amount": 83895,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xox88qg",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjt3fc8sa6c",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 26744,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtdjakaa6d",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 26744,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtsv587l6e",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 26744,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtgsgvk96f",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 26744,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjt7pzyfc6g",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 26744,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtpsdn9d6h",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 26744,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtlqyhpl6i",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 26744,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtzv98sd6j",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - CLUTCH OPERATING CO ASSY - MASTER KOPLING BAWAH STARLET (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 26744,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjt7emtdu6k",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - Indosat 20.000",
+      "type": "keluar",
+      "amount": 20975,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xy6284t",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtoc5geu6l",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - Indosat 20.000",
+      "type": "keluar",
+      "amount": 7423,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xy6284t",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtwvj7aj6m",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 2367,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtu350l36n",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 2367,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtfl65796o",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 2367,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtbvs72n6p",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 2367,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjt90lvot6q",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 2367,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtkfsqan6r",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 2367,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtbrmy066s",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 2367,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtzqmk4y6t",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 2367,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtuqupox6u",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - Promo Freedom Internet 22GB / 14 Hari",
+      "type": "keluar",
+      "amount": 50000,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xz0xofw",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtxidi956v",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - Promo Freedom Internet 22GB / 14 Hari",
+      "type": "keluar",
+      "amount": 17696,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xz0xofw",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtdruwip6w",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - Promo Freedom Internet 22GB / 14 Hari (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjt5sq3406x",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - Promo Freedom Internet 22GB / 14 Hari (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtakfy996y",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Promo Freedom Internet 22GB / 14 Hari (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjt729mu26z",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Promo Freedom Internet 22GB / 14 Hari (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjt61w28370",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Promo Freedom Internet 22GB / 14 Hari (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtd46wjk71",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Promo Freedom Internet 22GB / 14 Hari (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjt0wj7u672",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - Promo Freedom Internet 22GB / 14 Hari (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtxft2lr73",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 80000,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xdijnof",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtdnez0l74",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 28313,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xdijnof",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjte3e8vd75",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 9026,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtidqt5q76",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 9026,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjt5rk9vb77",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 9026,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjtzkexf178",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 9026,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjthew7ah79",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 9026,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjthse5y17a",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 9026,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjua741cj7b",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 9026,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjulh37iv7c",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 9026,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuutj57k7d",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - Casing Remote All New Avanza 2012-2015",
+      "type": "keluar",
+      "amount": 40900,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xx6nfw0",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuju0gbo7e",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - Casing Remote All New Avanza 2012-2015",
+      "type": "keluar",
+      "amount": 14475,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xx6nfw0",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjukmfvss7f",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - Casing Remote All New Avanza 2012-2015 (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 4615,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju4cmv627g",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - Casing Remote All New Avanza 2012-2015 (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 4615,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju9yksym7h",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - Casing Remote All New Avanza 2012-2015 (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 4615,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuzlcec77i",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Casing Remote All New Avanza 2012-2015 (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 4615,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuj9d1nn7j",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Casing Remote All New Avanza 2012-2015 (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 4615,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjud3yf897k",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Casing Remote All New Avanza 2012-2015 (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 4615,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju30lad77l",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Casing Remote All New Avanza 2012-2015 (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 4615,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuq6hu3f7m",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - Casing Remote All New Avanza 2012-2015 (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 4615,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuy2z9vm7n",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - Token PLN 50.000",
+      "type": "keluar",
+      "amount": 50000,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xyiio9r",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju33p9a57o",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - Token PLN 50.000",
+      "type": "keluar",
+      "amount": 17696,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xyiio9r",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuz4neo37p",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 50.000 (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjusbydwr7q",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 50.000 (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju9zhicx7r",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 50.000 (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjujvuoai7s",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 50.000 (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuyq5opb7t",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 50.000 (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuzgcrzz7u",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 50.000 (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjul0dwlx7v",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 50.000 (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju69kl2z7w",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 50.000 (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuhaljco7x",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 136400,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x4xanup",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjugjawi77y",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 48276,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x4xanup",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuiohjfs7z",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 15389,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju7swa5080",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 15389,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuwrr5g181",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 15389,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuwzd9tu82",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 15389,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju30y1r083",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 15389,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju74c36p84",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 15389,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjulcvvkg85",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 15389,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuqrdba986",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 15389,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjubpwv3i87",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - KAB. BADUNG",
+      "type": "keluar",
+      "amount": 25292,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xzft0gm",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju2wskdd88",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - KAB. BADUNG",
+      "type": "keluar",
+      "amount": 8951,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xzft0gm",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjumqm1f489",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - KAB. BADUNG (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 2854,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjucqy7yv8a",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - KAB. BADUNG (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 2854,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjudoumg38b",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - KAB. BADUNG (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 2854,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju8iaw3z8c",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - KAB. BADUNG (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 2854,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju13qru68d",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - KAB. BADUNG (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 2854,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuygn0mc8e",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - KAB. BADUNG (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 2854,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuez2clc8f",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - KAB. BADUNG (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 2854,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju1xcqr58g",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - KAB. BADUNG (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 2854,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuivs8u68h",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar",
+      "type": "keluar",
+      "amount": 49405,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xfrd6xp",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjulwb2n38i",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar",
+      "type": "keluar",
+      "amount": 17485,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xfrd6xp",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuz033op8j",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 5574,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjum4k02s8k",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 5574,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjugo4bd08l",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 5574,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju8y3wdp8m",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 5574,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuj7jeku8n",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 5574,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjujx8m1s8o",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 5574,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjugjuk8e8p",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 5574,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju3v9eli8q",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - Sank Magic 4 set Magic Practice Book / Buku Edukasi 3D Belajar (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 5574,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuhhg4188r",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home",
+      "type": "keluar",
+      "amount": 130200,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xsy96gq",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjukmqgxe8s",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home",
+      "type": "keluar",
+      "amount": 46078,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xsy96gq",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjug4ql798t",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 14690,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju4nksfd8u",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 14690,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuc8mi9s8v",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 14690,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjum2rjt68w",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 14690,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju9gibd38x",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 14690,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju8h0cau8y",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 14690,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjucg2su08z",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 14690,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjudkw8vd90",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - BARDI Smart LIGHT BULB RGBWW 12W Wifi Wireless IoT - Home (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 14690,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju7b9tc291",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - Token PLN 100.000",
+      "type": "keluar",
+      "amount": 100000,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xdavkce",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuafdsn392",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - Token PLN 100.000",
+      "type": "keluar",
+      "amount": 35389,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xdavkce",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuk6zr5y93",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 100.000 (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 11283,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuhhvh6c94",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 100.000 (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 11283,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjufmvifn95",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 100.000 (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 11283,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjujzvzqh96",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 100.000 (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 11283,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjug3rujc97",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 100.000 (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 11283,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjun1mqis98",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 100.000 (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 11283,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuv4xlh199",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 100.000 (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 11283,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjucu0chc9a",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - Token PLN 100.000 (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 11283,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjucybw8x9b",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA",
+      "type": "keluar",
+      "amount": 178108,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xg07ala",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuq9kh8k9c",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA",
+      "type": "keluar",
+      "amount": 63033,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xg07ala",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjucl77mr9d",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 20095,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuhjxz7g9e",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 20095,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju8yx5gl9f",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 20095,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuvgz66i9g",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 20095,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjufishxt9h",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 20095,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuxd1sc89i",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 20095,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuomudkx9j",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 20095,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuclmecc9k",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - KARET SUPPORT SHOCK BREAKER DEPAN FRONT TOYOTA (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 20095,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjug14tkh9l",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 66000,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xcs7ger",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuvrz1939m",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 23362,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xcs7ger",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju5qjfy89n",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 7446,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju5ji77q9o",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 7446,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjupxm5z49p",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 7446,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjujnjnsm9q",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 7446,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju93b5pd9r",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 7446,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjufkqt3n9s",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 7446,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuh781qi9t",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 7446,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjurqebk59u",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 7446,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuaiymst9v",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 68100,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x6cyd51",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjub7bcyk9w",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 24102,
+      "method": "cicilan",
+      "planId": "idmu7mwb3x6cyd51",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjubolzjf9x",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 7683,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjun6mcz19y",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 7683,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuqqhqsb9z",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 7683,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjurpaf81a0",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 7683,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju4rq893a1",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 7683,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjulbevkya2",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 7683,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuluopywa3",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 7683,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju3snxxoa4",
+      "date": "2026-08-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-8/12)",
+      "type": "transfer",
+      "amount": 7683,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuqa8oaoa5",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - Indosat 20.000",
+      "type": "keluar",
+      "amount": 20995,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xm6ib99",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju9xiinsa6",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - Indosat 20.000",
+      "type": "keluar",
+      "amount": 7432,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xm6ib99",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuajfxcma7",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 2369,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjumjuh7ia8",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 2369,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjujhu0t0a9",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 2369,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdju8q9j8xaa",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 2369,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjuj7ltqiab",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 2369,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvpoj1dwac",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 2369,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjv5suersad",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - Indosat 20.000 (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 2369,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvbpja5uae",
+      "date": "2026-08-11",
+      "desc": "Transfer",
+      "type": "transfer",
+      "amount": 2369,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjnlbf3pso",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvodyqbcaf",
+      "date": "2026-05-02",
+      "desc": "XL 300.000",
+      "type": "keluar",
+      "amount": 299700,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xapjbng",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvbh3iq0ag",
+      "date": "2026-05-02",
+      "desc": "Bunga cicilan: XL 300.000",
+      "type": "keluar",
+      "amount": 53105,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xapjbng",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvjmgfktah",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: XL 300.000 (angsuran ke-1/6)",
+      "type": "transfer",
+      "amount": 58801,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvo4savgai",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: XL 300.000 (angsuran ke-2/6)",
+      "type": "transfer",
+      "amount": 58801,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvyxcravaj",
+      "date": "2026-08-11",
+      "desc": "Transfer",
+      "type": "transfer",
+      "amount": 58801,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjnlbf3pso",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvmyny28ak",
+      "date": "2026-01-11",
+      "desc": "Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 50000,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xpwxjiu",
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvfm5tymal",
+      "date": "2026-01-11",
+      "desc": "Bunga cicilan: Dikonversi - ShopeePay Order - Merchant Payment",
+      "type": "keluar",
+      "amount": 17696,
+      "method": "cicilan",
+      "planId": "idmu7mwb3xpwxjiu",
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvag8yexam",
+      "date": "2026-01-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-1/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvl0ysi5an",
+      "date": "2026-02-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-2/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvhwcmfqao",
+      "date": "2026-03-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-3/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvsd4bxjap",
+      "date": "2026-04-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-4/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvvcgoejaq",
+      "date": "2026-05-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-5/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvofe9ycar",
+      "date": "2026-06-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-6/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvbo2nmlas",
+      "date": "2026-07-11",
+      "desc": "Bayar cicilan: Dikonversi - ShopeePay Order - Merchant Payment (angsuran ke-7/12)",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjmzo6pmuj",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvacdemyat",
+      "date": "2026-08-11",
+      "desc": "Transfer",
+      "type": "transfer",
+      "amount": 5641,
+      "category": "Bayar tagihan/utang",
+      "accountId": "acc-muapzdjnlbf3pso",
+      "toAccountId": "acc-muapzdjl0qxyyzi"
+    },
+    {
+      "id": "txn-muapzdjvxl7nl2au",
+      "date": "2026-09-06",
+      "desc": "Bunga 1.75% dari sisa belum lunas (Rp9.892.559)",
+      "type": "keluar",
+      "amount": 173120,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjvuyj3ohav",
+      "date": "2026-09-06",
+      "desc": "Biaya statement bulanan",
+      "type": "keluar",
+      "amount": 10000,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjvo8eey2aw",
+      "date": "2026-07-03",
+      "desc": "Transfer masuk dari I Komang Jod (BNI)",
+      "type": "masuk",
+      "amount": 110000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv7jnm2cax",
+      "date": "2026-07-04",
+      "desc": "BRIVA PT Finnet Indonesia - MyOrbitApp",
+      "type": "keluar",
+      "amount": 66000,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvtl10cday",
+      "date": "2026-07-05",
+      "desc": "DANA masuk",
+      "type": "masuk",
+      "amount": 1000000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvvlhq7aaz",
+      "date": "2026-07-05",
+      "desc": "Tarik tunai ATM Tanaka Mart",
+      "type": "transfer",
+      "amount": 1000000,
+      "category": "Tarik tunai",
+      "accountId": "acc-muapzdjnlbf3pso",
+      "toAccountId": "acc-muapzdjnz6idyar"
+    },
+    {
+      "id": "txn-muapzdjvd6ph8zb0",
+      "date": "2026-07-06",
+      "desc": "Transfer ke Iwayan Redianayasa (BNI)",
+      "type": "keluar",
+      "amount": 50000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvqxmeqob1",
+      "date": "2026-07-09",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 1400000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv3samtvb2",
+      "date": "2026-07-09",
+      "desc": "Bayar SPinjam (BRIVA)",
+      "type": "keluar",
+      "amount": 1855676,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvk8zok4b3",
+      "date": "2026-07-10",
+      "desc": "Transfer ke Iwayan Redianayasa (BNI)",
+      "type": "keluar",
+      "amount": 50000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvfy54pzb4",
+      "date": "2026-07-10",
+      "desc": "QRIS Arnet Digital KMK",
+      "type": "keluar",
+      "amount": 100000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvrr4zwvb5",
+      "date": "2026-07-11",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 3600000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvvbn6hgb6",
+      "date": "2026-07-11",
+      "desc": "Bayar SPayLater (BRIVA)",
+      "type": "keluar",
+      "amount": 3598432,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvvmq2dob7",
+      "date": "2026-07-12",
+      "desc": "Pembelian pulsa Telkomsel",
+      "type": "keluar",
+      "amount": 50000,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvvzarmob8",
+      "date": "2026-07-12",
+      "desc": "Biaya pembelian pulsa/paket data",
+      "type": "keluar",
+      "amount": 1500,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvdo8pztb9",
+      "date": "2026-07-12",
+      "desc": "Transfer ke Ni Wayan Mustiasih (BRI)",
+      "type": "keluar",
+      "amount": 850000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvsaapedba",
+      "date": "2026-07-16",
+      "desc": "Admin Fee BRI",
+      "type": "keluar",
+      "amount": 6500,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvht5mscbb",
+      "date": "2026-07-16",
+      "desc": "Monthly Fee ATM BRI",
+      "type": "keluar",
+      "amount": 3500,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv31rzmabc",
+      "date": "2026-07-16",
+      "desc": "Transfer ke I Made Pradnyana Putra (BCA)",
+      "type": "keluar",
+      "amount": 300000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvp8parcbd",
+      "date": "2026-07-17",
+      "desc": "bluDay Reward",
+      "type": "masuk",
+      "amount": 500,
+      "category": "Cashback/bunga",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvb8o5tnbe",
+      "date": "2026-07-17",
+      "desc": "Google YouTube (bluDebit)",
+      "type": "keluar",
+      "amount": 76590,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvp241l7bf",
+      "date": "2026-07-20",
+      "desc": "QRIS PT Tokopedia",
+      "type": "keluar",
+      "amount": 108520,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvwpreoubg",
+      "date": "2026-07-22",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 650000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvf164glbh",
+      "date": "2026-07-22",
+      "desc": "Bayar SPinjam (BRIVA)",
+      "type": "keluar",
+      "amount": 620036,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvvn54kibi",
+      "date": "2026-07-22",
+      "desc": "QRIS Nosis Digital",
+      "type": "keluar",
+      "amount": 100000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvdhud00bj",
+      "date": "2026-07-24",
+      "desc": "Pembayaran BRI Ceria (RPYCERIA)",
+      "type": "keluar",
+      "amount": 86748,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv8d5sdzbk",
+      "date": "2026-07-26",
+      "desc": "QRIS Shopee Indonesia",
+      "type": "keluar",
+      "amount": 51125,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvqp11ngbl",
+      "date": "2026-07-28",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 3500000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv5oi5g4bm",
+      "date": "2026-07-28",
+      "desc": "Pembayaran BRI Ceria (RPYCERIA)",
+      "type": "keluar",
+      "amount": 19221,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv3lfsd4bn",
+      "date": "2026-07-28",
+      "desc": "Bayar PT Sinar Digital Terdepan (BRIVA)",
+      "type": "keluar",
+      "amount": 2184152,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv18xct7bo",
+      "date": "2026-07-28",
+      "desc": "Bayar Kartu Kredit 4359xxxx604",
+      "type": "keluar",
+      "amount": 600000,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv0b2l6obp",
+      "date": "2026-07-28",
+      "desc": "Bayar Kartu Kredit 5520xxxx204",
+      "type": "keluar",
+      "amount": 600000,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv920lkvbq",
+      "date": "2026-07-28",
+      "desc": "Transfer ke Gusti Bagus Aryantika (BRI)",
+      "type": "keluar",
+      "amount": 60000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjv8hx2vgbr",
+      "date": "2026-07-28",
+      "desc": "Transfer bluAccount ke SMBC",
+      "type": "transfer",
+      "amount": 600000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnmp1gizq"
+    },
+    {
+      "id": "txn-muapzdjvbqrkgybs",
+      "date": "2026-07-30",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 350000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvlsx7g7bt",
+      "date": "2026-07-30",
+      "desc": "TTMA100001259672NBMB356401035149537",
+      "type": "keluar",
+      "amount": 300000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvq9xc1lbu",
+      "date": "2026-07-30",
+      "desc": "Biaya TTMA100001259672NBMB356401035149537",
+      "type": "keluar",
+      "amount": 4000,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvky5ru5bv",
+      "date": "2026-07-30",
+      "desc": "Transfer masuk Pt Eastern Transglobal Remittance (brick)",
+      "type": "masuk",
+      "amount": 1027919,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvn288krbw",
+      "date": "2026-07-30",
+      "desc": "QRIS 9360000210067443255",
+      "type": "keluar",
+      "amount": 1000000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv85d3pxbx",
+      "date": "2026-07-31",
+      "desc": "Bunga bluAccount",
+      "type": "masuk",
+      "amount": 9363.98,
+      "category": "Cashback/bunga",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvj3ygh1by",
+      "date": "2026-07-31",
+      "desc": "Pajak bunga bluAccount",
+      "type": "keluar",
+      "amount": 1872.8,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvuta88nbz",
+      "date": "2026-08-01",
+      "desc": "DANA masuk",
+      "type": "masuk",
+      "amount": 1000000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvnqfv3pc0",
+      "date": "2026-08-01",
+      "desc": "Tarik tunai ATM Tanaka Mart",
+      "type": "transfer",
+      "amount": 1000000,
+      "category": "Tarik tunai",
+      "accountId": "acc-muapzdjnlbf3pso",
+      "toAccountId": "acc-muapzdjnz6idyar"
+    },
+    {
+      "id": "txn-muapzdjv5pdoyfc1",
+      "date": "2026-08-01",
+      "desc": "Transfer ke Made Yoga Sugama (BRI)",
+      "type": "keluar",
+      "amount": 755000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvq8rvi2c2",
+      "date": "2026-08-01",
+      "desc": "QRIS Haze Vape Shop",
+      "type": "keluar",
+      "amount": 145000,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvapyjk0c3",
+      "date": "2026-08-02",
+      "desc": "Transfer masuk dari Iwayan Redianayasa (BNI)",
+      "type": "masuk",
+      "amount": 50000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv1kkahpc4",
+      "date": "2026-08-02",
+      "desc": "Gopay",
+      "type": "keluar",
+      "amount": 138473,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvof9yl5c5",
+      "date": "2026-08-02",
+      "desc": "QRIS PT Tokopedia",
+      "type": "keluar",
+      "amount": 465898,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvgu2lj7c6",
+      "date": "2026-08-03",
+      "desc": "QRIS PT Tokopedia",
+      "type": "keluar",
+      "amount": 110656,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjv63phr8c7",
+      "date": "2026-08-09",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 5000000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvnwazinc8",
+      "date": "2026-08-09",
+      "desc": "Bayar SPinjam (BRIVA)",
+      "type": "keluar",
+      "amount": 1855676,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjviclcmsc9",
+      "date": "2026-08-11",
+      "desc": "Bayar SPayLater (BRIVA)",
+      "type": "keluar",
+      "amount": 3087272,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvwdyz35ca",
+      "date": "2026-08-11",
+      "desc": "QRIS Shopee Indonesia (pagi)",
+      "type": "keluar",
+      "amount": 340400,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvieuvhvcb",
+      "date": "2026-08-11",
+      "desc": "QRIS Shopee Indonesia (siang)",
+      "type": "keluar",
+      "amount": 208200,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvvf3xgdcc",
+      "date": "2026-08-16",
+      "desc": "Admin Fee BRI",
+      "type": "keluar",
+      "amount": 6500,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvpjnkftcd",
+      "date": "2026-08-16",
+      "desc": "Monthly Fee ATM BRI",
+      "type": "keluar",
+      "amount": 3500,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvydx4t2ce",
+      "date": "2026-08-17",
+      "desc": "Google YouTube (bluDebit)",
+      "type": "keluar",
+      "amount": 76590,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvib1m44cf",
+      "date": "2026-08-19",
+      "desc": "QRIS Hentihu Cell",
+      "type": "keluar",
+      "amount": 50000,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjv1763n4cg",
+      "date": "2026-08-23",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 700000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvmgx0kfch",
+      "date": "2026-08-23",
+      "desc": "Bayar SPinjam (BRIVA)",
+      "type": "keluar",
+      "amount": 651038,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjve2ulaici",
+      "date": "2026-08-24",
+      "desc": "Pembayaran BRI Ceria (RPYCERIA)",
+      "type": "keluar",
+      "amount": 105969,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv0knakxcj",
+      "date": "2026-08-24",
+      "desc": "Transfer ke Nyoman Gede Dwipa Prilananda (BRI)",
+      "type": "keluar",
+      "amount": 130000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvkt7q4lck",
+      "date": "2026-08-25",
+      "desc": "QRIS Shopee Indonesia",
+      "type": "keluar",
+      "amount": 196240,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvl4cy3xcl",
+      "date": "2026-08-27",
+      "desc": "Transfer ke Diah Lestari (BCA)",
+      "type": "keluar",
+      "amount": 205000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvyw50m5cm",
+      "date": "2026-08-28",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 1000000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv14jyxucn",
+      "date": "2026-08-28",
+      "desc": "Bayar PT Sinar Digital Terdepan (BRIVA)",
+      "type": "keluar",
+      "amount": 1056327,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvpyjhdsco",
+      "date": "2026-08-29",
+      "desc": "Transfer bluAccount ke BRI (siang)",
+      "type": "transfer",
+      "amount": 1000000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvg2irjbcp",
+      "date": "2026-08-29",
+      "desc": "Bayar Kartu Kredit 4359xxxx604",
+      "type": "keluar",
+      "amount": 470247,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvfbismkcq",
+      "date": "2026-08-29",
+      "desc": "Bayar Kartu Kredit 5520xxxx204",
+      "type": "keluar",
+      "amount": 486212,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvgmlfbmcr",
+      "date": "2026-08-29",
+      "desc": "Transfer bluAccount ke BRI (sore)",
+      "type": "transfer",
+      "amount": 500000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvsluddfcs",
+      "date": "2026-08-29",
+      "desc": "Tarik tunai ATM Tanaka Mart",
+      "type": "transfer",
+      "amount": 500000,
+      "category": "Tarik tunai",
+      "accountId": "acc-muapzdjnlbf3pso",
+      "toAccountId": "acc-muapzdjnz6idyar"
+    },
+    {
+      "id": "txn-muapzdjvzdroijct",
+      "date": "2026-08-31",
+      "desc": "Bunga bluAccount",
+      "type": "masuk",
+      "amount": 3863.1,
+      "category": "Cashback/bunga",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjv1kvq24cu",
+      "date": "2026-08-31",
+      "desc": "Pajak bunga bluAccount",
+      "type": "keluar",
+      "amount": 772.62,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvumvgc9cv",
+      "date": "2026-09-02",
+      "desc": "Pencairan Pinjaman (bluAccount)",
+      "type": "masuk",
+      "amount": 8810000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvi30o86cw",
+      "date": "2026-09-02",
+      "desc": "QRIS PT Tokopedia",
+      "type": "keluar",
+      "amount": 588974,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvgefu1fcx",
+      "date": "2026-09-04",
+      "desc": "Transfer bluAccount ke SMBC",
+      "type": "transfer",
+      "amount": 250000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnmp1gizq"
+    },
+    {
+      "id": "txn-muapzdjv0c9zxccy",
+      "date": "2026-09-05",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 1000000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvookzspcz",
+      "date": "2026-09-05",
+      "desc": "Tarik tunai ATM BRI Unit Kintamani",
+      "type": "transfer",
+      "amount": 1000000,
+      "category": "Tarik tunai",
+      "accountId": "acc-muapzdjnlbf3pso",
+      "toAccountId": "acc-muapzdjnz6idyar"
+    },
+    {
+      "id": "txn-muapzdjvry6821d0",
+      "date": "2026-09-06",
+      "desc": "QRIS PT Tokopedia",
+      "type": "keluar",
+      "amount": 61400,
+      "category": "Belanja harian",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvquabhfd1",
+      "date": "2026-09-09",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 1700000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvfp9nh8d2",
+      "date": "2026-09-09",
+      "desc": "Bayar SPinjam (BRIVA)",
+      "type": "keluar",
+      "amount": 1855673,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvdtwtdpd3",
+      "date": "2026-09-09",
+      "desc": "Transfer ke Ni Komang Lilis Sudiarti (BCA Digital)",
+      "type": "keluar",
+      "amount": 558000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjvmnpx27d4",
+      "date": "2026-09-11",
+      "desc": "Transfer bluAccount ke BRI",
+      "type": "transfer",
+      "amount": 3200000,
+      "category": "Pindah dana antar akun",
+      "accountId": "acc-muapzdjnza96nip",
+      "toAccountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv52x7l1d5",
+      "date": "2026-09-11",
+      "desc": "Bayar SPayLater (BRIVA)",
+      "type": "keluar",
+      "amount": 3133322,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv0fhdbdd6",
+      "date": "2026-09-12",
+      "desc": "DANA masuk",
+      "type": "masuk",
+      "amount": 1000000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvw8714qd7",
+      "date": "2026-09-12",
+      "desc": "Tarik tunai ATM Tanaka Mart",
+      "type": "transfer",
+      "amount": 1000000,
+      "category": "Tarik tunai",
+      "accountId": "acc-muapzdjnlbf3pso",
+      "toAccountId": "acc-muapzdjnz6idyar"
+    },
+    {
+      "id": "txn-muapzdjvb0zh31d8",
+      "date": "2026-09-16",
+      "desc": "Admin Fee BRI",
+      "type": "keluar",
+      "amount": 8000,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvsohf2ad9",
+      "date": "2026-09-16",
+      "desc": "Monthly Fee ATM BRI",
+      "type": "keluar",
+      "amount": 3500,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvhnlfg4da",
+      "date": "2026-09-17",
+      "desc": "Transfer masuk dari I Made Suardana (BPD Bali)",
+      "type": "masuk",
+      "amount": 250000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvfmwhfrdb",
+      "date": "2026-09-17",
+      "desc": "Google YouTube (bluDebit)",
+      "type": "keluar",
+      "amount": 76590,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjv181gwkdc",
+      "date": "2026-09-18",
+      "desc": "Pembelian pulsa AXIS",
+      "type": "keluar",
+      "amount": 50000,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv9qs3xwdd",
+      "date": "2026-09-18",
+      "desc": "Biaya pembelian pulsa AXIS",
+      "type": "keluar",
+      "amount": 2000,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjv2fqys3de",
+      "date": "2026-09-18",
+      "desc": "Transfer ke Diah Lestari",
+      "type": "keluar",
+      "amount": 255000,
+      "category": "Lainnya",
+      "accountId": "acc-muapzdjnlbf3pso"
+    },
+    {
+      "id": "txn-muapzdjvpltzsidf",
+      "date": "2026-09-20",
+      "desc": "Cicilan 1 dari 12 (bluAccount)",
+      "type": "keluar",
+      "amount": 1087500,
+      "category": "Cicilan/utang",
+      "accountId": "acc-muapzdjnza96nip"
+    },
+    {
+      "id": "txn-muapzdjv3fuu41dg",
+      "date": "2026-09-06",
+      "desc": "Bunga 1.75% dari sisa belum lunas (Rp1.774.866)",
+      "type": "keluar",
+      "amount": 31060,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjvylzqaedh",
+      "date": "2026-09-06",
+      "desc": "Biaya admin bulanan",
+      "type": "keluar",
+      "amount": 5000,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjvjl08rsdi",
+      "date": "2026-09-02",
+      "desc": "Biaya admin bulanan",
+      "type": "keluar",
+      "amount": 5000,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjvfr2aaqdj",
+      "date": "2026-09-06",
+      "desc": "Bunga 1.75% dari sisa belum lunas (Rp1.274.866)",
+      "type": "keluar",
+      "amount": 22310,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjvju3d6adk",
+      "date": "2026-09-06",
+      "desc": "Biaya statement bulanan",
+      "type": "keluar",
+      "amount": 10000,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjjq7p6efe"
+    },
+    {
+      "id": "txn-muapzdjv536ggjdl",
+      "date": "2026-09-06",
+      "desc": "Bunga 1.75% dari sisa belum lunas (Rp168.313)",
+      "type": "keluar",
+      "amount": 2945,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjj1yp8edg"
+    },
+    {
+      "id": "txn-muapzdjv9pz4l6dm",
+      "date": "2026-09-02",
+      "desc": "Bunga 1.75% dari sisa belum lunas (Rp9.585.353)",
+      "type": "keluar",
+      "amount": 167744,
+      "category": "Bunga & biaya bank",
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjvmrz1w2dn",
+      "date": "2026-09-02",
+      "desc": "Biaya statement bulanan",
+      "type": "keluar",
+      "amount": 5000,
+      "category": "Tagihan & langganan",
+      "accountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjv2v19v1do",
+      "date": "2026-09-20",
+      "desc": "Titipan: Pulsa - Ayu",
+      "type": "transfer",
+      "amount": 22495,
+      "category": "Titipan/piutang",
+      "accountId": "acc-muapzdjluenuqih",
+      "toAccountId": "acc-muapzdjnjh6pu0y"
+    },
+    {
+      "id": "txn-muapzdjvrad7kndp",
+      "date": "2026-09-20",
+      "desc": "Titipan: Pulsa - Ayu",
+      "type": "transfer",
+      "amount": 51490,
+      "category": "Titipan/piutang",
+      "accountId": "acc-muapzdjluenuqih",
+      "toAccountId": "acc-muapzdjnjh6pu0y"
+    },
+    {
+      "id": "txn-muapzdjvwy3se5dq",
+      "date": "2026-09-20",
+      "desc": "Titipan: Pls listrik - Nang Ti",
+      "type": "transfer",
+      "amount": 51500,
+      "category": "Titipan/piutang",
+      "accountId": "acc-muapzdjluenuqih",
+      "toAccountId": "acc-muapzdjosjh615z"
+    },
+    {
+      "id": "txn-muapzdjv9ba81kdr",
+      "date": "2026-09-20",
+      "desc": "Terima titipan - Nang Ti",
+      "type": "transfer",
+      "amount": 51500,
+      "category": "Titipan/piutang",
+      "accountId": "acc-muapzdjosjh615z",
+      "toAccountId": "acc-muapzdjluenuqih"
+    },
+    {
+      "id": "txn-muapzdjvpgvhpxds",
+      "date": "2026-09-20",
+      "desc": "Jual Pulsa",
+      "type": "masuk",
+      "amount": 3500,
+      "category": "Jual Pulsa",
+      "accountId": "acc-muapzdjnhwzlvvt"
+    },
+    {
+      "id": "txn-muapzdjvhv7zbndu",
+      "date": "2026-09-18",
+      "desc": "Transfer",
+      "type": "transfer",
+      "amount": 51690,
+      "category": "Titipan/piutang",
+      "accountId": "acc-muapzdjluenuqih",
+      "toAccountId": "acc-muapzdjotsnknx10"
+    },
+    {
+      "id": "txn-muaq9j6i6x6v3w1",
+      "date": "2026-09-21",
+      "desc": "Gaji",
+      "type": "masuk",
+      "amount": 2000000,
+      "category": "Gaji",
+      "accountId": "acc-muapzdjj0zlefea"
+    },
+    {
+      "id": "txn-muasmd5ri1x8rp1",
+      "date": "2026-09-21",
+      "desc": "Belanja Aby",
+      "type": "keluar",
+      "amount": 15000,
+      "category": "Makan & minum",
+      "accountId": "acc-muapzdjnhwzlvvt"
+    },
+    {
+      "id": "txn-muasn4m52q8pvt2",
+      "date": "2026-09-21",
+      "desc": "Belanja Telor",
+      "type": "keluar",
+      "amount": 20000,
+      "category": "Makan & minum",
+      "accountId": "acc-muapzdjnhwzlvvt"
+    },
+    {
+      "id": "txn-muasnv61427qei4",
+      "date": "2026-09-21",
+      "desc": "Titipan: Beli Jagung - Ortu",
+      "type": "transfer",
+      "amount": 20000,
+      "category": "Titipan/piutang",
+      "accountId": "acc-muapzdjnhwzlvvt",
+      "toAccountId": "acc-muasnu9brpw1ta3"
+    },
+    {
+      "id": "txn-muaso4xwi2e3y25",
+      "date": "2026-09-21",
+      "desc": "Terima titipan - Ortu",
+      "type": "transfer",
+      "amount": 20000,
+      "category": "Titipan/piutang",
+      "accountId": "acc-muasnu9brpw1ta3",
+      "toAccountId": "acc-muapzdjnhwzlvvt"
+    },
+    {
+      "id": "txn-mub67dbtk5jwvn1",
+      "date": "2026-09-21",
+      "type": "transfer",
+      "desc": "Terima titipan - Yan Bowo",
+      "amount": 51690,
+      "accountId": "acc-muapzdjotsnknx10",
+      "toAccountId": "acc-muapzdjnhwzlvvt",
+      "category": "Titipan/piutang"
+    }
+  ]
+}
