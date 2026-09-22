@@ -2,6 +2,11 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.021 — 23 Sep 2026
+
+**Diubah**
+- **Dropdown akun & kategori di form transaksi diganti jadi custom (bukan `<select>` bawaan browser):** field kategori, akun, dan akun tujuan (transfer) sekarang tampil sebagai tombol + panel pilihan sendiri (`06-util-ui.js`, fungsi `enhanceSelect`), supaya tampilannya konsisten di semua browser/HP dan bisa didesain senada tema app (termasuk grouping akun tetap dipertahankan). `<select>` aslinya tetap ada di balik layar (disembunyikan) sebagai sumber data, jadi semua logic form transaksi yang sudah ada tidak diubah/berisiko rusak. Dropdown lain (form akun, sort, bulan, dll) masih pakai `<select>` bawaan browser
+
 ## v1.1.020 — 22 Sep 2026
 
 **Diubah** (color scheme & tipografi — "Modern mint")
