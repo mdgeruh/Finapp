@@ -33,7 +33,11 @@ Riwayat perubahan ada di [CHANGELOG.md](CHANGELOG.md).
 Tidak ada proses instalasi. Tiga cara pakai:
 
 1. **Buka langsung di browser** — klik dua kali `index.html` (semua file harus ada di folder yang sama). Selesai, app langsung jalan. Font dan pustaka Supabase dimuat dari internet; tanpa koneksi, app tetap jalan dengan font bawaan dan mode lokal.
-2. **Simpan sebagai app di HP** — buka file di browser HP, lalu pakai menu "Tambahkan ke Layar Utama" (Android) / "Add to Home Screen" (iOS) supaya bisa dibuka seperti aplikasi biasa.
+2. **Install sebagai app** — app punya `manifest.json` + ikon, jadi bisa dipasang seperti aplikasi biasa (jendela sendiri, tanpa address bar):
+   - **HP (Android/Chrome):** buka `index.html` di HP, titik tiga (⋮) → **"Instal aplikasi"** / **"Tambahkan ke Layar utama"**
+   - **HP (iOS/Safari):** tombol Share → **"Add to Home Screen"**
+   - **Desktop (Chrome/Edge):** ikon Install di address bar (kalau dibuka via `http(s)://`), atau titik tiga → **More tools/Cast, save, and share → "Create shortcut..."** lalu centang **"Open as window"**
+   - Prompt install otomatis dari Chrome hanya muncul kalau app dibuka lewat `http://`/`https://` (bukan `file://` langsung) — lihat opsi "Host sendiri" di bawah. Dibuka langsung dari `file://` tetap jalan normal, cuma tanpa prompt install otomatis
 3. **Host sendiri (opsional)** — taruh seluruh folder di static file server apa pun (Nginx, `python3 -m http.server`, GitHub Pages, dll). Tanpa sinkron cloud, data ada di localStorage **per-browser**, jadi tiap perangkat punya datanya sendiri. Untuk berbagi data antar perangkat, aktifkan [Sinkron Cloud](#sinkron-cloud-supabase).
 
 **Syarat:** browser modern dengan JavaScript aktif dan localStorage tidak diblokir (jangan mode Incognito/Private kalau mau data bertahan lama — mode privat biasanya menghapus localStorage begitu jendela ditutup).

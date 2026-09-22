@@ -1,6 +1,6 @@
 # Ringkasan: Keuangan Pribadi
 
-Ringkasan analisis dan perubahan pada proyek **Keuangan Pribadi** (v1.1.007 menjadi **v1.1.016**), tanggal 21 Sep 2026.
+Ringkasan analisis dan perubahan pada proyek **Keuangan Pribadi** (v1.1.007 menjadi **v1.1.019**), tanggal 22 Sep 2026.
 
 ## 1. Gambaran proyek
 
@@ -80,19 +80,37 @@ Aplikasi pencatatan keuangan pribadi berbasis web statis: HTML + CSS + JavaScrip
 - Simulasi pelunasan tidak lagi menganggap pinjaman tanpa angsuran lunas dalam 1 bulan; pinjaman itu dikeluarkan dengan catatan.
 - Laporan menampilkan bunga flat dan bunga efektif (IRR) yang dibedakan dari bunga menurun.
 
+### v1.1.017: performa (virtualisasi transaksi & saldo aset)
+- Tab Transaksi menggambar 80 transaksi per halaman (bukan semuanya sekaligus), dengan tombol "Muat lebih banyak"; potongan halaman selalu di batas hari.
+- `computeAllBalances()` untuk akun aset dipercepat dari `O(akun aset × transaksi)` ke `O(transaksi)` lewat pengelompokan transaksi per akun sekali di awal (`groupTxnsByAccount`).
+
+### v1.1.018: performa perhitungan bunga pinjaman
+- `computeLoanMonthlyInterest()` sebelumnya selalu scan ulang SELURUH `data.txns` lewat `accountBalance()` untuk menghitung sisa pokok, padahal nilai itu cuma dipakai untuk pinjaman bunga **menurun** — pinjaman **tetap/flat** memakai pokok awal, bukan sisa pokok, jadi scan-nya sia-sia untuk jenis ini.
+- Sekarang scan hanya dijalankan kalau jenis bunganya memang menurun; fungsi ini juga menerima `bal` opsional dari pemanggil yang sudah punya saldo (`computeLoanSchedule`, laporan utang), supaya tidak scan ulang sama sekali. Hasil perhitungan sama persis, cuma lebih cepat di tab Akun & Laporan kalau akun pinjaman dan transaksi sudah banyak.
+
+### v1.1.019: bisa di-install sebagai app (PWA)
+- Tambah `manifest.json` + ikon (`icon-192.png`, `icon-512.png`, dan versi `maskable` untuk keduanya), warna ikon mengikuti skema app (teal `#1F4B43` di atas krem `#F6F1E6`).
+- `index.html`: tautan manifest, `theme-color`, `apple-touch-icon`, dan meta tag `apple-mobile-web-app-*` untuk iOS.
+- Memunculkan opsi "Install"/"Tambahkan ke Layar utama" yang membuka app di jendela sendiri (tanpa address bar) di HP dan desktop.
+- **Catatan:** prompt install otomatis Chrome butuh app di-host lewat `http://`/`https://` (mis. `python3 -m http.server`, GitHub Pages) — dibuka langsung dari `file://` tetap jalan normal, cuma tanpa prompt install otomatis.
+
 ## 4. File yang berubah
 
-| File | 008 | 009 | 010 | 011 | 012 | 013 | 014 | 015 | 016 |
-|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| `01-data.js` | ✓ |  |  | ✓ (komentar) |  |  |  | ✓ | ✓ |
-| `02-navigasi.js` |  |  |  | ✓ |  |  |  |  |  |
-| `12-render-utama.js` (versi) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `14-sync.js` |  | ✓ | ✓ | ✓ |  |  |  |  |  |
-| `15-startup.js` | ✓ |  |  |  |  |  |  |  |  |
-| `index.html` |  |  | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |
-| `style.css` |  | ✓ |  |  | ✓ | ✓ | ✓ |  |  |
-| `README.md`, `CHANGELOG.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `04-akun.js`, `11-laporan.js` |  |  |  |  |  |  |  | ✓ | ✓ |
+| File | 008 | 009 | 010 | 011 | 012 | 013 | 014 | 015 | 016 | 017 | 018 | 019 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| `01-data.js` | ✓ |  |  | ✓ (komentar) |  |  |  | ✓ | ✓ | ✓ | ✓ |  |
+| `02-navigasi.js` |  |  |  | ✓ |  |  |  |  |  |  |  |  |
+| `12-render-utama.js` (versi) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `14-sync.js` |  | ✓ | ✓ | ✓ |  |  |  |  |  |  |  |  |
+| `15-startup.js` | ✓ |  |  |  |  |  |  |  |  |  |  |  |
+| `index.html` |  |  | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |  |  | ✓ |
+| `style.css` |  | ✓ |  |  | ✓ | ✓ | ✓ |  |  |  |  |  |
+| `04-akun.js` |  |  |  |  |  |  |  | ✓ | ✓ |  |  |  |
+| `11-laporan.js` |  |  |  |  |  |  |  | ✓ | ✓ |  | ✓ |  |
+| `README.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |
+| `CHANGELOG.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `manifest.json` *(baru)* |  |  |  |  |  |  |  |  |  |  |  | ✓ |
+| `icon-192.png`, `icon-512.png`, `icon-maskable-*.png` *(baru)* |  |  |  |  |  |  |  |  |  |  |  | ✓ |
 
 ### v1.1.016: anuitas & jadwal untuk bunga menurun, tenor untuk pinjaman bank
 - Angsuran anuitas (PMT) dihitung otomatis kalau pokok, tenor, dan suku bunga diisi.
@@ -125,3 +143,5 @@ Semua perubahan diuji di browser headless (Playwright, Chromium) dengan Supabase
 ## 7. Cara memakai file hasil
 
 Timpa file di folder proyek dengan versi terbaru dari folder output. Urutan pemuatan skrip di `index.html` tidak boleh diubah. Sebelum memasang versi baru, **Export JSON** dulu sebagai cadangan.
+
+Sejak v1.1.019 ada **file baru** (bukan cuma timpa): `manifest.json`, `icon-192.png`, `icon-512.png`, `icon-maskable-192.png`, `icon-maskable-512.png`. Taruh semuanya di folder yang sama dengan file JS lainnya.
