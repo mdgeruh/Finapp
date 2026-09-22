@@ -256,6 +256,7 @@
   function refreshTxnList() {
     let data = loadData();
     data = applyRecurringFees(data);
+    state.txnRenderLimit = TXN_PAGE_SIZE; // filter/urutan/cari/bulan berubah -> mulai lagi dari halaman pertama
     renderTxnMonthRow(data);
     renderFilters(data);
     renderTypeFilters();

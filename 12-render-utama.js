@@ -3,8 +3,8 @@
   // ============================================================
   // Versi app: samakan dengan nomor di nama file (keuangan_pribadi-v1_1_NNN.html) tiap ada revisi.
   const APP_NAME = 'Keuangan Pribadi';
-  const APP_VERSION = 'v1.1.016';
-  const APP_BUILD = '21 Sep 2026';
+  const APP_VERSION = 'v1.1.017';
+  const APP_BUILD = '22 Sep 2026';
   (function () { const f = document.getElementById('app-footer'); if (f) f.textContent = APP_NAME + ' · ' + APP_VERSION + ' · ' + APP_BUILD; })();
 
   function render() {
@@ -126,19 +126,37 @@
       return row;
     }
 
+    // Virtualisasi ringan: jangan gambar SEMUA baris yang lolos filter ke DOM sekaligus kalau
+    // jumlahnya jauh di atas txnRenderLimit -- limit direset ke TXN_PAGE_SIZE tiap ganti
+    // filter/urutan/cari/bulan (lihat refreshTxnList), dan bisa ditambah lewat tombol "Muat lebih banyak".
+    const limit = state.txnRenderLimit || TXN_PAGE_SIZE;
+    const totalCount = txns.length;
+
     if (state.sortMode === 'amount-desc' || state.sortMode === 'amount-asc') {
       txns.sort((a, b) => state.sortMode === 'amount-desc' ? b.amount - a.amount : a.amount - b.amount);
-      txns.forEach(t => listEl.appendChild(buildRow(t, true)));
+      txns.slice(0, limit).forEach(t => listEl.appendChild(buildRow(t, true)));
+      appendLoadMoreIfNeeded(listEl, totalCount - limit, data);
     } else if (state.sortMode === 'alpha-asc' || state.sortMode === 'alpha-desc') {
       const label = (t) => t.type === 'transfer' ? ((t.desc && t.desc !== 'Transfer') ? t.desc : 'Transfer') : (t.desc || '');
       txns.sort((a, b) => label(a).localeCompare(label(b), 'id', { sensitivity: 'base' }) * (state.sortMode === 'alpha-asc' ? 1 : -1));
-      txns.forEach(t => listEl.appendChild(buildRow(t, true)));
+      txns.slice(0, limit).forEach(t => listEl.appendChild(buildRow(t, true)));
+      appendLoadMoreIfNeeded(listEl, totalCount - limit, data);
     } else {
       const byDate = {};
       txns.forEach(t => { (byDate[t.date] = byDate[t.date] || []).push(t); });
       const dates = Object.keys(byDate).sort((a, b) => state.sortMode === 'date-asc' ? a.localeCompare(b) : b.localeCompare(a));
 
-      dates.forEach(date => {
+      // Potong di batas HARI (bukan di tengah hari) supaya kelompok tanggal tetap utuh.
+      // Dihitung dari dayTxnsAll.length (bukan cuma yang tampil) supaya hari yang sedang
+      // dilipat tidak bikin batas jadi maju terlalu jauh.
+      let shown = 0, cutoff = dates.length;
+      for (let i = 0; i < dates.length; i++) {
+        shown += byDate[dates[i]].length;
+        if (shown >= limit) { cutoff = i + 1; break; }
+      }
+      const visibleDates = dates.slice(0, cutoff);
+
+      visibleDates.forEach(date => {
         const dayTxnsAll = byDate[date];
         const dayIn = dayTxnsAll.filter(t => t.type === 'masuk').reduce((s, t) => s + t.amount, 0);
         const dayOut = dayTxnsAll.filter(t => t.type === 'keluar').reduce((s, t) => s + t.amount, 0);
@@ -179,8 +197,23 @@
           dayTxns.forEach(t => listEl.appendChild(buildRow(t, false)));
         }
       });
+
+      appendLoadMoreIfNeeded(listEl, dates.length - cutoff, data);
     }
   }
+
+  // Tombol "Muat lebih banyak" di bawah daftar transaksi.
+  function appendLoadMoreIfNeeded(listEl, hidden, data) {
+    if (hidden <= 0) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'empty-reset-link txn-load-more';
+    btn.style.cssText = 'display:block; width:100%; margin-top:10px; padding:10px; text-align:center;';
+    btn.textContent = 'Muat lebih banyak';
+    btn.onclick = () => { state.txnRenderLimit = (state.txnRenderLimit || TXN_PAGE_SIZE) + TXN_PAGE_SIZE; renderTxnListSection(data); };
+    listEl.appendChild(btn);
+  }
+
 
   let downloadsCap = null;
   (async () => {

@@ -2,6 +2,12 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.017 — 22 Sep 2026
+
+**Dioptimalkan** (performa, tidak ada perubahan tampilan/perilaku)
+- **Daftar transaksi divirtualisasi:** tab Transaksi kini menggambar 80 transaksi per halaman (bukan semuanya sekaligus), dengan tombol "Muat lebih banyak" untuk menampilkan 80 berikutnya. Potongan halaman selalu di batas hari (kelompok tanggal tidak pernah terpotong di tengah), dan halaman otomatis kembali ke awal tiap ganti filter/urutan/cari/bulan. Berdampak terutama kalau jurnal transaksi sudah sangat panjang (ratusan–ribuan baris) — sebelumnya semua baris dibangun ulang di DOM tiap render
+- **Hitung saldo akun aset dipercepat:** `computeAllBalances()` sebelumnya scan ulang SELURUH transaksi dari nol untuk tiap akun aset (properti/emas/forex dll — `O(akun aset × transaksi)`). Sekarang transaksi dikelompokkan per akun sekali di awal, jadi totalnya `O(transaksi)` saja. Hasil perhitungan sama persis, cuma lebih cepat kalau akun asetnya banyak
+
 ## v1.1.016 — 21 Sep 2026
 
 **Ditambah** (pinjaman bunga menurun & pinjaman bank)
