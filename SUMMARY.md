@@ -89,7 +89,7 @@ Aplikasi pencatatan keuangan pribadi berbasis web statis: HTML + CSS + JavaScrip
 - Sekarang scan hanya dijalankan kalau jenis bunganya memang menurun; fungsi ini juga menerima `bal` opsional dari pemanggil yang sudah punya saldo (`computeLoanSchedule`, laporan utang), supaya tidak scan ulang sama sekali. Hasil perhitungan sama persis, cuma lebih cepat di tab Akun & Laporan kalau akun pinjaman dan transaksi sudah banyak.
 
 ### v1.1.019: bisa di-install sebagai app (PWA)
-- Tambah `manifest.json` + ikon (`icon-192.png`, `icon-512.png`, dan versi `maskable` untuk keduanya), warna ikon mengikuti skema app (teal `#1F4B43` di atas krem `#F6F1E6`).
+- Tambah `manifest.json` + ikon (`icon-192.png`, `icon-512.png`, dan versi `maskable` untuk keduanya), warna ikon mengikuti skema app (teal `#1F4B43` di atas krem `#F6F1E6`). Motif ikon: dompet + koin (aksen rust `#A9532B`), bukan teks "Rp".
 - `index.html`: tautan manifest, `theme-color`, `apple-touch-icon`, dan meta tag `apple-mobile-web-app-*` untuk iOS.
 - Memunculkan opsi "Install"/"Tambahkan ke Layar utama" yang membuka app di jendela sendiri (tanpa address bar) di HP dan desktop.
 - **Catatan:** prompt install otomatis Chrome butuh app di-host lewat `http://`/`https://` (mis. `python3 -m http.server`, GitHub Pages) — dibuka langsung dari `file://` tetap jalan normal, cuma tanpa prompt install otomatis.

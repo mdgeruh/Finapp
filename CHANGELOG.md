@@ -2,6 +2,11 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.019 — 22 Sep 2026
+
+**Ditambah**
+- **Bisa di-install sebagai app (PWA):** menambahkan `manifest.json` + ikon (`icon-192.png`, `icon-512.png`, dan versi maskable-nya — motif dompet + koin, warna teal/krem/rust sesuai skema app) serta tag terkait di `index.html`. Di HP (Android/iOS) dan desktop, ini memunculkan opsi "Install" / "Add to Home Screen" yang membuka app di jendela sendiri (tanpa address bar), bukan sekadar shortcut tab browser. **Catatan:** prompt install resmi Chrome butuh app di-host lewat HTTP/HTTPS (mis. `python3 -m http.server`, atau GitHub Pages) — dibuka langsung dari `file://` tetap bisa dipakai seperti biasa, tapi tanpa prompt install otomatis
+
 ## v1.1.018 — 22 Sep 2026
 
 **Dioptimalkan** (performa, tidak ada perubahan tampilan/perilaku)
