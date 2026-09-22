@@ -234,6 +234,21 @@
     return bal;
   }
   function hasValuations(acc) { return acc.type === 'aset' && Array.isArray(acc.valuations) && acc.valuations.length > 0; }
+
+  // Kelompokkan transaksi per akun SEKALI SAJA (satu pass atas semua transaksi), lalu tiap akun
+  // aset tinggal pakai daftar transaksinya sendiri di assetBalance() -- bukan scan ulang SELURUH
+  // data.txns dari nol untuk tiap akun aset seperti sebelumnya (O(akun aset x transaksi) -> O(transaksi)).
+  // Satu transaksi bisa masuk ke 2 akun sekaligus kalau transfer (accountId & toAccountId beda).
+  function groupTxnsByAccount(txns) {
+    const idx = {};
+    txns.forEach(t => {
+      if (t.accountId) (idx[t.accountId] || (idx[t.accountId] = [])).push(t);
+      if (t.type === 'transfer' && t.toAccountId && t.toAccountId !== t.accountId) {
+        (idx[t.toAccountId] || (idx[t.toAccountId] = [])).push(t);
+      }
+    });
+    return idx;
+  }
   function assetMetaText(acc) {
     if (acc.type !== 'aset') return '';
     let t = '';
@@ -273,7 +288,12 @@
         if (t.toAccountId in balances) balances[t.toAccountId] += t.amount;
       }
     });
-    data.accounts.forEach(a => { if (hasValuations(a)) balances[a.id] = assetBalance(a, data.txns); });
+    const assetAccs = data.accounts.filter(hasValuations);
+    if (assetAccs.length) {
+      // Index dibangun cuma kalau memang ada akun aset -- akun biasa tidak kena biaya tambahan ini.
+      const txnIndex = groupTxnsByAccount(data.txns);
+      assetAccs.forEach(a => { balances[a.id] = assetBalance(a, txnIndex[a.id] || []); });
+    }
     return balances;
   }
 
