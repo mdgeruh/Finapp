@@ -112,7 +112,7 @@
     }
   }
 
-  // ---------- Tab Profil (gear -> Profil): nama pemilik untuk sapaan di Ringkasan ----------
+  // ---------- Tab Profil (icon user di header): nama pemilik untuk sapaan di Ringkasan ----------
   function renderProfilTab() {
     const el = $('profil-name-input');
     if (el) el.value = getOwnerName();
@@ -161,10 +161,6 @@
     if (dirtyTabs.has(name)) renderTabContent(name);
   }
 
-  function toggleSettingsMenu() {
-    $('settings-menu').classList.toggle('open');
-  }
-
   const THEME_KEY = 'kp_theme';
   const THEME_LABELS = { system: 'Tampilan: Sistem', light: 'Tampilan: Terang', dark: 'Tampilan: Gelap' };
 
@@ -192,19 +188,6 @@
     try { saved = localStorage.getItem(THEME_KEY) || 'system'; } catch (e) {}
     applyTheme(saved);
   })();
-
-  function goToSettingsTab(name) {
-    $('settings-menu').classList.remove('open');
-    setTab(name);
-  }
-
-  document.addEventListener('click', (e) => {
-    const wrap = document.querySelector('.settings-menu-wrap');
-    const menu = $('settings-menu');
-    if (menu && menu.classList.contains('open') && wrap && !wrap.contains(e.target)) {
-      menu.classList.remove('open');
-    }
-  });
 
   // Tombol + di navigasi mengikuti tab aktif: Akun -> tambah akun, Titipan -> catat titipan,
   // tab lain -> tambah transaksi.

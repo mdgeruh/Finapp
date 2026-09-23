@@ -387,19 +387,6 @@
   }
   .settings-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   .settings-btn:active { background: var(--line); }
-  .settings-menu-wrap { position: relative; }
-  .settings-menu {
-    display: none; position: absolute; top: 30px; right: 0; z-index: 50;
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(8,18,15,0.16); min-width: 168px; overflow: hidden;
-  }
-  .settings-menu.open { display: block; }
-  .settings-menu button {
-    display: block; width: 100%; text-align: left; padding: 11px 14px; background: none; border: none;
-    font-size: 13.5px; color: var(--ink); font-family: 'Inter', sans-serif; cursor: pointer;
-  }
-  .settings-menu button + button { border-top: 1px solid var(--line); }
-  .settings-menu button:active { background: var(--paper-dim); }
   .bottom-nav-wrap {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 800;
     background: var(--paper); border-top: 1px solid var(--line);
@@ -531,7 +518,7 @@
 
   /* Export PDF laporan (window.print) */
   @media print {
-    .no-print, .bottom-nav-wrap, .eyebrow-row, .settings-menu-wrap { display: none !important; }
+    .no-print, .bottom-nav-wrap, .eyebrow-row { display: none !important; }
     body, .wrap { background: #fff; padding: 10px; max-width: 100%; }
     .balance-block { display: none !important; }
     h1 { font-size: 19px; margin-bottom: 10px; }
@@ -615,11 +602,32 @@
     animation: auth-spin 0.7s linear infinite;
   }
   @keyframes auth-spin { to { transform: rotate(360deg); } }
+  /* ----- Tombol OAuth (Google) & divider "atau pakai email" ----- */
+  .auth-oauth-btn {
+    position: relative; display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; height: 48px; margin: 0 0 20px; padding: 0 14px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--card); color: var(--ink);
+    font-family: 'Inter', sans-serif; font-size: 14.5px; font-weight: 600; cursor: pointer;
+  }
+  .auth-oauth-btn:hover:not(:disabled) { background: var(--paper); }
+  .auth-oauth-btn:disabled { opacity: 0.75; cursor: default; }
+  .auth-oauth-btn.loading span, .auth-oauth-btn.loading svg { visibility: hidden; }
+  .auth-oauth-btn.loading::after {
+    content: ''; position: absolute; inset: 0; margin: auto; width: 18px; height: 18px; border-radius: 50%;
+    border: 2px solid var(--line); border-top-color: var(--ink-soft);
+    animation: auth-spin 0.7s linear infinite;
+  }
+  .auth-divider { display: flex; align-items: center; gap: 12px; margin: 0 0 20px; color: var(--ink-soft); font-size: 12.5px; }
+  .auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
   .auth-alt { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); text-align: center; }
   .auth-alt .auth-link { color: var(--ink); font-size: 14px; }
+  /* Dipakai saat dua .auth-alt bertumpuk (mis. link "mode lokal" + link "Daftar" di layar masuk):
+     blok kedua tidak perlu border/jarak atas lagi, cukup nempel di bawah blok pertama. */
+  .auth-alt.auth-alt-tight { margin-top: 10px; padding-top: 0; border-top: none; }
   .auth-note { margin: 4px 0 0; font-size: 12.5px; line-height: 1.45; color: var(--ink-soft); }
-  .auth-btn:focus-visible, .auth-link:focus-visible, .auth-eye:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+  .auth-btn:focus-visible, .auth-link:focus-visible, .auth-eye:focus-visible, .auth-oauth-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) {
     .auth-btn.loading::after { animation-duration: 1.8s; }
+    .auth-oauth-btn.loading::after { animation-duration: 1.8s; }
     .sync-overlay .auth .auth-input { transition: none; }
   }

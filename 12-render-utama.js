@@ -3,7 +3,7 @@
   // ============================================================
   // Versi app: samakan dengan nomor di nama file (keuangan_pribadi-v1_1_NNN.html) tiap ada revisi.
   const APP_NAME = 'Keuangan Pribadi';
-  const APP_VERSION = 'v1.1.024';
+  const APP_VERSION = 'v1.1.031';
   const APP_BUILD = '23 Sep 2026';
   (function () { const f = document.getElementById('app-footer'); if (f) f.textContent = APP_NAME + ' · ' + APP_VERSION + ' · ' + APP_BUILD; })();
 
