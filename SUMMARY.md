@@ -1,6 +1,6 @@
 # Ringkasan: Keuangan Pribadi
 
-Ringkasan analisis dan perubahan pada proyek **Keuangan Pribadi** (v1.1.007 menjadi **v1.1.020**), tanggal 22 Sep 2026.
+Ringkasan analisis dan perubahan pada proyek **Keuangan Pribadi** (v1.1.007 menjadi **v1.1.025**), tanggal 23 Sep 2026.
 
 ## 1. Gambaran proyek
 
@@ -80,6 +80,12 @@ Aplikasi pencatatan keuangan pribadi berbasis web statis: HTML + CSS + JavaScrip
 - Simulasi pelunasan tidak lagi menganggap pinjaman tanpa angsuran lunas dalam 1 bulan; pinjaman itu dikeluarkan dengan catatan.
 - Laporan menampilkan bunga flat dan bunga efektif (IRR) yang dibedakan dari bunga menurun.
 
+### v1.1.016: anuitas & jadwal untuk bunga menurun, tenor untuk pinjaman bank
+- Angsuran anuitas (PMT) dihitung otomatis kalau pokok, tenor, dan suku bunga diisi.
+- Jadwal angsuran, progres, dan pengingat jatuh tempo kini juga berlaku untuk pinjaman bunga menurun (sebelumnya hanya bunga tetap).
+- Kolom Tenor dan tanggal pencairan kini muncul di form pinjaman bank juga, tidak hanya pinjol.
+- Laporan Total biaya utang menghitung sisa bunga pinjaman menurun dari jadwal, kalau datanya lengkap.
+
 ### v1.1.017: performa (virtualisasi transaksi & saldo aset)
 - Tab Transaksi menggambar 80 transaksi per halaman (bukan semuanya sekaligus), dengan tombol "Muat lebih banyak"; potongan halaman selalu di batas hari.
 - `computeAllBalances()` untuk akun aset dipercepat dari `O(akun aset × transaksi)` ke `O(transaksi)` lewat pengelompokan transaksi per akun sekali di awal (`groupTxnsByAccount`).
@@ -99,29 +105,43 @@ Aplikasi pencatatan keuangan pribadi berbasis web statis: HTML + CSS + JavaScrip
 - Font judul diganti dari Fraunces (serif) ke Space Grotesk (sans modern); body tetap Inter.
 - Ikon PWA dan `manifest.json` ikut disesuaikan ke palet baru. Murni visual, tidak ada perubahan logika.
 
+### v1.1.021: custom dropdown form transaksi
+- Dropdown kategori, akun sumber, dan akun tujuan di form transaksi diganti menggunakan custom dropdown (`csel`), bukan `<select>` bawaan browser.
+- Struktur `<select>` asli tetap dipertahankan di balik layar sebagai sumber data untuk menjaga integritas form transaksi.
+
+### v1.1.022: FAB melayang untuk catat transaksi
+- Tombol `+` (catat transaksi) di nav bawah diubah menjadi Floating Action Button (FAB) melayang di sudut kanan bawah.
+- 4 tombol tab nav lainnya membagi rata lebar bilah navigasi bawah.
+
+### v1.1.023: 6 tab navigasi bawah
+- Tab "Akun" dan "Data" dipindahkan ke bilah navigasi bawah (total 6 tab: Ringkasan, Akun, Transaksi, Titipan, Laporan, Data).
+- Menu pengaturan disederhanakan (opsi Akun & Data dipusatkan ke nav bawah).
+
+### v1.1.024: custom dropdown filter bulan & urutan
+- Dropdown filter bulan (`txn-month-select`) dan urutan transaksi (`sort-select`) di tab Transaksi diganti menjadi custom dropdown (`csel`) senada form transaksi.
+
+### v1.1.025: standarisasi custom dropdown menyeluruh
+- Seluruh elemen `<select>` di aplikasi diganti menggunakan custom HTML dropdown (`csel`) secara otomatis lewat `enhanceAllSelects()`: form tambah/edit akun, jenis bunga/admin/aset, modal pembayaran pinjaman, form titipan, dan filter.
+- Panel dropdown dinaikkan ke `z-index: 2000` (selalu di atas modal/sheet), dilengkapi pemosisian cerdas (*smart dropup*) bila ruang layar bawah sempit, auto-scroll ke opsi aktif, dan pencegahan teks terpotong (*ellipsis*).
+
 ## 4. File yang berubah
 
-| File | 008 | 009 | 010 | 011 | 012 | 013 | 014 | 015 | 016 | 017 | 018 | 019 | 020 |
-|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| `01-data.js` | ✓ |  |  | ✓ (komentar) |  |  |  | ✓ | ✓ | ✓ | ✓ |  |  |
-| `02-navigasi.js` |  |  |  | ✓ |  |  |  |  |  |  |  |  |  |
-| `12-render-utama.js` (versi) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `14-sync.js` |  | ✓ | ✓ | ✓ |  |  |  |  |  |  |  |  |  |
-| `15-startup.js` | ✓ |  |  |  |  |  |  |  |  |  |  |  |  |
-| `index.html` |  |  | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |  |  | ✓ | ✓ |
-| `style.css` |  | ✓ |  |  | ✓ | ✓ | ✓ |  |  |  |  |  | ✓ |
-| `04-akun.js` |  |  |  |  |  |  |  | ✓ | ✓ |  |  |  |  |
-| `11-laporan.js` |  |  |  |  |  |  |  | ✓ | ✓ |  | ✓ |  |  |
-| `README.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |  |
-| `CHANGELOG.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `manifest.json` *(baru v019)* |  |  |  |  |  |  |  |  |  |  |  | ✓ | ✓ |
-| `icon-192.png`, `icon-512.png`, `icon-maskable-*.png` *(baru v019)* |  |  |  |  |  |  |  |  |  |  |  | ✓ | ✓ |
-
-### v1.1.016: anuitas & jadwal untuk bunga menurun, tenor untuk pinjaman bank
-- Angsuran anuitas (PMT) dihitung otomatis kalau pokok, tenor, dan suku bunga diisi.
-- Jadwal angsuran, progres, dan pengingat jatuh tempo kini juga berlaku untuk pinjaman bunga menurun (sebelumnya hanya bunga tetap).
-- Kolom Tenor dan tanggal pencairan kini muncul di form pinjaman bank juga, tidak hanya pinjol.
-- Laporan Total biaya utang menghitung sisa bunga pinjaman menurun dari jadwal, kalau datanya lengkap.
+| File | 008 | 009 | 010 | 011 | 012 | 013 | 014 | 015 | 016 | 017 | 018 | 019 | 020 | 021 | 022 | 023 | 024 | 025 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| `01-data.js` | ✓ |  |  | ✓ |  |  |  | ✓ | ✓ | ✓ | ✓ |  |  |  |  |  |  |  |
+| `02-navigasi.js` |  |  |  | ✓ |  |  |  |  |  |  |  |  |  |  | ✓ | ✓ |  |  |
+| `06-util-ui.js` |  |  |  |  |  |  |  |  |  |  |  |  |  | ✓ |  |  | ✓ | ✓ |
+| `12-render-utama.js` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `14-sync.js` |  | ✓ | ✓ | ✓ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| `15-startup.js` | ✓ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| `index.html` |  |  | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |  |  | ✓ | ✓ |  | ✓ | ✓ |  | ✓ |
+| `style.css` |  | ✓ |  |  | ✓ | ✓ | ✓ |  |  |  |  |  | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `04-akun.js` |  |  |  |  |  |  |  | ✓ | ✓ |  |  |  |  |  |  |  |  |  |
+| `11-laporan.js` |  |  |  |  |  |  |  | ✓ | ✓ |  | ✓ |  |  |  |  |  |  |  |
+| `README.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |  |  |  |  |  | ✓ |
+| `CHANGELOG.md` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `manifest.json` *(baru v019)* |  |  |  |  |  |  |  |  |  |  |  | ✓ | ✓ |  |  |  |  |  |
+| `icon-192.png`, `icon-512.png`, dll |  |  |  |  |  |  |  |  |  |  |  | ✓ | ✓ |  |  |  |  |  |
 
 ## 5. Cara pengujian
 
