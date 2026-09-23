@@ -130,17 +130,23 @@
   select:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
 
   /* Custom select: dropdown ber-tampilan sendiri (bukan <select> bawaan browser),
-     dipakai untuk field akun/kategori di form transaksi. <select> aslinya tetap
-     ada (disembunyikan) sebagai sumber data, jadi semua logic JS lama tetap jalan. */
+     dipakai untuk semua dropdown di app. <select> aslinya tetap
+     ada (disembunyikan) sebagai sumber data, jadi semua logic JS tetap jalan normal. */
   .csel { position: relative; flex: 1; min-width: 0; }
-  .csel-native { display: none; }
+  .csel-native { display: none !important; }
   .csel-trigger {
     width: 100%; padding: 10px 34px 10px 12px; border-radius: 9px; border: 1px solid var(--line);
     background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; font-size: 14.5px;
     text-align: left; cursor: pointer; position: relative; display: block;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box;
   }
   .csel-trigger:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+  .csel-label {
+    display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .csel.disabled .csel-trigger {
+    opacity: 0.5; cursor: not-allowed;
+  }
   .csel-trigger::after {
     content: ''; position: absolute; right: 13px; top: 50%; width: 7px; height: 7px;
     border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft);
@@ -148,9 +154,10 @@
   }
   .csel.open .csel-trigger::after { transform: translateY(-30%) rotate(225deg); }
   .csel-panel {
-    display: none; position: fixed; z-index: 950; background: var(--card);
+    display: none; position: fixed; z-index: 2000; background: var(--card);
     border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 10px 30px rgba(8,18,15,0.22);
-    max-height: 260px; overflow-y: auto; padding: 6px;
+    max-height: 280px; overflow-y: auto; padding: 6px; box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
   }
   .csel-panel.open { display: block; }
   .csel-optgroup-label {
@@ -162,7 +169,17 @@
   }
   .csel-option:hover { background: var(--paper-dim); }
   .csel-option.active { background: var(--teal-soft); color: var(--teal); font-weight: 600; }
+  .csel-option.disabled { opacity: 0.45; cursor: not-allowed; }
   .csel-empty { padding: 10px; font-size: 13px; color: var(--ink-soft); }
+
+  .csel:has(#acc-card-min-type-input) .csel-trigger,
+  .csel:has(#acc-loan-rate-unit-input) .csel-trigger {
+    padding: 10px 22px 10px 8px; font-size: 13px;
+  }
+  .csel:has(#acc-card-min-type-input) .csel-trigger::after,
+  .csel:has(#acc-loan-rate-unit-input) .csel-trigger::after {
+    right: 7px; width: 5px; height: 5px;
+  }
 
   .toggle-row { display: flex; gap: 8px; margin-bottom: 12px; }
   #laporan-period-row { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
