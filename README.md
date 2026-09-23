@@ -1,5 +1,7 @@
 # Keuangan Pribadi
 
+🌐 **Live App**: [https://finapp-jade.vercel.app](https://finapp-jade.vercel.app)
+
 Aplikasi pencatatan keuangan pribadi berbasis web statis (HTML + CSS + JavaScript biasa, tanpa build tool). Tidak butuh instalasi atau server khusus. Data tersimpan di **localStorage browser** dan, kalau diaktifkan, disalin ke **cloud (Supabase)** supaya bisa dipakai di beberapa perangkat. Tanpa konfigurasi cloud, app berjalan 100% lokal dan offline.
 
 Versi di footer app: **v1.1.016**. Kode dipecah per modul (`00-config.js` s.d. `15-startup.js`) yang dimuat berurutan oleh `index.html`.
@@ -30,15 +32,15 @@ Riwayat perubahan ada di [CHANGELOG.md](CHANGELOG.md).
 
 ## Setup / Cara Menjalankan
 
-Tidak ada proses instalasi. Tiga cara pakai:
+Tidak ada proses instalasi. Cara pakai:
 
-1. **Buka langsung di browser** — klik dua kali `index.html` (semua file harus ada di folder yang sama). Selesai, app langsung jalan. Font dan pustaka Supabase dimuat dari internet; tanpa koneksi, app tetap jalan dengan font bawaan dan mode lokal.
-2. **Install sebagai app** — app punya `manifest.json` + ikon, jadi bisa dipasang seperti aplikasi biasa (jendela sendiri, tanpa address bar):
-   - **HP (Android/Chrome):** buka `index.html` di HP, titik tiga (⋮) → **"Instal aplikasi"** / **"Tambahkan ke Layar utama"**
-   - **HP (iOS/Safari):** tombol Share → **"Add to Home Screen"**
-   - **Desktop (Chrome/Edge):** ikon Install di address bar (kalau dibuka via `http(s)://`), atau titik tiga → **More tools/Cast, save, and share → "Create shortcut..."** lalu centang **"Open as window"**
-   - Prompt install otomatis dari Chrome hanya muncul kalau app dibuka lewat `http://`/`https://` (bukan `file://` langsung) — lihat opsi "Host sendiri" di bawah. Dibuka langsung dari `file://` tetap jalan normal, cuma tanpa prompt install otomatis
-3. **Host sendiri (opsional)** — taruh seluruh folder di static file server apa pun (Nginx, `python3 -m http.server`, GitHub Pages, dll). Tanpa sinkron cloud, data ada di localStorage **per-browser**, jadi tiap perangkat punya datanya sendiri. Untuk berbagi data antar perangkat, aktifkan [Sinkron Cloud](#sinkron-cloud-supabase).
+1. **Akses Langsung (Online):** Buka [https://finapp-jade.vercel.app](https://finapp-jade.vercel.app) di browser mana pun.
+2. **Buka file lokal:** Klik dua kali `index.html` (semua file harus ada di folder yang sama). Selesai, app langsung jalan. Font dan pustaka Supabase dimuat dari internet; tanpa koneksi, app tetap jalan dengan font bawaan dan mode lokal.
+3. **Install sebagai app (PWA):** App punya `manifest.json` + ikon, jadi bisa dipasang seperti aplikasi biasa (jendela sendiri, tanpa address bar):
+   - **HP (Android/Chrome):** Buka di HP, titik tiga (⋮) → **"Instal aplikasi"** / **"Tambahkan ke Layar utama"**
+   - **HP (iOS/Safari):** Tombol Share → **"Add to Home Screen"**
+   - **Desktop (Chrome/Edge):** Ikon Install di address bar (bila dibuka via `http(s)://`), atau titik tiga → **More tools/Cast, save, and share → "Create shortcut..."** lalu centang **"Open as window"**
+4. **Host sendiri (opsional):** Taruh seluruh folder di static file server apa pun (Nginx, `python3 -m http.server`, GitHub Pages, Vercel, dll). Tanpa sinkron cloud, data ada di localStorage **per-browser**, jadi tiap perangkat punya datanya sendiri. Untuk berbagi data antar perangkat, aktifkan [Sinkron Cloud](#sinkron-cloud-supabase).
 
 **Syarat:** browser modern dengan JavaScript aktif dan localStorage tidak diblokir (jangan mode Incognito/Private kalau mau data bertahan lama — mode privat biasanya menghapus localStorage begitu jendela ditutup).
 
