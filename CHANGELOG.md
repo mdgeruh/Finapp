@@ -2,6 +2,49 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.031 — 23 Sep 2026
+
+**Diubah**
+- **Icon gear diganti icon user, langsung buka tab Profil (`index.html`, `02-navigasi.js`):** tombol di pojok kanan atas sebelumnya membuka dropdown menu (Profil / Tampilan / Sinkron) lewat `toggleSettingsMenu()`. Sekarang icon-nya jadi siluet orang dan klik langsung `setTab('profil')` — satu langkah, bukan dua. Dropdown `.settings-menu` beserta CSS-nya, `toggleSettingsMenu()`, `goToSettingsTab()`, dan listener klik-di-luar untuk menutup menu semuanya dihapus karena sudah tidak dipakai
+- **Toggle Tampilan (gelap/terang) dan tombol Masuk/Keluar sinkron dipindah ke tab Profil** (`index.html`) — sebelumnya ada di dropdown menu gear yang sekarang dihapus, jadi semua pengaturan "tentang saya & tampilan" sekarang ngumpul di satu tab. Elemen (`theme-toggle-btn`, `sync-menu-login-btn`, `sync-logout-btn`) tetap id yang sama, cuma pindah lokasi di halaman, jadi kode `02-navigasi.js`/`14-sync.js` yang menunjuknya tidak perlu berubah
+
+**Diperbaiki**
+- **Duplikasi kode parsing akun & transaksi import dipangkas** (`13-import-export.js`): `importJson()` (gabung ke data yang ada) dan `resetAndImport()` (ganti semua data) sebelumnya masing-masing punya ~70 baris logic yang identik untuk menyalin field akun (limit, biaya admin, bunga pinjaman, cicilan PayLater, dst.) dan ~15 baris untuk membentuk objek transaksi. Sekarang dipusatkan jadi dua fungsi bersama, `buildAccountFromImport(a, newId)` dan `buildTxnFromImport(t, idMap, fallbackAccId)`, dipakai oleh keduanya — total baris berkurang ±150, dan field baru ke depannya cukup ditambah sekali, tidak berisiko lupa di salah satu jalur import
+
+## v1.1.030 — 23 Sep 2026
+
+**Ditambah**
+- **Nama file export/backup sekarang berprefix identitas user** (`13-import-export.js`, fungsi baru `exportUserPrefix()`): dipakai di ekspor JSON, ekspor CSV, dan backup otomatis sebelum reset/timpa data (`autoBackupBeforeReset`). Prioritas sumber prefix: bagian sebelum `@` dari email akun cloud kalau sedang login, kalau tidak pakai nama pemilik dari tab Profil, terakhir `'user'` kalau keduanya kosong. Nama disaring jadi slug huruf kecil + angka (aksen dilepas, karakter lain jadi `-`), misal `keuangan-budi-2026-09-23.json`. Berguna terutama sejak device bisa dipakai gantian beberapa akun (lihat perbaikan `syncGuardAccountSwitch` di v1.1.029) — file-file backup dari akun berbeda jadi mudah dibedakan tanpa perlu buka isinya dulu
+
+## v1.1.029 — 23 Sep 2026
+
+**Diperbaiki**
+- **Data bisa "kebawa" antar akun cloud di device yang sama (bug penting):** localStorage (`STORAGE_KEY`) cuma satu untuk seluruh device, tidak dibedakan per akun. Kalau device ini pernah sinkron dengan akun cloud A lalu ada yang Keluar dan Masuk/Daftar dengan akun B (ganti user, pinjam HP, dst) tanpa localStorage sempat dibersihkan, `syncReconcile()` di `14-sync.js` mengira sisa data akun A itu "data di perangkat ini" milik akun B: ditawarkan sebagai pilihan yang bisa keliru dipilih, atau — kalau cloud akun B masih kosong — otomatis ikut terkirim jadi isi awal akun B. Sekarang ditambahkan `syncGuardAccountSwitch()`, dipanggil di awal `syncStartSession()` sebelum `syncReconcile()` menyentuh localStorage sama sekali: kalau `uid` di metadata sinkron device (`kp_sync_meta`) beda dari `uid` akun yang baru login, data lokal lama itu dibackup dulu ke file JSON (`autoBackupBeforeReset`), lalu `STORAGE_KEY` & `kp_seed_demo` dihapus dan metanya direset ke `{uid: akun-baru, version: 0}` sebelum lanjut — jadi device diperlakukan seolah baru pertama kali dipakai akun tersebut (tarik bersih dari cloud, atau mulai kosong kalau cloud-nya juga kosong). Alur migrasi normal "coba mode lokal dulu → baru Daftar" tidak berubah, karena di situ `meta.uid` memang masih kosong (belum pernah sync sama sekali)
+
+## v1.1.028 — 23 Sep 2026
+
+**Diperbaiki**
+- **Akun cloud baru tidak lagi ikut kebawa data contoh:** sebelumnya `loadData()` (`01-data.js`) selalu mengisi 7 transaksi contoh bawaan (`defaultData()`) begitu localStorage perangkat kosong. Kalau user sempat coba "Pakai mode lokal dulu" (jadi data contoh itu sudah tersimpan lokal) lalu belakangan Daftar/Masuk Google, data contoh itu ikut terkirim jadi "isi awal" akun cloud yang baru dibuat -- padahal seharusnya kosong. Sekarang:
+  - Kalau `loadData()` pertama kali mengisi data padahal saat itu sedang aktif sesi cloud (`sync.ready`), yang diisi adalah data benar-benar kosong (`emptyData()`, cuma 1 akun Kas saldo 0, tanpa transaksi), bukan data contoh
+  - Data contoh yang tersimpan lokal ditandai (`SEED_DEMO_KEY`, dihapus otomatis oleh `saveData()` begitu ada perubahan sungguhan dari user). Kalau saat sinkron pertama ke akun cloud baru (`syncReconcile` di `14-sync.js`) ternyata data lokalnya masih persis data contoh yang belum tersentuh itu, datanya diganti kosong dulu sebelum dikirim
+  - Data lokal **asli** yang sudah pernah diedit user (bukan data contoh) tetap terkirim apa adanya saat pertama kali disinkronkan ke akun cloud baru -- perilaku migrasi ini tidak berubah
+
+## v1.1.027 — 23 Sep 2026
+
+**Diubah**
+- **`signUp()` di form Daftar sekarang mengirim `emailRedirectTo: location.href`** (`14-sync.js`), sama seperti pola yang sudah dipakai di "Lupa kata sandi" — memastikan link konfirmasi di email pendaftaran mengarah balik ke domain app yang sedang dipakai user, bukan cuma andalkan "Site URL" tunggal di dashboard Supabase. Domain ini tetap harus didaftarkan di Supabase → Authentication → URL Configuration → Redirect URLs, kalau tidak Supabase menolak redirect-nya
+
+## v1.1.026 — 23 Sep 2026
+
+**Ditambah**
+- **Masuk/daftar dengan Google (OAuth)** (`14-sync.js`): tombol "Masuk dengan Google" / "Daftar dengan Google" di layar Masuk & Daftar, lewat `supabase.auth.signInWithOAuth({ provider: 'google' })`. Satu tombol ini otomatis berfungsi untuk keduanya — Google akan membuatkan akun baru kalau emailnya belum pernah dipakai, atau langsung login kalau sudah ada. Browser dialihkan penuh ke halaman Google lalu kembali ke app; Supabase-js membaca sesinya dari URL secara otomatis saat halaman dimuat ulang, jadi tidak ada logika baru di `syncBootInner()`. Tombol pakai gaya `.auth-oauth-btn` baru (border tipis, ikon "G" 4 warna) dipisahkan dari form email/password lewat divider "atau pakai email" (`.auth-divider`, CSS baru di `style.css`)
+- **Setup sekali di luar app (wajib sebelum tombol Google berfungsi):** aktifkan provider Google di dashboard Supabase (Authentication → Providers → Google, isi Client ID & Secret dari Google Cloud Console), lalu tambahkan URL tempat app ini di-hosting ke daftar Redirect URLs (Authentication → URL Configuration). Tanpa ini tombol akan menampilkan pesan error dari Supabase saat diklik
+
+## v1.1.025 — 23 Sep 2026
+
+**Ditambah**
+- **Pendaftaran akun baru langsung dari layar masuk** (`14-sync.js`): tautan "Belum punya akun? Daftar" di bawah layar Masuk membuka form Daftar (email, kata sandi, ulangi kata sandi) yang memanggil `supabase.auth.signUp()`. Kalau proyek Supabase mewajibkan konfirmasi email (bawaan default Supabase), user diberi tahu untuk cek email lalu diarahkan balik ke layar Masuk; kalau konfirmasi email dimatikan di pengaturan proyeknya, sesi langsung aktif setelah daftar (perilaku sama seperti login sukses). Validasi dasar (kata sandi minimal 6 karakter, kata sandi & ulangannya harus sama) dilakukan di sisi app sebelum memanggil Supabase. Tidak ada tabel/skema baru — akun tetap dikelola sepenuhnya oleh Supabase Auth, baris `app_data` untuk user baru baru dibuat saat data pertama kali tersinkron (lihat `syncReconcile`)
+
 ## v1.1.024 — 23 Sep 2026
 
 **Diubah**

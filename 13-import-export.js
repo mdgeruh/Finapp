@@ -1,6 +1,20 @@
   // ============================================================
   // IMPORT / EXPORT / RESET DATA
   // ============================================================
+  // Prefix nama file export/backup dengan identitas user: makin berguna sejak device bisa
+  // dipakai gantian oleh beberapa akun (lihat syncGuardAccountSwitch di 14-sync.js) -- tanpa
+  // prefix ini, file-file "keuangan-2026-09-23.json" dari akun berbeda jadi sulit dibedakan.
+  // Prioritas: email akun cloud (kalau sedang login) > nama pemilik dari tab Profil > 'user'.
+  function exportUserPrefix() {
+    let raw = '';
+    if (typeof sync !== 'undefined' && sync.ready && sync.email) raw = sync.email.split('@')[0];
+    else if (typeof getOwnerName === 'function') raw = getOwnerName();
+    const slug = raw.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')   // lepas aksen (é -> e, dst)
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    return slug || 'user';
+  }
+
   // ---------- Pengingat cadangan ----------
   // Data hanya ada di localStorage browser ini. Kalau belum pernah ekspor (atau sudah >= 14 hari) dan
   // datanya sudah lumayan banyak, tampilkan pengingat di Ringkasan. "Nanti" menundanya 7 hari.
@@ -39,7 +53,7 @@
     const data = loadData();
     const payload = { exported_at: new Date().toISOString(), accounts: data.accounts, transaksi: data.txns };
     const json = JSON.stringify(payload, null, 2);
-    const filename = 'keuangan-' + todayStr() + '.json';
+    const filename = 'keuangan-' + exportUserPrefix() + '-' + todayStr() + '.json';
 
     if (downloadsCap) {
       try { await downloadsCap.save({ filename, data: json }); markExported(); showIoMsg('File JSON siap disimpan.', 'ok'); return; }
@@ -80,7 +94,7 @@
       ]);
     // BOM di depan supaya Excel baca sebagai UTF-8 (biar "Rp" dan karakter lain tidak berantakan).
     const csv = '\ufeff' + [header, ...rows].map(r => r.map(csvEscape).join(',')).join('\r\n');
-    const filename = 'keuangan-' + todayStr() + '.csv';
+    const filename = 'keuangan-' + exportUserPrefix() + '-' + todayStr() + '.csv';
 
     if (downloadsCap) {
       try { await downloadsCap.save({ filename, data: csv }); showIoMsg('File CSV siap disimpan.', 'ok'); return; }
@@ -95,6 +109,62 @@
       URL.revokeObjectURL(url);
       showIoMsg('File CSV diunduh.', 'ok');
     } catch (e) { showIoMsg('Gagal membuat file export.', 'error'); }
+  }
+
+  // ---------- Helper bersama: bangun objek akun & transaksi dari file import ----------
+  // Dipakai oleh importJson() (gabung ke data yang ada) dan resetAndImport() (ganti semua data) —
+  // sebelumnya kedua fungsi ini menyalin ~140 baris logic yang sama persis, jadi dipusatkan di sini
+  // supaya field baru cukup ditambahkan sekali (tidak dobel, tidak bisa beda antara dua jalur import).
+  function buildAccountFromImport(a, newId) {
+    const acc = { id: newId, name: a.name, type: TYPE_LABELS[a.type] ? a.type : 'kas', initialBalance: typeof a.initialBalance === 'number' ? a.initialBalance : 0 };
+    if (typeof a.limit === 'number') acc.limit = a.limit;
+    if (typeof a.feeAmount === 'number') acc.feeAmount = a.feeAmount;
+    if (typeof a.feeDay === 'number') acc.feeDay = a.feeDay;
+    copyAssetFields(a, acc);
+    if (acc.type === 'kartu_kredit') {
+      if (typeof a.cardStatementDay === 'number' && a.cardStatementDay >= 1 && a.cardStatementDay <= 31) acc.cardStatementDay = Math.round(a.cardStatementDay);
+      if (typeof a.cardMinValue === 'number' && a.cardMinValue > 0) { acc.cardMinValue = a.cardMinValue; acc.cardMinType = a.cardMinType === 'nominal' ? 'nominal' : 'percent'; }
+    }
+    if (typeof a.interestPercent === 'number') acc.interestPercent = a.interestPercent;
+    if (a.feeType === 'percent') acc.feeType = 'percent';
+    if (a.feePeriod === 'tahunan') acc.feePeriod = 'tahunan';
+    if (typeof a.feeAnniversaryMonth === 'number' && a.feeAnniversaryMonth >= 1 && a.feeAnniversaryMonth <= 12) acc.feeAnniversaryMonth = Math.round(a.feeAnniversaryMonth);
+    if (a.loanInterestType === 'tetap' || a.loanInterestType === 'menurun') acc.loanInterestType = a.loanInterestType;
+    if (typeof a.loanRatePercent === 'number') acc.loanRatePercent = a.loanRatePercent;
+    if (a.loanRateUnit === 'bulan' || a.loanRateUnit === 'tahun') acc.loanRateUnit = a.loanRateUnit;
+    if (typeof a.loanAdminFee === 'number') acc.loanAdminFee = a.loanAdminFee;
+    if (typeof a.loanAdminPercent === 'number') acc.loanAdminPercent = a.loanAdminPercent;
+    if (a.loanAdminMode === 'cicil') acc.loanAdminMode = 'cicil';
+    if (typeof a.loanInsurancePercent === 'number' && a.loanInsurancePercent > 0) acc.loanInsurancePercent = a.loanInsurancePercent;
+    if (typeof a.loanStampFee === 'number') acc.loanStampFee = a.loanStampFee;
+    if (typeof a.loanMandatorySavings === 'number') acc.loanMandatorySavings = a.loanMandatorySavings;
+    if (typeof a.loanInstallment === 'number') acc.loanInstallment = a.loanInstallment;
+    if (typeof a.loanTenorMonths === 'number') acc.loanTenorMonths = a.loanTenorMonths;
+    if (typeof a.loanStartDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(a.loanStartDate)) acc.loanStartDate = a.loanStartDate;
+    if (typeof a.loanDueDay === 'number' && a.loanDueDay >= 1 && a.loanDueDay <= 31) acc.loanDueDay = Math.round(a.loanDueDay);
+    if (typeof a.originalPrincipal === 'number') acc.originalPrincipal = a.originalPrincipal;
+    if (typeof a.lastFeeAppliedMonth === 'string' && /^\d{4}-\d{2}$/.test(a.lastFeeAppliedMonth)) acc.lastFeeAppliedMonth = a.lastFeeAppliedMonth;
+    if (acc.type === 'paylater') { const pls = sanitizePlans(a.plans); if (pls.length) acc.plans = pls; }
+    return acc;
+  }
+
+  function buildTxnFromImport(t, idMap, fallbackAccId) {
+    const type = t.type === 'keluar' ? 'keluar' : (t.type === 'transfer' ? 'transfer' : 'masuk');
+    const accountId = (t.accountId !== undefined && idMap[t.accountId]) || fallbackAccId;
+    const toAccountId = t.toAccountId !== undefined ? ((idMap[t.toAccountId]) || fallbackAccId) : undefined;
+    return {
+      id: generateId('txn'),
+      date: typeof t.date === 'string' ? t.date : todayStr(),
+      type, desc: typeof t.desc === 'string' ? t.desc : 'Transfer',
+      amount: Math.abs(t.amount), accountId,
+      ...(type === 'transfer' ? { toAccountId } : {}),
+      ...(type === 'transfer' && Array.isArray(t.planPaymentIds) && t.planPaymentIds.length ? { planPaymentIds: t.planPaymentIds.map(cleanPlanId).filter(Boolean) } : {}),
+      ...(type === 'transfer' && t.planPaymentThrough && typeof t.planPaymentThrough === 'object' ? { planPaymentThrough: Object.fromEntries(Object.entries(t.planPaymentThrough).map(([pid, no]) => [cleanPlanId(pid), no]).filter(([pid]) => pid)) } : {}),
+      ...(typeof t.category === 'string' && t.category ? { category: t.category } : {}),
+      ...(type === 'keluar' && t.loanId !== undefined && idMap[t.loanId] ? { loanId: idMap[t.loanId] } : {}),
+      ...(type === 'keluar' && cleanPlanId(t.planId) ? { planId: cleanPlanId(t.planId) } : {}),
+      ...(type === 'keluar' && (t.method === 'nanti' || t.method === 'cicilan') ? { method: t.method } : {})
+    };
   }
 
   function importJson(event) {
@@ -123,36 +193,7 @@
           }
           const newId = generateId('acc');
           idMap[a.id] = newId;
-          const newAcc = { id: newId, name: a.name, type: TYPE_LABELS[a.type] ? a.type : 'kas', initialBalance: typeof a.initialBalance === 'number' ? a.initialBalance : 0 };
-          if (typeof a.limit === 'number') newAcc.limit = a.limit;
-          if (typeof a.feeAmount === 'number') newAcc.feeAmount = a.feeAmount;
-          if (typeof a.feeDay === 'number') newAcc.feeDay = a.feeDay;
-          copyAssetFields(a, newAcc);
-          if (newAcc.type === 'kartu_kredit') {
-            if (typeof a.cardStatementDay === 'number' && a.cardStatementDay >= 1 && a.cardStatementDay <= 31) newAcc.cardStatementDay = Math.round(a.cardStatementDay);
-            if (typeof a.cardMinValue === 'number' && a.cardMinValue > 0) { newAcc.cardMinValue = a.cardMinValue; newAcc.cardMinType = a.cardMinType === 'nominal' ? 'nominal' : 'percent'; }
-          }
-          if (typeof a.interestPercent === 'number') newAcc.interestPercent = a.interestPercent;
-          if (a.feeType === 'percent') newAcc.feeType = 'percent';
-          if (a.feePeriod === 'tahunan') newAcc.feePeriod = 'tahunan';
-          if (typeof a.feeAnniversaryMonth === 'number' && a.feeAnniversaryMonth >= 1 && a.feeAnniversaryMonth <= 12) newAcc.feeAnniversaryMonth = Math.round(a.feeAnniversaryMonth);
-          if (a.loanInterestType === 'tetap' || a.loanInterestType === 'menurun') newAcc.loanInterestType = a.loanInterestType;
-          if (typeof a.loanRatePercent === 'number') newAcc.loanRatePercent = a.loanRatePercent;
-          if (a.loanRateUnit === 'bulan' || a.loanRateUnit === 'tahun') newAcc.loanRateUnit = a.loanRateUnit;
-          if (typeof a.loanAdminFee === 'number') newAcc.loanAdminFee = a.loanAdminFee;
-          if (typeof a.loanAdminPercent === 'number') newAcc.loanAdminPercent = a.loanAdminPercent;
-          if (a.loanAdminMode === 'cicil') newAcc.loanAdminMode = 'cicil';
-          if (typeof a.loanInsurancePercent === 'number' && a.loanInsurancePercent > 0) newAcc.loanInsurancePercent = a.loanInsurancePercent;
-          if (typeof a.loanStampFee === 'number') newAcc.loanStampFee = a.loanStampFee;
-          if (typeof a.loanMandatorySavings === 'number') newAcc.loanMandatorySavings = a.loanMandatorySavings;
-          if (typeof a.loanInstallment === 'number') newAcc.loanInstallment = a.loanInstallment;
-          if (typeof a.loanTenorMonths === 'number') newAcc.loanTenorMonths = a.loanTenorMonths;
-          if (typeof a.loanStartDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(a.loanStartDate)) newAcc.loanStartDate = a.loanStartDate;
-          if (typeof a.loanDueDay === 'number' && a.loanDueDay >= 1 && a.loanDueDay <= 31) newAcc.loanDueDay = Math.round(a.loanDueDay);
-          if (typeof a.originalPrincipal === 'number') newAcc.originalPrincipal = a.originalPrincipal;
-          if (typeof a.lastFeeAppliedMonth === 'string' && /^\d{4}-\d{2}$/.test(a.lastFeeAppliedMonth)) newAcc.lastFeeAppliedMonth = a.lastFeeAppliedMonth;
-          if (newAcc.type === 'paylater') { const pls = sanitizePlans(a.plans); if (pls.length) newAcc.plans = pls; }
-          data.accounts.push(newAcc);
+          data.accounts.push(buildAccountFromImport(a, newId));
           newAccountsCount++;
         });
 
@@ -165,24 +206,7 @@
         const fallbackAccId = data.accounts[0].id;
         const cleaned = incomingTxns
           .filter(t => t && typeof t.amount === 'number')
-          .map((t, i) => {
-            const type = t.type === 'keluar' ? 'keluar' : (t.type === 'transfer' ? 'transfer' : 'masuk');
-            const accountId = (t.accountId && idMap[t.accountId]) || fallbackAccId;
-            const toAccountId = t.toAccountId ? ((idMap[t.toAccountId]) || fallbackAccId) : undefined;
-            return {
-              id: generateId('txn'),
-              date: typeof t.date === 'string' ? t.date : todayStr(),
-              type, desc: typeof t.desc === 'string' ? t.desc : 'Transfer',
-              amount: Math.abs(t.amount), accountId,
-              ...(type === 'transfer' ? { toAccountId } : {}),
-              ...(type === 'transfer' && Array.isArray(t.planPaymentIds) && t.planPaymentIds.length ? { planPaymentIds: t.planPaymentIds.map(cleanPlanId).filter(Boolean) } : {}),
-              ...(type === 'transfer' && t.planPaymentThrough && typeof t.planPaymentThrough === 'object' ? { planPaymentThrough: Object.fromEntries(Object.entries(t.planPaymentThrough).map(([pid, no]) => [cleanPlanId(pid), no]).filter(([pid]) => pid)) } : {}),
-              ...(typeof t.category === 'string' && t.category ? { category: t.category } : {}),
-              ...(type === 'keluar' && t.loanId && idMap[t.loanId] ? { loanId: idMap[t.loanId] } : {}),
-              ...(type === 'keluar' && cleanPlanId(t.planId) ? { planId: cleanPlanId(t.planId) } : {}),
-              ...(type === 'keluar' && (t.method === 'nanti' || t.method === 'cicilan') ? { method: t.method } : {})
-            };
-          });
+          .map(t => buildTxnFromImport(t, idMap, fallbackAccId));
 
         if (cleaned.length === 0 && newAccountsCount === 0) throw new Error('tidak ada transaksi atau akun baru yang valid');
 
@@ -383,7 +407,7 @@
   async function autoBackupBeforeReset(data) {
     const payload = { exported_at: new Date().toISOString(), accounts: data.accounts, transaksi: data.txns };
     const json = JSON.stringify(payload, null, 2);
-    const filename = 'keuangan-backup-sebelum-reset-' + todayStr() + '-' + Date.now() + '.json';
+    const filename = 'keuangan-backup-sebelum-reset-' + exportUserPrefix() + '-' + todayStr() + '-' + Date.now() + '.json';
     if (downloadsCap) {
       try { await downloadsCap.save({ filename, data: json }); return true; } catch (e) { /* fall through */ }
     }
@@ -418,65 +442,14 @@
           .map(a => {
             const newId = generateId('acc');
             if (a.id !== undefined) idMap[a.id] = newId;
-            const acc = {
-              id: newId,
-              name: a.name,
-              type: TYPE_LABELS[a.type] ? a.type : 'kas',
-              initialBalance: typeof a.initialBalance === 'number' ? a.initialBalance : 0
-            };
-            if (typeof a.limit === 'number') acc.limit = a.limit;
-            if (typeof a.feeAmount === 'number') acc.feeAmount = a.feeAmount;
-            if (typeof a.feeDay === 'number') acc.feeDay = a.feeDay;
-            copyAssetFields(a, acc);
-            if (acc.type === 'kartu_kredit') {
-              if (typeof a.cardStatementDay === 'number' && a.cardStatementDay >= 1 && a.cardStatementDay <= 31) acc.cardStatementDay = Math.round(a.cardStatementDay);
-              if (typeof a.cardMinValue === 'number' && a.cardMinValue > 0) { acc.cardMinValue = a.cardMinValue; acc.cardMinType = a.cardMinType === 'nominal' ? 'nominal' : 'percent'; }
-            }
-            if (typeof a.interestPercent === 'number') acc.interestPercent = a.interestPercent;
-            if (a.feeType === 'percent') acc.feeType = 'percent';
-            if (a.feePeriod === 'tahunan') acc.feePeriod = 'tahunan';
-            if (typeof a.feeAnniversaryMonth === 'number' && a.feeAnniversaryMonth >= 1 && a.feeAnniversaryMonth <= 12) acc.feeAnniversaryMonth = Math.round(a.feeAnniversaryMonth);
-            if (a.loanInterestType === 'tetap' || a.loanInterestType === 'menurun') acc.loanInterestType = a.loanInterestType;
-            if (typeof a.loanRatePercent === 'number') acc.loanRatePercent = a.loanRatePercent;
-            if (a.loanRateUnit === 'bulan' || a.loanRateUnit === 'tahun') acc.loanRateUnit = a.loanRateUnit;
-            if (typeof a.loanAdminFee === 'number') acc.loanAdminFee = a.loanAdminFee;
-            if (typeof a.loanAdminPercent === 'number') acc.loanAdminPercent = a.loanAdminPercent;
-            if (a.loanAdminMode === 'cicil') acc.loanAdminMode = 'cicil';
-            if (typeof a.loanInsurancePercent === 'number' && a.loanInsurancePercent > 0) acc.loanInsurancePercent = a.loanInsurancePercent;
-            if (typeof a.loanStampFee === 'number') acc.loanStampFee = a.loanStampFee;
-            if (typeof a.loanMandatorySavings === 'number') acc.loanMandatorySavings = a.loanMandatorySavings;
-            if (typeof a.loanInstallment === 'number') acc.loanInstallment = a.loanInstallment;
-            if (typeof a.loanTenorMonths === 'number') acc.loanTenorMonths = a.loanTenorMonths;
-            if (typeof a.loanStartDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(a.loanStartDate)) acc.loanStartDate = a.loanStartDate;
-            if (typeof a.loanDueDay === 'number' && a.loanDueDay >= 1 && a.loanDueDay <= 31) acc.loanDueDay = Math.round(a.loanDueDay);
-            if (typeof a.originalPrincipal === 'number') acc.originalPrincipal = a.originalPrincipal;
-            if (typeof a.lastFeeAppliedMonth === 'string' && /^\d{4}-\d{2}$/.test(a.lastFeeAppliedMonth)) acc.lastFeeAppliedMonth = a.lastFeeAppliedMonth;
-            if (acc.type === 'paylater') { const pls = sanitizePlans(a.plans); if (pls.length) acc.plans = pls; }
-            return acc;
+            return buildAccountFromImport(a, newId);
           });
         if (cleanAccounts.length === 0) throw new Error('tidak ada akun valid di file');
 
         const fallbackAccId = cleanAccounts[0].id;
         const cleanTxns = incomingTxns
           .filter(t => t && typeof t.amount === 'number')
-          .map(t => {
-            const type = t.type === 'keluar' ? 'keluar' : (t.type === 'transfer' ? 'transfer' : 'masuk');
-            const accountId = (t.accountId !== undefined && idMap[t.accountId]) || fallbackAccId;
-            const toAccountId = t.toAccountId !== undefined ? ((idMap[t.toAccountId]) || fallbackAccId) : undefined;
-            return {
-              id: generateId('txn'),
-              date: typeof t.date === 'string' ? t.date : todayStr(),
-              type, desc: typeof t.desc === 'string' ? t.desc : 'Transfer',
-              amount: Math.abs(t.amount), accountId,
-              ...(type === 'transfer' ? { toAccountId } : {}),
-              ...(type === 'transfer' && Array.isArray(t.planPaymentIds) && t.planPaymentIds.length ? { planPaymentIds: t.planPaymentIds.map(cleanPlanId).filter(Boolean) } : {}),
-              ...(type === 'transfer' && t.planPaymentThrough && typeof t.planPaymentThrough === 'object' ? { planPaymentThrough: Object.fromEntries(Object.entries(t.planPaymentThrough).map(([pid, no]) => [cleanPlanId(pid), no]).filter(([pid]) => pid)) } : {}),
-              ...(typeof t.category === 'string' && t.category ? { category: t.category } : {}),
-              ...(type === 'keluar' && t.loanId !== undefined && idMap[t.loanId] ? { loanId: idMap[t.loanId] } : {}),
-              ...(type === 'keluar' && cleanPlanId(t.planId) ? { planId: cleanPlanId(t.planId) } : {}),
-              ...(type === 'keluar' && (t.method === 'nanti' || t.method === 'cicilan') ? { method: t.method } : {})
-            };
-          });
+          .map(t => buildTxnFromImport(t, idMap, fallbackAccId));
 
         const ok = await showConfirm(`Ini akan MENGHAPUS semua data yang ada sekarang dan menggantinya dengan isi file ini:\n${cleanAccounts.length} akun (${cleanAccounts.map(a => a.name).join(', ')})\n${cleanTxns.length} transaksi (${(() => { const ds = cleanTxns.map(t => t.date).sort(); return ds[0] === ds[ds.length - 1] ? ds[0] : `${ds[0]} – ${ds[ds.length - 1]}`; })()})\n\nData lama akan dibackup otomatis dulu sebelum dihapus.\n\nLanjutkan?`);
         if (!ok) { event.target.value = ''; return; }
