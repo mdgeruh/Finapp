@@ -187,6 +187,6 @@
     refreshLabel();
   }
 
-  ['category-select', 'account-select', 'to-account-select'].forEach(enhanceSelect);
+  ['category-select', 'account-select', 'to-account-select', 'txn-month-select', 'sort-select'].forEach(enhanceSelect);
 
 

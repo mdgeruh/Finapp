@@ -2,6 +2,11 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.024 — 23 Sep 2026
+
+**Diubah**
+- **Dropdown pilih bulan dan urutan (sort) di tab Transaksi ikut diganti jadi custom** (`txn-month-select`, `sort-select`), senada dropdown akun/kategori di form transaksi (v1.1.021) — bukan `<select>` bawaan browser lagi. Gaya & ukurannya disesuaikan per tempat (tebal di baris bulan, ringkas di baris sort, termasuk versi sempit di panel filter desktop). Dropdown lain di form akun (jenis akun, jenis bunga, dll.) dan di Titipan masih pakai `<select>` bawaan browser — belum diminta diganti
+
 ## v1.1.023 — 23 Sep 2026
 
 **Ditambah**
