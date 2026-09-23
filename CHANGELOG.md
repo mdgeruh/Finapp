@@ -5,7 +5,9 @@ Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor vers
 ## v1.1.024 — 23 Sep 2026
 
 **Diubah**
-- **Dropdown pilih bulan dan urutan (sort) di tab Transaksi ikut diganti jadi custom** (`txn-month-select`, `sort-select`), senada dropdown akun/kategori di form transaksi (v1.1.021) — bukan `<select>` bawaan browser lagi. Gaya & ukurannya disesuaikan per tempat (tebal di baris bulan, ringkas di baris sort, termasuk versi sempit di panel filter desktop). Dropdown lain di form akun (jenis akun, jenis bunga, dll.) dan di Titipan masih pakai `<select>` bawaan browser — belum diminta diganti
+- **Sisa dropdown bawaan browser diganti jadi custom** (`enhanceSelect`, lanjutan v1.1.021): form akun/edit akun — jenis akun, jenis nilai & periode biaya admin, jenis aset, jenis pembayaran minimum kartu kredit, status pinjaman, jenis bunga, satuan suku bunga, cara bayar biaya admin, akun pencairan pinjaman; form "Catat pembayaran" pinjaman — jenis pembayaran & sumber dana; form Titipan — pilih orang & pilih dana; dan metode pembayaran PayLater di form transaksi. Semuanya sekarang tampil senada tema app di semua browser/HP, `<select>` asli tetap ada di balik layar jadi logic lama tidak berubah
+- Panel dropdown custom sekarang ikut menyembunyikan opsi yang di-nonaktifkan lewat kode (mis. opsi "Bayar bunga saja" yang disembunyikan untuk Pinjaman Online), sebelumnya cuma disembunyikan di `<select>` asli tapi masih muncul di panel custom
+- **Filter bulan & urutkan di tab Transaksi ikut diganti juga**: tampilan tetap ringkas seperti sebelumnya (ukuran/padding disesuaikan lewat CSS khusus per lokasi), cuma widget-nya sekarang custom
 
 ## v1.1.023 — 23 Sep 2026
 
