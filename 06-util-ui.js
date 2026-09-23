@@ -62,12 +62,21 @@
   // asli, cuma nambah refresh label sesudahnya).
   // ============================================================
   function enhanceSelect(id) {
-    const native = $(id);
+    const native = typeof id === 'string' ? $(id) : id;
     if (!native || native.dataset.cselDone) return;
     native.dataset.cselDone = '1';
 
     const wrap = document.createElement('div');
     wrap.className = 'csel';
+    if (native.style.width) {
+      wrap.style.width = native.style.width;
+      if (native.style.width !== '100%') {
+        wrap.style.flex = '0 0 ' + native.style.width;
+      }
+    }
+    if (native.style.flex) {
+      wrap.style.flex = native.style.flex;
+    }
     native.parentNode.insertBefore(wrap, native);
     wrap.appendChild(native);
     native.classList.add('csel-native');
@@ -86,14 +95,17 @@
     document.body.appendChild(panel);
 
     function refreshLabel() {
-      const opt = native.options[native.selectedIndex];
+      const opt = native.options && native.selectedIndex >= 0 ? native.options[native.selectedIndex] : null;
       label.textContent = opt ? opt.textContent : '—';
+      trigger.disabled = !!native.disabled;
+      wrap.classList.toggle('disabled', !!native.disabled);
     }
 
     function closePanel() {
       panel.classList.remove('open');
       wrap.classList.remove('open');
       document.removeEventListener('mousedown', onOutside, true);
+      document.removeEventListener('touchstart', onOutside, true);
       document.removeEventListener('keydown', onKey, true);
       window.removeEventListener('resize', closePanel);
       document.removeEventListener('scroll', onScroll, true);
@@ -111,17 +123,22 @@
 
     function buildOption(opt) {
       const row = document.createElement('div');
-      row.className = 'csel-option' + (opt.value === native.value ? ' active' : '');
+      const isDisabled = !!opt.disabled;
+      row.className = 'csel-option' + (opt.value === native.value ? ' active' : '') + (isDisabled ? ' disabled' : '');
       row.setAttribute('role', 'option');
       row.textContent = opt.textContent;
-      row.addEventListener('mousedown', (e) => {
-        e.preventDefault();
-        if (native.value !== opt.value) {
-          native.value = opt.value;
-          native.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-        closePanel();
-      });
+      if (!isDisabled) {
+        row.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (native.value !== opt.value) {
+            native.value = opt.value;
+            native.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+          refreshLabel();
+          closePanel();
+        });
+      }
       return row;
     }
 
@@ -137,42 +154,69 @@
       }
       nodes.forEach(node => {
         if (node.tagName === 'OPTGROUP') {
-          const gl = document.createElement('div');
-          gl.className = 'csel-optgroup-label';
-          gl.textContent = node.label;
-          panel.appendChild(gl);
-          Array.from(node.children).forEach(opt => panel.appendChild(buildOption(opt)));
+          const visibleOpts = Array.from(node.children).filter(opt => opt.style.display !== 'none');
+          if (visibleOpts.length) {
+            const gl = document.createElement('div');
+            gl.className = 'csel-optgroup-label';
+            gl.textContent = node.label;
+            panel.appendChild(gl);
+            visibleOpts.forEach(opt => panel.appendChild(buildOption(opt)));
+          }
         } else if (node.tagName === 'OPTION') {
-          panel.appendChild(buildOption(node));
+          if (node.style.display !== 'none') panel.appendChild(buildOption(node));
         }
       });
     }
 
     function openPanel() {
+      if (native.disabled) return;
+      document.querySelectorAll('.csel-panel.open').forEach(p => p.classList.remove('open'));
+      document.querySelectorAll('.csel.open').forEach(w => w.classList.remove('open'));
+
       buildPanel();
       const rect = trigger.getBoundingClientRect();
-      panel.style.left = rect.left + 'px';
-      panel.style.width = rect.width + 'px';
-      panel.style.top = (rect.bottom + 4) + 'px';
+      const winW = window.innerWidth;
+      const winH = window.innerHeight;
+      const minW = Math.max(rect.width, 150);
+      const targetW = Math.min(Math.max(rect.width, minW), winW - 20);
+      const left = Math.min(Math.max(10, rect.left), Math.max(10, winW - targetW - 10));
+      panel.style.left = left + 'px';
+      panel.style.width = targetW + 'px';
+
       panel.classList.add('open');
-      const panelH = panel.offsetHeight;
-      const spaceBelow = window.innerHeight - rect.bottom;
-      if (spaceBelow < panelH + 12 && rect.top > panelH + 12) {
-        panel.style.top = (rect.top - panelH - 4) + 'px';
+      const panelH = panel.offsetHeight || 200;
+      const spaceBelow = winH - rect.bottom - 10;
+      const spaceAbove = rect.top - 10;
+
+      if (spaceBelow < 180 && spaceAbove > spaceBelow) {
+        const maxH = Math.min(280, Math.max(100, spaceAbove));
+        panel.style.maxHeight = maxH + 'px';
+        panel.style.top = Math.max(10, rect.top - Math.min(panelH, maxH) - 4) + 'px';
+      } else {
+        const maxH = Math.min(280, Math.max(100, spaceBelow));
+        panel.style.maxHeight = maxH + 'px';
+        panel.style.top = (rect.bottom + 4) + 'px';
       }
+
       wrap.classList.add('open');
+      const activeOpt = panel.querySelector('.csel-option.active');
+      if (activeOpt) activeOpt.scrollIntoView({ block: 'nearest' });
+
       document.addEventListener('mousedown', onOutside, true);
+      document.addEventListener('touchstart', onOutside, true);
       document.addEventListener('keydown', onKey, true);
       window.addEventListener('resize', closePanel);
       document.addEventListener('scroll', onScroll, true);
     }
 
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       if (panel.classList.contains('open')) closePanel();
       else openPanel();
     });
 
-    ['value', 'innerHTML', 'selectedIndex'].forEach(prop => {
+    ['value', 'innerHTML', 'selectedIndex', 'disabled'].forEach(prop => {
       const desc = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, prop) ||
                    Object.getOwnPropertyDescriptor(Element.prototype, prop) ||
                    Object.getOwnPropertyDescriptor(Node.prototype, prop);
@@ -187,6 +231,12 @@
     refreshLabel();
   }
 
-  ['category-select', 'account-select', 'to-account-select', 'txn-month-select', 'sort-select'].forEach(enhanceSelect);
+  function enhanceAllSelects() {
+    document.querySelectorAll('select').forEach(sel => {
+      if (sel.id) enhanceSelect(sel.id);
+    });
+  }
+
+  enhanceAllSelects();
 
 
