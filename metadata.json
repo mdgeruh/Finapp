@@ -1,8 +1,0 @@
-{
-  "name": "Keuangan Pribadi",
-  "description": "Aplikasi pencatatan keuangan pribadi, arus kas, pinjaman, dan titipan.",
-  "permissions": [],
-  "capabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
