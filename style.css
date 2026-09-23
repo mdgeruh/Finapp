@@ -141,6 +141,12 @@
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box;
   }
   .csel-trigger:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+  .csel-label {
+    display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .csel.disabled .csel-trigger {
+    opacity: 0.5; cursor: not-allowed;
+  }
   .csel-trigger::after {
     content: ''; position: absolute; right: 13px; top: 50%; width: 7px; height: 7px;
     border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft);

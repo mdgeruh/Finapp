@@ -97,6 +97,8 @@
     function refreshLabel() {
       const opt = native.options && native.selectedIndex >= 0 ? native.options[native.selectedIndex] : null;
       label.textContent = opt ? opt.textContent : '—';
+      trigger.disabled = !!native.disabled;
+      wrap.classList.toggle('disabled', !!native.disabled);
     }
 
     function closePanel() {
@@ -152,13 +154,14 @@
       }
       nodes.forEach(node => {
         if (node.tagName === 'OPTGROUP') {
-          const gl = document.createElement('div');
-          gl.className = 'csel-optgroup-label';
-          gl.textContent = node.label;
-          panel.appendChild(gl);
-          Array.from(node.children).forEach(opt => {
-            if (opt.style.display !== 'none') panel.appendChild(buildOption(opt));
-          });
+          const visibleOpts = Array.from(node.children).filter(opt => opt.style.display !== 'none');
+          if (visibleOpts.length) {
+            const gl = document.createElement('div');
+            gl.className = 'csel-optgroup-label';
+            gl.textContent = node.label;
+            panel.appendChild(gl);
+            visibleOpts.forEach(opt => panel.appendChild(buildOption(opt)));
+          }
         } else if (node.tagName === 'OPTION') {
           if (node.style.display !== 'none') panel.appendChild(buildOption(node));
         }
@@ -166,24 +169,39 @@
     }
 
     function openPanel() {
+      if (native.disabled) return;
+      document.querySelectorAll('.csel-panel.open').forEach(p => p.classList.remove('open'));
+      document.querySelectorAll('.csel.open').forEach(w => w.classList.remove('open'));
+
       buildPanel();
       const rect = trigger.getBoundingClientRect();
       const winW = window.innerWidth;
+      const winH = window.innerHeight;
       const minW = Math.max(rect.width, 150);
-      let left = rect.left;
-      if (left + minW > winW - 10) {
-        left = Math.max(10, winW - minW - 10);
-      }
+      const targetW = Math.min(Math.max(rect.width, minW), winW - 20);
+      const left = Math.min(Math.max(10, rect.left), Math.max(10, winW - targetW - 10));
       panel.style.left = left + 'px';
-      panel.style.width = Math.max(rect.width, minW) + 'px';
-      panel.style.top = (rect.bottom + 4) + 'px';
+      panel.style.width = targetW + 'px';
+
       panel.classList.add('open');
-      const panelH = panel.offsetHeight;
-      const spaceBelow = window.innerHeight - rect.bottom;
-      if (spaceBelow < panelH + 12 && rect.top > panelH + 12) {
-        panel.style.top = (rect.top - panelH - 4) + 'px';
+      const panelH = panel.offsetHeight || 200;
+      const spaceBelow = winH - rect.bottom - 10;
+      const spaceAbove = rect.top - 10;
+
+      if (spaceBelow < 180 && spaceAbove > spaceBelow) {
+        const maxH = Math.min(280, Math.max(100, spaceAbove));
+        panel.style.maxHeight = maxH + 'px';
+        panel.style.top = Math.max(10, rect.top - Math.min(panelH, maxH) - 4) + 'px';
+      } else {
+        const maxH = Math.min(280, Math.max(100, spaceBelow));
+        panel.style.maxHeight = maxH + 'px';
+        panel.style.top = (rect.bottom + 4) + 'px';
       }
+
       wrap.classList.add('open');
+      const activeOpt = panel.querySelector('.csel-option.active');
+      if (activeOpt) activeOpt.scrollIntoView({ block: 'nearest' });
+
       document.addEventListener('mousedown', onOutside, true);
       document.addEventListener('touchstart', onOutside, true);
       document.addEventListener('keydown', onKey, true);
@@ -198,7 +216,7 @@
       else openPanel();
     });
 
-    ['value', 'innerHTML', 'selectedIndex'].forEach(prop => {
+    ['value', 'innerHTML', 'selectedIndex', 'disabled'].forEach(prop => {
       const desc = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, prop) ||
                    Object.getOwnPropertyDescriptor(Element.prototype, prop) ||
                    Object.getOwnPropertyDescriptor(Node.prototype, prop);
