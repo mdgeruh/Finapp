@@ -62,12 +62,21 @@
   // asli, cuma nambah refresh label sesudahnya).
   // ============================================================
   function enhanceSelect(id) {
-    const native = $(id);
+    const native = typeof id === 'string' ? $(id) : id;
     if (!native || native.dataset.cselDone) return;
     native.dataset.cselDone = '1';
 
     const wrap = document.createElement('div');
     wrap.className = 'csel';
+    if (native.style.width) {
+      wrap.style.width = native.style.width;
+      if (native.style.width !== '100%') {
+        wrap.style.flex = '0 0 ' + native.style.width;
+      }
+    }
+    if (native.style.flex) {
+      wrap.style.flex = native.style.flex;
+    }
     native.parentNode.insertBefore(wrap, native);
     wrap.appendChild(native);
     native.classList.add('csel-native');
@@ -86,7 +95,7 @@
     document.body.appendChild(panel);
 
     function refreshLabel() {
-      const opt = native.options[native.selectedIndex];
+      const opt = native.options && native.selectedIndex >= 0 ? native.options[native.selectedIndex] : null;
       label.textContent = opt ? opt.textContent : '—';
     }
 
@@ -94,6 +103,7 @@
       panel.classList.remove('open');
       wrap.classList.remove('open');
       document.removeEventListener('mousedown', onOutside, true);
+      document.removeEventListener('touchstart', onOutside, true);
       document.removeEventListener('keydown', onKey, true);
       window.removeEventListener('resize', closePanel);
       document.removeEventListener('scroll', onScroll, true);
@@ -111,17 +121,22 @@
 
     function buildOption(opt) {
       const row = document.createElement('div');
-      row.className = 'csel-option' + (opt.value === native.value ? ' active' : '');
+      const isDisabled = !!opt.disabled;
+      row.className = 'csel-option' + (opt.value === native.value ? ' active' : '') + (isDisabled ? ' disabled' : '');
       row.setAttribute('role', 'option');
       row.textContent = opt.textContent;
-      row.addEventListener('mousedown', (e) => {
-        e.preventDefault();
-        if (native.value !== opt.value) {
-          native.value = opt.value;
-          native.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-        closePanel();
-      });
+      if (!isDisabled) {
+        row.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (native.value !== opt.value) {
+            native.value = opt.value;
+            native.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+          refreshLabel();
+          closePanel();
+        });
+      }
       return row;
     }
 
@@ -141,9 +156,11 @@
           gl.className = 'csel-optgroup-label';
           gl.textContent = node.label;
           panel.appendChild(gl);
-          Array.from(node.children).forEach(opt => panel.appendChild(buildOption(opt)));
+          Array.from(node.children).forEach(opt => {
+            if (opt.style.display !== 'none') panel.appendChild(buildOption(opt));
+          });
         } else if (node.tagName === 'OPTION') {
-          panel.appendChild(buildOption(node));
+          if (node.style.display !== 'none') panel.appendChild(buildOption(node));
         }
       });
     }
@@ -151,8 +168,14 @@
     function openPanel() {
       buildPanel();
       const rect = trigger.getBoundingClientRect();
-      panel.style.left = rect.left + 'px';
-      panel.style.width = rect.width + 'px';
+      const winW = window.innerWidth;
+      const minW = Math.max(rect.width, 150);
+      let left = rect.left;
+      if (left + minW > winW - 10) {
+        left = Math.max(10, winW - minW - 10);
+      }
+      panel.style.left = left + 'px';
+      panel.style.width = Math.max(rect.width, minW) + 'px';
       panel.style.top = (rect.bottom + 4) + 'px';
       panel.classList.add('open');
       const panelH = panel.offsetHeight;
@@ -162,12 +185,15 @@
       }
       wrap.classList.add('open');
       document.addEventListener('mousedown', onOutside, true);
+      document.addEventListener('touchstart', onOutside, true);
       document.addEventListener('keydown', onKey, true);
       window.addEventListener('resize', closePanel);
       document.addEventListener('scroll', onScroll, true);
     }
 
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       if (panel.classList.contains('open')) closePanel();
       else openPanel();
     });
@@ -187,6 +213,12 @@
     refreshLabel();
   }
 
-  ['category-select', 'account-select', 'to-account-select', 'txn-month-select', 'sort-select'].forEach(enhanceSelect);
+  function enhanceAllSelects() {
+    document.querySelectorAll('select').forEach(sel => {
+      if (sel.id) enhanceSelect(sel.id);
+    });
+  }
+
+  enhanceAllSelects();
 
 

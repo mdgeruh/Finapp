@@ -2,6 +2,11 @@
 
 Riwayat perubahan **Keuangan Pribadi**. Format: yang terbaru di atas. Nomor versi mengikuti `APP_VERSION` dan footer app (sebelumnya juga nama file `keuangan_pribadi-v1_1_NNN.html`).
 
+## v1.1.025 — 23 Sep 2026
+
+**Diubah**
+- **Semua dropdown disesuaikan menggunakan custom HTML dropdown (`csel`) dan tidak menggunakan dropdown default bawaan browser**: mencakup dropdown akun & tujuan transfer (`account-select`, `to-account-select`), kategori, paylater, seluruh dropdown di form tambah/edit akun (`acc-type-input`, bunga, biaya admin, tenor, jenis aset, dll.), modal pembayaran pinjaman, form titipan, serta filter bulan & urutan. Tampilan dibuat konsisten senada tema aplikasi dengan panel overlay ber-`z-index` tinggi (`2000`) agar selalu tampil di atas modal/sheet. Elemen `<select>` asli tetap disembunyikan sebagai sumber data sehingga validasi dan manipulasi data JS tetap terjaga 100%.
+
 ## v1.1.024 — 23 Sep 2026
 
 **Diubah**
